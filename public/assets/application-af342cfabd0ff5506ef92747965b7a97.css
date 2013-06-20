@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+body {
+  background-color: #224982;
+  font-family: 'Open Sans', sans-serif;
+  color: #444444;
+  margin: 0; }
+
+input[type='search'] {
+  font-size: 2em;
+  padding: 1em; }
+
+h1, h3 {
+  font-weight: 300; }
+
+h2, h4 {
+  font-weight: 700; }
+
+h1 {
+  font-size: 2em; }
+
+h2 {
+  font-size: 1em; }
+
+a,
+a:visited {
+  color: #3e78cc; }
+
+address {
+  font-style: normal; }
+
+header,
+#main {
+  background-color: white;
+  overflow: hidden; }
+  header .wrapper,
+  #main .wrapper {
+    padding: 1em 0; }
+
+header {
+  border-top: 4px solid #33ac39; }
+  header:before {
+    content: '';
+    display: block;
+    border-top: 4px solid #f2af1a; }
+  header hgroup {
+    float: left;
+    width: 60%; }
+  header .header-panel {
+    float: right;
+    width: 40%; }
+
+#main .wrapper {
+  border-top: 2px solid #DDD; }
+
+footer {
+  background-color: #224982;
+  font-weight: 300;
+  color: white;
+  padding: 2em 0; }
+  footer a,
+  footer a:visited {
+    color: white;
+    text-decoration: underline; }
+
+.wrapper {
+  width: 980px;
+  /* 980px / 14 columns  = 70px */
+  margin: 0 auto; }
