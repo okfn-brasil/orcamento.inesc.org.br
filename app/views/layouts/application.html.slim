@@ -4,6 +4,33 @@ html
     title Inesc
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    link[href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css']
     = csrf_meta_tags
   body
-    = yield
+    header
+      .wrapper
+        hgroup
+          h1
+            | Visualização do orçamento federal
+          h2
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut dapibus nisi, vitae sodales purus.
+        .header-panel
+          #search
+            input[type='search' placeholder='Buscar…']
+          #nav
+            a[href='#'] Ajuda
+    #main
+      .wrapper
+        = yield
+    footer
+      .wrapper
+        = image_tag 'inesc-small.png'
+        p
+          | #{Time.new.year} · 
+          a[href='http://www.inesc.org.br/'] Inesc Instituto de Estudos Socioeconômicos
+        address
+          | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
+        p.contact
+          | E-mail: 
+          a[href='mailto:protocoloinesc@inesc.org.br'] protocoloinesc@inesc.org.br
+          |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
