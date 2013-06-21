@@ -1,4 +1,14 @@
 .profile-header
+  .select-context
+    p
+      | Visualizar por ano: 
+      button <
+      select.year
+        option[selected] 2013
+        -# TODO REVERSE, DESC
+        - (2001..2011).each do |year|
+          option = year
+      button >
   h1.profile-name
     | Senado Federal
   .profile-description
@@ -9,29 +19,44 @@
     table#indicators
       tr
         th
-          | Orçamento autorizado
+          h3
+            | Orçamento autorizado
         th
-          | Gasto
+          h3
+            | Gasto
         th
-          | % do total
+          h3
+            | Percentual do total
       tr
         td
-          .large-number
-            | R$ 3.34 
-            small bilhões
-          b
-            | R$ 3.343.609.606,00
+          .large-number[title="R$ 3.343.609.606,00"]
+            | R$ 3.34
+            small
+              | bi
+          .positive[title="Variação em relação ao ano anterior"]
+            | ▲4%
+          p
+            small
+              | R$ 3.343.609.606,00
         td
-          .large-number
+          .large-number[title="R$ 3.310.778.543,02"]
             | R$ 3.31
-            small bilhões
-          b
-            | R$ 3.310.778.543,02
+            small
+              | bi
+          .positive[title="Variação em relação ao ano anterior"]
+            | ▲1%
+          p
+            small
+              | R$ 3.310.778.543,02
         td
-          .large-number
-            | 0.65%
-          b
-            | De todo orçamento federal
-
+          .large-number[title="Representação do orçamento federal"]
+            | 0.65
+            small
+              | %
+          .negative[title="Variação em relação ao ano anterior"]
+            | ▼0.3%
+          p
+            small
+              | Representação do orçamento federal
   .graph
     = image_tag 'graph-1.png'

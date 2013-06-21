@@ -1,12 +1,15 @@
 $green: #33ac39;
 $yellow: #f2af1a;
 $blue: #224982;
+$red: crimson;
 /*$green: #00A859*/
 /*$yellow: #FFCC29*/
 /*$blue: #3E4095*/
+body, select, input {
+  font-family: 'Open Sans', sans-serif;
+}
 body {
   background-color: $blue;
-  font-family: 'Open Sans', sans-serif;
   color: #444444;
   margin: 0;
 }
@@ -82,16 +85,21 @@ footer {
 
 
 #indicators {
+  margin: 3em 0;
   width: 100%;
   td, th {
     text-align: center;
+  }
+  h3, p {
+    margin: 0;
   }
 }
 .large-number {
   font-size: 3em;
   font-weight: 300;
+  display: inline-block;
   small {
-    font-size: .75em;
+    font-size: .5em;
   }
 }
 .profile-description {
@@ -100,5 +108,28 @@ footer {
 .graph {
   img {
     width: 100%;
+  }
+}
+.positive,
+.negative {
+  border-radius: 4px;
+  padding: .15em .25em;
+  color: white;
+  font-size: .85em;
+  display: inline-block;
+  margin-left: .5em;
+  margin-top: -1em;
+  vertical-align: 1em;
+}
+.positive {
+  background-color: $blue;
+}
+.negative {
+  background-color: $red;
+}
+.select-context {
+  float: right;
+  select.year {
+    font-size: 2em;
   }
 }
