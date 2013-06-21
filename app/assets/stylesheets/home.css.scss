@@ -1,6 +1,9 @@
 $green: #33ac39;
 $yellow: #f2af1a;
 $blue: #224982;
+/*$green: #00A859*/
+/*$yellow: #FFCC29*/
+/*$blue: #3E4095*/
 body {
   background-color: $blue;
   font-family: 'Open Sans', sans-serif;
@@ -75,4 +78,27 @@ footer {
 .wrapper {
   width: 980px; /* 980px / 14 columns  = 70px */
   margin: 0 auto;
+}
+
+
+#indicators {
+  width: 100%;
+  td, th {
+    text-align: center;
+  }
+}
+.large-number {
+  font-size: 3em;
+  font-weight: 300;
+  small {
+    font-size: .75em;
+  }
+}
+.profile-description {
+  font-size: .875em;
+}
+.graph {
+  img {
+    width: 100%;
+  }
 }

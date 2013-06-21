@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
   def index; end
-  def orgao; end
-  def uo; end
+  def profile; end
 
 end
