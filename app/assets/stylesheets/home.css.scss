@@ -106,8 +106,9 @@ footer {
   font-size: .875em;
 }
 .graph {
-  img {
+  svg {
     width: 100%;
+    height: 600px;
   }
 }
 .positive,

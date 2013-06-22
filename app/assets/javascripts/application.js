@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require vendor/d3.v3
+//= require vendor/nv.d3
 //= require_tree .
