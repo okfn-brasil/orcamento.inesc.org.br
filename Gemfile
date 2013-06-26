@@ -35,8 +35,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Sass flavoured Twitter Boostrap for Rails
-gem 'bootstrap-sass-rails'
+group :assets do
+  # Sass flavoured Twitter Boostrap for Rails
+  gem 'bootstrap-sass-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
