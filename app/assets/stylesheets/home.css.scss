@@ -1,41 +1,62 @@
 $green: #33ac39;
 $yellow: #f2af1a;
 $blue: #224982;
-$red: crimson;
-/*$green: #00A859*/
-/*$yellow: #FFCC29*/
-/*$blue: #3E4095*/
-body, select, input {
+$red: #ec193a;
+$black: #34495E;
+
+body,
+select,
+input,
+textarea {
   font-family: 'Open Sans', sans-serif;
 }
+
 body {
   background-color: $blue;
-  color: #444444;
+  color: $black;
   margin: 0;
 }
-input[type='search'] {
-  font-size: 2em;
-  padding: 1em;
-}
+
 h1, h3 {
   font-weight: 300;
 }
+
 h2, h4 {
   font-weight: 700;
 }
+
 h1 {
   font-size: 2em;
 }
+
 h2 {
   font-size: 1em;
 }
+
 a,
 a:visited {
   color: lighten($blue, 20%);
 }
+
 address {
   font-style: normal;
 }
+
+.logo {
+  margin: 1em 0;
+  a {
+    background-image: url(/assets/logo.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    background-size: 100%;
+    display: block;
+    width: 316px;
+    height: 81px;
+    text-indent: -9999em;
+  }
+}
+
 header,
 #main {
   background-color: white;
@@ -44,13 +65,8 @@ header,
     padding: 1em 0;
   }
 }
+
 header {
-  border-top: 4px solid $green;
-  &:before {
-    content: '';
-    display: block;
-    border-top: 4px solid $yellow;
-  }
   hgroup {
     float: left;
     width: 60%;
@@ -60,11 +76,13 @@ header {
     width: 40%;
   }
 }
+
 #main {
   .wrapper {
     border-top: 2px solid #DDD;
   }
 }
+
 footer {
   background-color: $blue;
   font-weight: 300;
@@ -77,13 +95,6 @@ footer {
   }
 }
 
-
-.wrapper {
-  width: 980px; /* 980px / 14 columns  = 70px */
-  margin: 0 auto;
-}
-
-
 #indicators {
   margin: 3em 0;
   width: 100%;
@@ -91,9 +102,10 @@ footer {
     text-align: center;
   }
   h3, p {
-    margin: 0;
+    margin: .5em 0;
   }
 }
+
 .large-number {
   font-size: 3em;
   font-weight: 300;
@@ -102,15 +114,18 @@ footer {
     font-size: .5em;
   }
 }
+
 .profile-description {
   font-size: .875em;
 }
-.graph {
+
+.gasto-acumulado-por-mes {
   svg {
     width: 100%;
     height: 600px;
   }
 }
+
 .positive,
 .negative {
   border-radius: 4px;
@@ -122,15 +137,20 @@ footer {
   margin-top: -1em;
   vertical-align: 1em;
 }
+
 .positive {
   background-color: $blue;
 }
+
 .negative {
   background-color: $red;
 }
-.select-context {
-  float: right;
-  select.year {
-    font-size: 2em;
+
+
+/* BOOTSTRAP */
+.btn-group {
+  .btn {
+    border-radius: 0 !important;
   }
 }
+

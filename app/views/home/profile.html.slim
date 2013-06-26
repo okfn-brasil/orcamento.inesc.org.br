@@ -2,61 +2,87 @@
   .select-context
     p
       | Visualizar por ano: 
-      button <
-      select.year
-        option[selected] 2013
+    .btn-group
+      button.btn
+        span.icon-chevron-left
+      button.btn.year.dropdown-toggle[data-toggle='dropdown']
+        | 2013
+      button.btn
+        span.icon-chevron-right
+      ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
         -# TODO REVERSE, DESC
-        - (2001..2011).each do |year|
-          option = year
-      button >
+        - (2001..2012).to_a.reverse.each do |year|
+          li
+            a[href='#']
+              b
+                | #{year}
   h1.profile-name
     | Senado Federal
   .profile-description
     p
       | O Senado Federal é o representante dos estados no Congresso Nacional do Brasil. Foi criado junto com a constituição imperial brasileira de 1824, nos primeiros anos do Império do Brasil, sendo esta outorgada. Durante o Império, o Senado brasileiro atendia pelo nome de Senado do Império do Brasil. Tendo a primeira legislatura se reunido em 6 de maio de 1826.1 O Senado brasileiro foi inspirado na Câmara dos Lordes do Reino Unido da Grã-Bretanha e Irlanda do Norte, mas com a proclamação da república do Brasil foi adotado um modelo semelhante ao do Senado dos Estados Unidos.
-.content
-  .indicators
-    table#indicators
-      tr
-        th
-          h3
-            | Orçamento autorizado
-        th
-          h3
-            | Gasto
-        th
-          h3
-            | Percentual do total
-      tr
-        td
-          .large-number[title="R$ 3.343.609.606,00"]
-            | R$ 3.34
-            small
-              | bi
-          .positive[title="Variação em relação ao ano anterior"]
-            | ▲4%
-          p
-            small
-              | R$ 3.343.609.606,00
-        td
-          .large-number[title="R$ 3.310.778.543,02"]
-            | R$ 3.31
-            small
-              | bi
-          .positive[title="Variação em relação ao ano anterior"]
-            | ▲1%
-          p
-            small
-              | R$ 3.310.778.543,02
-        td
-          .large-number[title="Representação do orçamento federal"]
-            | 0.65
-            small
-              | %
-          .negative[title="Variação em relação ao ano anterior"]
-            | ▼0.3%
-          p
-            small
-              | Representação do orçamento federal
-  .graph
-    svg
+.indicators
+  table#indicators
+    tr
+      th
+        h3
+          | Orçamento autorizado
+      th
+        h3
+          | Gasto
+      th
+        h3
+          | Percentual do total
+    tr
+      td
+        .large-number[title="R$ 3.343.609.606,00"]
+          | R$ 3.34
+          small
+            | bi
+        .positive[title="Variação em relação ao ano anterior"]
+          | ▲4%
+        p
+          small
+            | R$ 3.343.609.606,00
+      td
+        .large-number[title="R$ 3.310.778.543,02"]
+          | R$ 3.31
+          small
+            | bi
+        .positive[title="Variação em relação ao ano anterior"]
+          | ▲1%
+        p
+          small
+            | R$ 3.310.778.543,02
+      td
+        .large-number[title="Representação do orçamento federal"]
+          | 0.65
+          small
+            | %
+        .negative[title="Variação em relação ao ano anterior"]
+          | ▼0.3%
+        p
+          small
+            | Representação do orçamento federal
+
+.gasto-acumulado-por-mes.graph
+  h3
+    | Gasto acumulado por mês
+  svg
+.distribuicao-gnd.graph
+  h3
+    | Distribuição por Gastos por Natureza da Despesa (GND)
+  = image_tag 'proto/distribuicao-gnd.png'
+.distribuicao-uo.graph
+  h3
+    | Distribuição por Unidade Orçamentária (UO)
+  = image_tag 'proto/distribuicao-uo.png'
+.distribuicao-ano.graph
+  h3
+    | Distribuição histórica
+  = image_tag 'proto/distribuicao-ano.png'
+.distribuicao-uf.graph
+  h3
+    | Distribuição por Estado (UF)
+  = image_tag 'proto/distribuicao-uf.png'
+

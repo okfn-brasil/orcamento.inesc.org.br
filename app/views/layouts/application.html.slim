@@ -1,36 +1,44 @@
 doctype html
 html
   head
-    title Inesc
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    title
+      | Onde está o nosso dinheiro?
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     link[href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css']
     = csrf_meta_tags
   body
     header
-      .wrapper
+      .container
         hgroup
-          h1
-            | Visualização do orçamento federal
+          h1.logo
+            = link_to root_path do
+              | Onde está o nosso dinheiro?
           h2
             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut dapibus nisi, vitae sodales purus.
-        .header-panel
-          #search
-            input[type='search' placeholder='Buscar…']
-          #nav
-            a[href='#'] Ajuda
+        .pull-right
+          input#search[type='search' placeholder='Buscar…']
+          nav
+            a[href='#']
+              | Ajuda
     #main
-      .wrapper
+      .container
         = yield
     footer
-      .wrapper
-        = image_tag 'inesc-small.png'
-        p
-          | #{Time.new.year} · 
-          a[href='http://www.inesc.org.br/'] Inesc Instituto de Estudos Socioeconômicos
-        address
-          | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
-        p.contact
-          | E-mail: 
-          a[href='mailto:protocoloinesc@inesc.org.br'] protocoloinesc@inesc.org.br
-          |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
+      .container
+        .row
+          .span1
+            = image_tag 'inesc-small.png'
+          .span11.last
+            p
+              | © #{Time.new.year} · 
+              a[href='http://www.inesc.org.br/' target='_blank']
+                | Inesc · Instituto de Estudos Socioeconômicos
+            address
+              | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
+            p.contact
+              | E-mail: 
+              a[href='mailto:protocoloinesc@inesc.org.br']
+                | protocoloinesc@inesc.org.br
+              |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    / #TODO ANALYTICS
