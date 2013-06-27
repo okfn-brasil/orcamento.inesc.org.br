@@ -48,7 +48,7 @@ $(document).ready ->
       {
         key: "Pagamentos",
         yAxis: 1,
-        type: "area",
+        type: "bar",
         values: pago[0].drilldown.map (element) -> { x: element.time.month, y: element.pago }
       },
       {
@@ -60,7 +60,7 @@ $(document).ready ->
       {
         key: "Autorizado",
         yAxis: 1,
-        type: "area",
+        type: "bar",
         values: autorizado[0].drilldown.reduce(accumulateAmounts, [])
       },
     ]
