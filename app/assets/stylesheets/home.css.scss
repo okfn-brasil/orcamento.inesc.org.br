@@ -3,6 +3,7 @@ $yellow: #f2af1a;
 $blue: #224982;
 $red: #ec193a;
 $black: #34495E;
+$clouds: #ECF0F1;
 
 body,
 select,
@@ -42,39 +43,32 @@ address {
   font-style: normal;
 }
 
-.logo {
-  margin: 1em 0;
-  a {
-    background-image: url(/assets/logo.png);
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: 0 0;
-    background-size: 100%;
-    display: block;
-    width: 316px;
-    height: 81px;
-    text-indent: -9999em;
-  }
-}
-
-header,
-#main {
-  background-color: white;
-  overflow: hidden;
-  .wrapper {
-    padding: 1em 0;
-  }
-}
-
 header {
-  hgroup {
-    float: left;
-    width: 60%;
+  background: white;
+  nav {
+    a {
+      color: $black;
+      padding: .25em .5em;
+      margin: 1em .5em 0 0;
+      display: inline-block;
+      border-radius: 3px;
+      &:hover {
+        text-decoration: none;
+        background: $clouds;
+      }
+      &.active,
+      &:hover.active {
+        background: $blue;
+        color: white;
+      }
+    }
   }
-  .header-panel {
-    float: right;
-    width: 40%;
-  }
+}
+
+main {
+  background-color: white;
+  padding: 2em 0;
+  overflow: hidden;
 }
 
 #main {
@@ -148,9 +142,30 @@ footer {
 
 
 /* BOOTSTRAP */
+.btn {
+  background: $clouds;
+  border: 0 none;
+  border-radius: 0;
+  text-shadow: none;
+  box-shadow: none;
+}
 .btn-group {
   .btn {
-    border-radius: 0 !important;
+    box-shadow: none;
+    &.dropdown-toggle {
+      box-shadow: none;
+      border-radius: 0 !important;
+    }
+    &:first-child {
+      border-radius: 3px 0 0 3px !important;
+    }
+    &:last-child {
+      border-radius: 0 3px 3px 0 !important;
+    }
   }
 }
 
+.btn-group > .btn:last-child,
+.btn-group > .dropdown-toggle {
+
+}

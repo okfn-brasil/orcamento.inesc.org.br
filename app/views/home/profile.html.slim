@@ -1,26 +1,27 @@
 .profile-header
-  .select-context
+  .select-context.pull-right
     p
-      | Visualizar por ano: 
+      | Alterar ano: 
     .btn-group
       button.btn
         span.icon-chevron-left
       button.btn.year.dropdown-toggle[data-toggle='dropdown']
-        | 2013
+        | 2012
       button.btn
         span.icon-chevron-right
       ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
         -# TODO REVERSE, DESC
-        - (2001..2012).to_a.reverse.each do |year|
+        - (2001..2013).to_a.reverse.each do |year|
           li
             a[href='#']
               b
                 | #{year}
   h1.profile-name
     | Senado Federal
-  .profile-description
-    p
-      | O Senado Federal é o representante dos estados no Congresso Nacional do Brasil. Foi criado junto com a constituição imperial brasileira de 1824, nos primeiros anos do Império do Brasil, sendo esta outorgada. Durante o Império, o Senado brasileiro atendia pelo nome de Senado do Império do Brasil. Tendo a primeira legislatura se reunido em 6 de maio de 1826.1 O Senado brasileiro foi inspirado na Câmara dos Lordes do Reino Unido da Grã-Bretanha e Irlanda do Norte, mas com a proclamação da república do Brasil foi adotado um modelo semelhante ao do Senado dos Estados Unidos.
+  /
+    .profile-description
+      p
+        | O Senado Federal é o representante dos estados no Congresso Nacional do Brasil. Foi criado junto com a constituição imperial brasileira de 1824, nos primeiros anos do Império do Brasil, sendo esta outorgada. Durante o Império, o Senado brasileiro atendia pelo nome de Senado do Império do Brasil. Tendo a primeira legislatura se reunido em 6 de maio de 1826.1 O Senado brasileiro foi inspirado na Câmara dos Lordes do Reino Unido da Grã-Bretanha e Irlanda do Norte, mas com a proclamação da república do Brasil foi adotado um modelo semelhante ao do Senado dos Estados Unidos.
 .indicators
   table#indicators
     tr
@@ -64,16 +65,29 @@
         p
           small
             | Representação do orçamento federal
-
-.gasto-acumulado-por-mes.graph
-  h3
-    | Gasto acumulado por mês
-  svg
-.distribuicao-gnd.graph
-  h3
-    | Distribuição por Gastos por Natureza da Despesa (GND)
-  = image_tag 'proto/distribuicao-gnd.png'
-.distribuicao-uo.graph
-  h3
-    | Distribuição por Unidade Orçamentária (UO)
-  = image_tag 'proto/distribuicao-uo.png'
+ul#graphs-tab-navigation.nav.nav-tabs
+  li.active
+    a[href='#montly-tab' data-toggle='tab']
+      | Execuções por mês
+  li
+    a[href='#gnd-tab' data-toggle='tab']
+      | Gastos por Natureza de Despesa (GND)
+  li
+    a[href='#uo-tab' data-toggle='tab']
+      | Distribuição por Unidade Orçamentária (UO)
+.tab-content
+  #montly-tab.tab-pane.active
+    .gasto-acumulado-por-mes.graph
+      h3
+        | Execuções por mês
+      svg
+  #gnd-tab.tab-pane
+    .distribuicao-gnd.graph
+      h3
+        | Gastos por Natureza da Despesa (GND)
+      = image_tag 'proto/distribuicao-gnd.png'
+  #uo-tab.tab-pane
+    .distribuicao-uo.graph
+      h3
+        | Distribuição por Unidade Orçamentária (UO)
+      = image_tag 'proto/distribuicao-uo.png'
