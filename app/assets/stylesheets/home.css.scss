@@ -65,7 +65,7 @@ header {
   }
 }
 
-main {
+#main {
   background-color: white;
   padding: 2em 0;
   overflow: hidden;
@@ -113,15 +113,8 @@ footer {
   font-size: .875em;
 }
 
-.gasto-acumulado-por-mes {
-  svg {
-    width: 100%;
-    height: 600px;
-  }
-}
-
-.positive,
-.negative {
+.positive-number,
+.negative-number {
   border-radius: 4px;
   padding: .15em .25em;
   color: white;
@@ -132,11 +125,11 @@ footer {
   vertical-align: 1em;
 }
 
-.positive {
+.positive-number {
   background-color: $blue;
 }
 
-.negative {
+.negative-number {
   background-color: $red;
 }
 
@@ -165,7 +158,29 @@ footer {
   }
 }
 
-.btn-group > .btn:last-child,
-.btn-group > .dropdown-toggle {
-
+svg#montly-graph {
+  width: 100%;
+  height: 450px;
+  .nvd3 {
+    circle.nv-point {
+      stroke-width: 8px !important;
+      stroke: $yellow !important;
+      stroke-opacity: 1 !important;
+      &:hover {
+        stroke-width: 16px !important;
+        stroke-opacity: .5 !important;
+      }
+    }
+    .y1.axis,
+    .x.axis {
+      line {
+        stroke: #FFF;
+      }
+    }
+    .y1.axis {
+      g.tick.major:nth-child(2n+2) {
+        display: none !important;
+      }
+    }
+  }
 }
