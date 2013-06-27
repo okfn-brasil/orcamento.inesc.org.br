@@ -9,5 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require twitter/bootstrap
- *= require home
+ *= require vendor/nv.d3.css
+ *= require home.css.scss
  */
