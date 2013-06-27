@@ -162,15 +162,6 @@ svg#montly-graph {
   width: 100%;
   height: 450px;
   .nvd3 {
-    circle.nv-point {
-      stroke-width: 8px !important;
-      stroke: $yellow !important;
-      stroke-opacity: 1 !important;
-      &:hover {
-        stroke-width: 16px !important;
-        stroke-opacity: .5 !important;
-      }
-    }
     .y1.axis,
     .x.axis {
       line {
@@ -180,6 +171,33 @@ svg#montly-graph {
     .y1.axis {
       g.tick.major:nth-child(2n+2) {
         display: none !important;
+      }
+    }
+    .nv-series-0 {
+      rect.nv-bar.positive {
+        fill: $blue !important;
+        stroke: $blue !important;
+      }
+    }
+    .nv-series-1 {
+      rect.nv-bar.positive {
+        fill: $green !important;
+        stroke: $green !important;
+      }
+    }
+    .nv-group.nv-series-0 {
+      fill: $yellow !important;
+      stroke: $yellow !important;
+    }
+    circle.nv-point {
+      fill: $yellow !important;
+      stroke-width: 8px !important;
+      stroke: $yellow !important;
+      stroke-opacity: 1 !important;
+      fill-opacity: 1 !important;
+      &:hover {
+        stroke-width: 16px !important;
+        stroke-opacity: .5 !important;
       }
     }
   }
