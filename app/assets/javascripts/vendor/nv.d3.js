@@ -8541,18 +8541,18 @@ nv.models.multiChart = function() {
 
 
       var lines1Wrap = g.select('.lines1Wrap')
-          .datum(dataLines1)
+          .datum(dataLines1.length ? dataLines1 : [{values:[]}])
       var bars1Wrap = g.select('.bars1Wrap')
-          .datum(dataBars1)
+          .datum(dataBars1.length ? dataBars1 : [{values:[]}])
       var stack1Wrap = g.select('.stack1Wrap')
-          .datum(dataStack1)
+          .datum(dataStack1.length ? dataStack1 : [{values:[]}])
 
       var lines2Wrap = g.select('.lines2Wrap')
-          .datum(dataLines2)
+          .datum(dataLines2.length ? dataLines2 : [{values:[]}])
       var bars2Wrap = g.select('.bars2Wrap')
-          .datum(dataBars2)
+          .datum(dataBars2.length ? dataBars2 : [{values:[]}])
       var stack2Wrap = g.select('.stack2Wrap')
-          .datum(dataStack2)
+          .datum(dataStack2.length ? dataStack2 : [{values:[]}])
 
       var extraValue1 = dataStack1.length ? dataStack1.map(function(a){return a.values}).reduce(function(a,b){
         return a.map(function(aVal,i){return {x: aVal.x, y: aVal.y + b[i].y}})
@@ -8575,14 +8575,14 @@ nv.models.multiChart = function() {
       bars2.yDomain(yScale2.domain())
       stack2.yDomain(yScale2.domain())
 
-      if(dataStack1.length){d3.transition(stack1Wrap).call(stack1);}
-      if(dataStack2.length){d3.transition(stack2Wrap).call(stack2);}
+      d3.transition(stack1Wrap).call(stack1);
+      d3.transition(stack2Wrap).call(stack2);
 
-      if(dataBars1.length){d3.transition(bars1Wrap).call(bars1);}
-      if(dataBars2.length){d3.transition(bars2Wrap).call(bars2);}
+      d3.transition(bars1Wrap).call(bars1);
+      d3.transition(bars2Wrap).call(bars2);
 
-      if(dataLines1.length){d3.transition(lines1Wrap).call(lines1);}
-      if(dataLines2.length){d3.transition(lines2Wrap).call(lines2);}
+      d3.transition(lines1Wrap).call(lines1);
+      d3.transition(lines2Wrap).call(lines2);
       
 
 
