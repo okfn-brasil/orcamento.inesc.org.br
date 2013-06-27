@@ -6657,7 +6657,7 @@ nv.models.multiBar = function() {
             });
 
       x   .domain(d3.merge(seriesData).map(function(d) { return d.x }))
-          .rangeBands([0, availableWidth], 0);
+          .rangeRoundBands([0, availableWidth], 0);
 
       //y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return d.y + (stacked ? d.y1 : 0) }).concat(forceY)))
       y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return stacked ? (d.y > 0 ? d.y1 : d.y1 + d.y ) : d.y }).concat(forceY)))
