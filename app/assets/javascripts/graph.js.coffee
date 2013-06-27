@@ -11,19 +11,17 @@ $(document).ready ->
          window.testdata = testdata
          chart = nv.models.multiChart()
                .margin({top: 30, right: 60, bottom: 50, left: 70})
-               .x((d,i) -> i)
+               .x((d,i) -> d.x)
                .color(d3.scale.category10().range())
   
          chart.xAxis.tickFormat((d) ->
-           dx = testdata[0].values[d] && testdata[0].values[d].x || 0
+           index = d - 1
+           dx = testdata[0].values[index] && testdata[0].values[index].x
            d3.time.format('%b')(new Date(dx))
          )
      
          chart.yAxis1.showMaxMin(false)
              .tickFormat(d3.format(',s.2'))
-     
-         chart.yAxis2.showMaxMin(false)
-             .tickFormat((d) -> '$' + d3.format(',f')(d))
      
          d3.select('.graph svg')
              .datum(testdata)
