@@ -3,21 +3,92 @@
     p
       | Alterar ano: 
     .btn-group
-      button.btn
+      button.btn.btn-large[title='Ir para 2014']
         span.icon-chevron-left
-      button.btn.year.dropdown-toggle[data-toggle='dropdown']
-        | 2012
-      button.btn
+      button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
+        | 2012 
+        span.icon-chevron-down
+      button.btn.btn-large[title='Ir para 2013']
         span.icon-chevron-right
       ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
-        -# TODO REVERSE, DESC
         - (2001..2013).to_a.reverse.each do |year|
           li
             a[href='#']
               b
                 | #{year}
-  h1.profile-name
-    | Senado Federal
+  p
+    | Alterar Órgão: 
+  .btn-group
+    button.btn.btn-large
+      span.icon-chevron-left[title='Ir para  MINISTERIO PUBLICO DA UNIAO']
+    button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
+      | Senado Federal 
+      span.icon-chevron-down
+    button.btn.btn-large
+      span.icon-chevron-right[title='Ir para MINISTERIO DA CULTURA']
+    ruby:
+      @orgaos = [
+        'REFINANCIAMENTO DA DIVIDA PUBLICA MOBILIARIA FEDERAL',
+        'MINISTERIO DA PREVIDENCIA SOCIAL',
+        'ENCARGOS FINANCEIROS DA UNIAO',
+        'TRANSFERENCIAS A ESTADOS, DISTRITO FEDERAL E MUNICIPIOS',
+        'MINISTERIO DA SAUDE',
+        'MINISTERIO DA EDUCACAO',
+        'MINISTERIO DA DEFESA',
+        'MINISTERIO DO TRABALHO E EMPREGO',
+        'MINISTERIO DO DESENVOLVIMENTO SOCIAL E COMBATE À FOME',
+        'OPERACOES OFICIAIS DE CREDITO',
+        'MINISTERIO DAS CIDADES',
+        'MINISTERIO DA FAZENDA',
+        'MINISTERIO DOS TRANSPORTES',
+        'JUSTICA DO TRABALHO',
+        'MINISTERIO DO PLANEJAMENTO, ORCAMENTO E GESTAO',
+        'MINISTERIO DA JUSTICA',
+        'MINISTERIO DA INTEGRACAO NACIONAL',
+        'MINISTERIO DE MINAS E ENERGIA',
+        'MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO',
+        'MINISTERIO DA CIENCIA E TECNOLOGIA',
+        'RESERVA DE CONTINGENCIA',
+        'JUSTICA FEDERAL',
+        'MINISTERIO DO DESENVOLVIMENTO AGRARIO',
+        'MINISTERIO DAS COMUNICACOES',
+        'JUSTICA ELEITORAL',
+        'CAMARA DOS DEPUTADOS',
+        'PRESIDENCIA DA REPUBLICA',
+        'MINISTERIO DO MEIO AMBIENTE',
+        'MINISTERIO PUBLICO DA UNIAO',
+        'SENADO FEDERAL',
+        'MINISTERIO DA CULTURA',
+        'MINISTERIO DO TURISMO',
+        'MINISTERIO DO ESPORTE',
+        'MINISTERIO DO DESENVOLVIMENTO, INDUSTRIA E COMERCIO EXTERIOR',
+        'ADVOCACIA-GERAL DA UNIAO',
+        'MINISTERIO DAS RELACOES EXTERIORES',
+        'PRESIDENCIA DA REPUBLICA',
+        'JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS',
+        'TRIBUNAL DE CONTAS DA UNIAO',
+        'SECRETARIA DE PORTOS',
+        'SUPERIOR TRIBUNAL DE JUSTICA',
+        'CONTROLADORIA-GERAL DA UNIAO',
+        'MINISTERIO DA PESCA E AQÜICULTURA',
+        'SUPREMO TRIBUNAL FEDERAL',
+        'JUSTICA MILITAR DA UNIAO',
+        'SECRETARIA DE DIREITOS HUMANOS',
+        'CONSELHO NACIONAL DE JUSTICA',
+        'SECRETARIA DE POLITICAS PARA AS MULHERES',
+        'CONSELHO NACIONAL DO MINISTERIO PUBLICO',
+        'SECRETARIA DE POLITICAS DE PROMOCAO DA IGUALDADE RACIAL',
+        'SECRETARIA DE AVIACAO CIVIL',
+        'SECRETARIA DE ASSUNTOS ESTRATEGICOS',
+        'GABINETE DA VICE-PRESIDENCIA DA REPUBLICA',
+        'RECEITA DO TESOURO DA UNIAO',
+        'ADVOCACIA-GERAL DA UNIAO'
+      ]
+    ul.main-dropdown-navigation.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
+      - @orgaos.each do |orgao|
+        li
+          a[href='#']
+            = orgao
   /
     .profile-description
       p

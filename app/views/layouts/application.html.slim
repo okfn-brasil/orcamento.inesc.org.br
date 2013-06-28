@@ -12,6 +12,8 @@ html
         h1
           = link_to root_path, class: 'logo' do
             | Onde está o nosso dinheiro?
+        form.pull-right
+          input.search-query[type="text" placeholder="Buscar…"]
         nav
           a.active[href='#']
             | Início
@@ -25,8 +27,6 @@ html
             | Ajuda
           a[href='#']
             | Contato
-          form.pull-right
-            input.search-query[type="text" placeholder="Buscar…"]
     #main
       .container
         = yield
