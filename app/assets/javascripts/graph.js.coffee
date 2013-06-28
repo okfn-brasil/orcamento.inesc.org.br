@@ -1,36 +1,42 @@
-$(document).ready ->
-  autorizadoUrl = "http://openspending.org/api/2/aggregate?dataset=inesc&cut=time.year:2011|from.label:SENADO%20FEDERAL&drilldown=from|time.month&order=time.month:asc"
-  pagoUrl = autorizadoUrl + "&measure=pago"
+INESC = {}
+INESC.Graphs = {}
 
-  $.when(
-    $.getJSON(autorizadoUrl),
-    $.getJSON(pagoUrl)
-  ).then (autorizado, pago) ->
+INESC.Graphs.PaymentsPerMonth = do ->
+  create = (svgElement, orgao, ano) ->
+    fetchData(orgao, ano).then(buildGraph(svgElement))
+
+  fetchData = (orgao, ano) ->
+    autorizadoUrl = "http://openspending.org/api/2/aggregate?dataset=inesc&cut=time.year:#{ano}|from.label:#{orgao}&drilldown=from|time.month&order=time.month:asc"
+    pagoUrl = autorizadoUrl + "&measure=pago"
+    $.when(
+      $.getJSON(autorizadoUrl),
+      $.getJSON(pagoUrl)
+    )
+
+  buildGraph = (svgElement) -> (autorizado, pago) ->
      nv.addGraph () ->
-         testdata = processData(autorizado, pago)
-         window.testdata = testdata
+         data = processData(autorizado, pago)
          chart = nv.models.multiChart()
-               .margin({top: 30, right: 60, bottom: 50, left: 70})
                .x((d,i) -> parseInt(d.x))
-               .color(d3.scale.category10().range())
+               .color(d3.scale.category20c().range())
   
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
-           dx = testdata[0].values[index] && testdata[0].values[index].x
+           dx = data[0].values[index] && data[0].values[index].x
            d3.time.format('%b')(new Date(dx))
          )
      
          chart.yAxis1.showMaxMin(true)
              .tickFormat(d3.format(',s.2'))
      
-         d3.select('.graph svg')
-             .datum(testdata)
+         d3.select(svgElement)
+             .datum(data)
            .transition().duration(500).call(chart)
      
          nv.utils.windowResize(chart.update)
      
          chart
-  
+
   processData = (autorizado, pago) ->
     accumulateAmounts = (values, element) ->
       length = values.length
@@ -62,3 +68,11 @@ $(document).ready ->
         values: autorizado[0].drilldown.reduce(accumulateAmounts, [])
       },
     ]
+
+  api =
+    create: create
+
+
+$(document).ready ->
+  INESC.Graphs.PaymentsPerMonth.create(".graph svg", "SENADO FEDERAL", 2011)
+
