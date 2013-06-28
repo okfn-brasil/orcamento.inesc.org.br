@@ -177,11 +177,12 @@ footer {
 
 .meter-wrapper {
   @include border-box;
-  background: $green;
+  background: $black;
 }
 .meter-graph {
   @include border-box;
-  background: $blue;
+  background: $green;
+  padding: 0 .25em;
   color: white;
   font-weight: 700;
 }
