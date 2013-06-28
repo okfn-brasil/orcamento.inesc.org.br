@@ -1,0 +1,91 @@
+#graphs-tab-navigation {
+  background: $clouds;
+  padding-top: 1em;
+  padding-left: 1em;
+}
+.gasto-acumulado-por-mes.graph {
+  .muted {
+    margin-top: 1em;
+  }
+}
+svg#monthly-graph {
+  width: 960px;
+  height: 450px;
+  .nvd3 {
+    text {
+      font-family: 'Open Sans', sans-serif !important;
+      fill: $black;
+    }
+    .y1.axis,
+    .x.axis {
+      line {
+        stroke: #FFF;
+      }
+      text {
+        font-weight: 700;
+      }
+    }
+    .y1.axis {
+      g.tick.major:nth-child(2n+2) {
+        display: none !important;
+      }
+    }
+    .nv-series-0 {
+      rect.nv-bar.positive {
+        fill: $blue !important;
+        stroke: $blue !important;
+        fill-opacity: .5 !important;
+        cursor: help;
+        &:hover {
+          fill-opacity: .75 !important;
+        }
+      }
+    }
+    .nv-series-1 {
+      rect.nv-bar.positive {
+        fill: $green !important;
+        stroke: $green !important;
+      }
+    }
+    .nv-group.nv-series-0 {
+      fill: $yellow !important;
+      stroke: $yellow !important;
+    }
+    circle.nv-point {
+      fill: $yellow !important;
+      stroke-width: 8px !important;
+      stroke: $yellow !important;
+      stroke-opacity: 1 !important;
+      fill-opacity: 1 !important;
+      &:hover {
+        stroke-width: 16px !important;
+        stroke-opacity: .5 !important;
+      }
+    }
+    .nv-point-paths {
+      path {
+        cursor: help;
+      }
+    }
+    .nv-area.nv-area-0 {
+      fill-opacity: .2 !important;
+    }
+    .nv-wrap.nv-stackedarea {
+      circle {
+        display: none !important;
+      }
+    }
+  }
+}
+/* TABLE */
+.meter-wrapper {
+  @include border-box;
+  background: $black;
+}
+.meter-graph {
+  @include border-box;
+  background: $green;
+  padding: 0 .25em;
+  color: white;
+  font-weight: 700;
+}

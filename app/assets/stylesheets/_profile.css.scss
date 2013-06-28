@@ -1,0 +1,68 @@
+.profile-header {
+  padding: 0 0 3em;
+  .breadcrumb {
+    padding: 0.8em 0;
+    background: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    h1 {
+      font-size: 1em;
+      margin: 0;
+      font-weight: 700;
+      color: $black;
+      line-height: 1em;
+      display: inline;
+    }
+    li {
+      display: inline;
+    }
+  }
+}
+
+.main-dropdown-navigation {
+  width: 940px;
+  li {
+    font-size: .875em;
+    float: left;
+    width: 49%;
+  }
+}
+
+.monitor {
+  background: $clouds;
+  h4 {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin: 0em;
+  }
+  p {
+    margin: 0;
+  }
+  .positive-value-box,
+  .negative-value-box {
+    border-radius: 3px;
+    padding: 1.5em 0;
+    color: white;
+    text-align: center;
+  }
+  .positive-value-box {
+    background: $green;
+  }
+  .negative-value-box {
+    background: $red;
+  }
+  .large-number {
+    font-size: 3.5em;
+    font-weight: 300;
+    display: block;
+    line-height: 1em;
+    margin: .75em 0;
+    small {
+      font-size: .75em;
+      margin-left: .25em;
+    }
+  }
+}
+

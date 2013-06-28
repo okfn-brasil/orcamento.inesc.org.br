@@ -1,0 +1,11 @@
+$green: #33ac39;
+$yellow: #f2af1a;
+$blue: #224982;
+$red: #E74C3C;
+$black: #34495E;
+$clouds: #ECF0F1;
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
