@@ -11,7 +11,7 @@ $(document).ready ->
          window.testdata = testdata
          chart = nv.models.multiChart()
                .margin({top: 30, right: 60, bottom: 50, left: 70})
-               .x((d,i) -> d.x)
+               .x((d,i) -> parseInt(d.x))
                .color(d3.scale.category10().range())
   
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
