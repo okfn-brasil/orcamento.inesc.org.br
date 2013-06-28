@@ -33,82 +33,8 @@
                     a[href='#']
                       b
                         | #{year}
-          .item-navigation
-            .btn-group
-              button.btn.btn-large
-                span.icon-chevron-left[title='Ir para  MINISTERIO PUBLICO DA UNIAO']
-              button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
-                | Senado Federal 
-                span.icon-chevron-down
-              button.btn.btn-large
-                span.icon-chevron-right[title='Ir para MINISTERIO DA CULTURA']
-              ruby:
-                @orgaos = [
-                  'REFINANCIAMENTO DA DIVIDA PUBLICA MOBILIARIA FEDERAL',
-                  'MINISTERIO DA PREVIDENCIA SOCIAL',
-                  'ENCARGOS FINANCEIROS DA UNIAO',
-                  'TRANSFERENCIAS A ESTADOS, DISTRITO FEDERAL E MUNICIPIOS',
-                  'MINISTERIO DA SAUDE',
-                  'MINISTERIO DA EDUCACAO',
-                  'MINISTERIO DA DEFESA',
-                  'MINISTERIO DO TRABALHO E EMPREGO',
-                  'MINISTERIO DO DESENVOLVIMENTO SOCIAL E COMBATE À FOME',
-                  'OPERACOES OFICIAIS DE CREDITO',
-                  'MINISTERIO DAS CIDADES',
-                  'MINISTERIO DA FAZENDA',
-                  'MINISTERIO DOS TRANSPORTES',
-                  'JUSTICA DO TRABALHO',
-                  'MINISTERIO DO PLANEJAMENTO, ORCAMENTO E GESTAO',
-                  'MINISTERIO DA JUSTICA',
-                  'MINISTERIO DA INTEGRACAO NACIONAL',
-                  'MINISTERIO DE MINAS E ENERGIA',
-                  'MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO',
-                  'MINISTERIO DA CIENCIA E TECNOLOGIA',
-                  'RESERVA DE CONTINGENCIA',
-                  'JUSTICA FEDERAL',
-                  'MINISTERIO DO DESENVOLVIMENTO AGRARIO',
-                  'MINISTERIO DAS COMUNICACOES',
-                  'JUSTICA ELEITORAL',
-                  'CAMARA DOS DEPUTADOS',
-                  'PRESIDENCIA DA REPUBLICA',
-                  'MINISTERIO DO MEIO AMBIENTE',
-                  'MINISTERIO PUBLICO DA UNIAO',
-                  'SENADO FEDERAL',
-                  'MINISTERIO DA CULTURA',
-                  'MINISTERIO DO TURISMO',
-                  'MINISTERIO DO ESPORTE',
-                  'MINISTERIO DO DESENVOLVIMENTO, INDUSTRIA E COMERCIO EXTERIOR',
-                  'ADVOCACIA-GERAL DA UNIAO',
-                  'MINISTERIO DAS RELACOES EXTERIORES',
-                  'PRESIDENCIA DA REPUBLICA',
-                  'JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS',
-                  'TRIBUNAL DE CONTAS DA UNIAO',
-                  'SECRETARIA DE PORTOS',
-                  'SUPERIOR TRIBUNAL DE JUSTICA',
-                  'CONTROLADORIA-GERAL DA UNIAO',
-                  'MINISTERIO DA PESCA E AQÜICULTURA',
-                  'SUPREMO TRIBUNAL FEDERAL',
-                  'JUSTICA MILITAR DA UNIAO',
-                  'SECRETARIA DE DIREITOS HUMANOS',
-                  'CONSELHO NACIONAL DE JUSTICA',
-                  'SECRETARIA DE POLITICAS PARA AS MULHERES',
-                  'CONSELHO NACIONAL DO MINISTERIO PUBLICO',
-                  'SECRETARIA DE POLITICAS DE PROMOCAO DA IGUALDADE RACIAL',
-                  'SECRETARIA DE AVIACAO CIVIL',
-                  'SECRETARIA DE ASSUNTOS ESTRATEGICOS',
-                  'GABINETE DA VICE-PRESIDENCIA DA REPUBLICA',
-                  'RECEITA DO TESOURO DA UNIAO',
-                  'ADVOCACIA-GERAL DA UNIAO'
-                ].sort
-              ul.main-dropdown-navigation.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
-                - @orgaos.each do |orgao|
-                  li
-                    a[href='#']
-                      = orgao
 .monitor
   .container
-    h2
-      | Monitor
     .row
       .span4.positive-value-box
         h4
@@ -144,92 +70,81 @@
         p
           | Representação do orçamento federal
 .graphs
-  .container
-    h2
-      | Gráficos
-    ul#graphs-tab-navigation.nav.nav-tabs
-      li.active
-        a[href='#monthly-tab' data-toggle='tab']
-          | Pagamentos por mês
-      li
-        a[href='#gnd-tab' data-toggle='tab']
-          | Gastos por Natureza de Despesa (GND)
-      li
-        a[href='#uo-tab' data-toggle='tab']
-          | Distribuição por Unidade Orçamentária (UO)
-    .tab-content
-      #monthly-tab.tab-pane.active
-        .gasto-acumulado-por-mes.graph
+  .tabs-navigation-wrapper
+    .container
+      ul#graphs-tab-navigation.nav.nav-tabs
+        li.active
+          a[href='#monthly-tab' data-toggle='tab']
+            | Pagamentos por mês
+        li
+          a[href='#gnd-tab' data-toggle='tab']
+            | Gastos por Natureza de Despesa (GND)
+        li
+          a[href='#uo-tab' data-toggle='tab']
+            | Distribuição por Unidade Orçamentária (UO)
+  .tab-content
+    #monthly-tab.tab-pane.active
+      .gasto-acumulado-por-mes.graph
+        .container
           p.pull-right.muted
             | Posicione o cursor sobre as áreas para visualizar detalhes.
           h3
             | Pagamentos por mês
           svg#monthly-graph
-          .graph-help
-            h3
-              | Endendendo o gráfico
-            dl
-              dt
-                | Autorizado
-              dd
-                | O orçamento <b>autorizado</b>.
-              dt
-                | Pagamentos Acumulados
-              dd
-                | Representação do acúmulo de pagamentos realizados a cada mês.
-              dt
-                | Pagamentos
-              dd
-                | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
-          .table-data
-            .pull-right
-              button.btn.btn-large
-                | <span class='icon-download'></span> Baixar dados em formato aberto
-            h3
-              | O gráfico em números
-            table.table.graph-numbers
-              thead
+      .graph-help
+        .container
+          h3
+            | Interpretando o gráfico
+          .row
+            .span4
+              span.icon-bar-chart
+            .span8
+              dl
+                dt
+                  | Autorizado
+                dd
+                  | O orçamento <b>autorizado</b>.
+                dt
+                  | Pagamentos Acumulados
+                dd
+                  | Representação do acúmulo de pagamentos realizados a cada mês.
+                dt
+                  | Pagamentos
+                dd
+                  | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
+      .table-data
+        .container
+          .pull-right
+            button.btn.btn-large
+              | <span class='icon-download'></span> Baixar dados em formato aberto
+          h3
+            | O gráfico em números
+          table.table.graph-numbers
+            thead
+              tr
+                th
+                  | Mês 
+                  span.icon-angle-down
+                th
+                  | Ano
+                th
+                  | Autorizado
+                th
+                  | Pago
+                th
+                  | RP Pago
+                th
+                  | Pagamentos (Pago + RP Pago)
+                th
+                  | Percentual
+            tbody
+              - x = 0
+              - 12.times do |i|
                 tr
-                  th
-                    | Mês 
-                    span.icon-angle-down
-                  th
-                    | Ano
-                  th
-                    | Autorizado
-                  th
-                    | Pago
-                  th
-                    | RP Pago
-                  th
-                    | Pagamentos (Pago + RP Pago)
-                  th
-                    | Percentual
-              tbody
-                - x = 0
-                - 12.times do |i|
-                  tr
-                    td
-                      | #{i+1}
-                    td
-                      | 2012
-                    td
-                      | 3420000000
-                    td
-                      | 3420000000
-                    td
-                      | 3420000000
-                    td
-                      | 3420000000
-                    td
-                      .meter-wrapper
-                        - x = (x + (100.00/12.00)).round(2)
-                        .meter-graph[style="width: #{x}%;"]
-                          | #{x}%
-              tfoot
-                tr
-                  td[colspan='2']
-                    | Total
+                  td
+                    | #{i+1}
+                  td
+                    | 2012
                   td
                     | 3420000000
                   td
@@ -239,14 +154,33 @@
                   td
                     | 3420000000
                   td
-                    | 100%
-      #gnd-tab.tab-pane
-        .distribuicao-gnd.graph
+                    .meter-wrapper
+                      - x = (x + (100.00/12.00)).round(2)
+                      .meter-graph[style="width: #{x}%;"]
+                        | #{x}%
+            tfoot
+              tr
+                td[colspan='2']
+                  | Total
+                td
+                  | 3420000000
+                td
+                  | 3420000000
+                td
+                  | 3420000000
+                td
+                  | 3420000000
+                td
+                  | 100%
+    #gnd-tab.tab-pane
+      .distribuicao-gnd.graph
+        .container
           h3
             | Gastos por Natureza da Despesa (GND)
           = image_tag 'proto/distribuicao-gnd.png'
-      #uo-tab.tab-pane
-        .distribuicao-uo.graph
+    #uo-tab.tab-pane
+      .distribuicao-uo.graph
+        .container
           h3
             | Distribuição por Unidade Orçamentária (UO)
           = image_tag 'proto/distribuicao-uo.png'

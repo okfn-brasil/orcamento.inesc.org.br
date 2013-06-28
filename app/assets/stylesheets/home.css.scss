@@ -8,7 +8,7 @@ textarea {
 }
 
 body {
-  background-color: $blue;
+  background-color: $black;
   color: $black;
   margin: 0;
 }
@@ -45,6 +45,15 @@ address {
 
 header {
   background: white;
+  .logo {
+    background: url(/assets/logo.png) no-repeat scroll left top;
+    background-size: 100%;
+    text-indent: -9999em;
+    display: block;
+    width: 400px;
+    height: 35px;
+    margin: 1em 0;
+  }
   nav {
     a {
       color: $black;
@@ -55,6 +64,7 @@ header {
       &:hover {
         text-decoration: none;
         background: $clouds;
+        color: $black;
       }
       &.active,
       &:hover.active {
@@ -67,9 +77,11 @@ header {
 
 #main,
 .monitor,
-.graphs,
 footer {
   padding: 3em 0;
+}
+.graphs {
+  padding: 0 0 3em;
 }
 
 #main {
@@ -77,7 +89,7 @@ footer {
 }
 
 footer {
-  background: $blue;
+  background: $black;
   font-weight: 300;
   color: white;
   a,

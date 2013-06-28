@@ -1,9 +1,17 @@
-$green: #33ac39;
-$yellow: #f2af1a;
-$blue: #224982;
+/*COLORS*/
+$green: #2ECC71;
+$blue: #3498DB;
+$deep-blue: #2980B9;
+$yellow: #F1C40F;
 $red: #E74C3C;
+$purple: #9B59B6;
+$orange: #E67E22;
+$deep-green: #1ABC9C;
+$gray: #95A5A6;
 $black: #34495E;
 $clouds: #ECF0F1;
+
+/*MIXINGS*/
 @mixin border-box {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -1,13 +1,47 @@
-#graphs-tab-navigation {
+.tabs-navigation-wrapper {
   background: $clouds;
   padding-top: 1em;
   padding-left: 1em;
+  border-bottom: 1px solid #DDD;
 }
+#graphs-tab-navigation {
+  margin-bottom: 0;
+  border-bottom: 0 none;
+  a {
+    color: $black;
+  }
+}
+
 .gasto-acumulado-por-mes.graph {
   .muted {
     margin-top: 1em;
   }
 }
+.graph-help {
+  background: $clouds;
+  color: $gray;
+  font-size: 1.25em;
+  text-shadow: lighten($clouds, 5%) 0 2px 0;
+  span.icon-bar-chart {
+    font-size: 14em;
+  }
+  dt {
+    margin: 0 0 .5em;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: .75em;
+    letter-spacing: 1px;
+  }
+  dd {
+    margin: 0 0 1.5em;
+  }
+}
+.graph,
+.graph-help,
+.table-data {
+  padding: 2em 0;
+}
+
 svg#monthly-graph {
   width: 960px;
   height: 450px;
@@ -35,7 +69,6 @@ svg#monthly-graph {
         fill: $blue !important;
         stroke: $blue !important;
         fill-opacity: .5 !important;
-        cursor: help;
         &:hover {
           fill-opacity: .75 !important;
         }
@@ -53,18 +86,12 @@ svg#monthly-graph {
     }
     circle.nv-point {
       fill: $yellow !important;
-      stroke-width: 8px !important;
       stroke: $yellow !important;
       stroke-opacity: 1 !important;
       fill-opacity: 1 !important;
       &:hover {
         stroke-width: 16px !important;
         stroke-opacity: .5 !important;
-      }
-    }
-    .nv-point-paths {
-      path {
-        cursor: help;
       }
     }
     .nv-area.nv-area-0 {
