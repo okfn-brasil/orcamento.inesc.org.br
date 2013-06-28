@@ -6657,7 +6657,7 @@ nv.models.multiBar = function() {
             });
 
       x   .domain(d3.merge(seriesData).map(function(d) { return d.x }))
-          .rangeRoundBands([0, availableWidth], 0);
+          .rangeBands([0, availableWidth], .1);
 
       //y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return d.y + (stacked ? d.y1 : 0) }).concat(forceY)))
       y   .domain(yDomain || d3.extent(d3.merge(seriesData).map(function(d) { return stacked ? (d.y > 0 ? d.y1 : d.y1 + d.y ) : d.y }).concat(forceY)))
@@ -8395,8 +8395,8 @@ nv.models.multiChart = function() {
       lines1 = nv.models.line().yScale(yScale1),
       lines2 = nv.models.line().yScale(yScale2),
 
-      bars1 = nv.models.multiBar().stacked(true).yScale(yScale1),
-      bars2 = nv.models.multiBar().stacked(true).yScale(yScale2),
+      bars1 = nv.models.multiBar().stacked(false).yScale(yScale1),
+      bars2 = nv.models.multiBar().stacked(false).yScale(yScale2),
 
       stack1 = nv.models.stackedArea().yScale(yScale1),
       stack2 = nv.models.stackedArea().yScale(yScale2),

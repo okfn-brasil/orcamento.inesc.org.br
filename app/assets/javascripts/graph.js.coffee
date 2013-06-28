@@ -14,13 +14,13 @@ $(document).ready ->
                .x((d,i) -> d.x)
                .color(d3.scale.category10().range())
   
-         chart.xAxis.tickFormat((d) ->
+         chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
            dx = testdata[0].values[index] && testdata[0].values[index].x
            d3.time.format('%b')(new Date(dx))
          )
      
-         chart.yAxis1.showMaxMin(false)
+         chart.yAxis1.showMaxMin(true)
              .tickFormat(d3.format(',s.2'))
      
          d3.select('.graph svg')
@@ -58,7 +58,7 @@ $(document).ready ->
       {
         key: "Autorizado",
         yAxis: 1,
-        type: "bar",
+        type: "area",
         values: autorizado[0].drilldown.reduce(accumulateAmounts, [])
       },
     ]
