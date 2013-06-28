@@ -62,7 +62,7 @@ INESC.Graphs.PaymentsPerMonth = do ->
 
     pagamentos = pago[0].drilldown.map (element, i) ->
       rppago_amount = rppago[0].drilldown[i]["rp-pago"]
-      element.amount = element.pago + element["rp-pago"]
+      element.amount = element.pago + rppago_amount
       element
 
     [
