@@ -18,7 +18,7 @@ INESC.Graphs.PaymentsPerMonth = do ->
          data = processData(autorizado, pago)
          chart = nv.models.multiChart()
                .x((d,i) -> parseInt(d.x))
-               .color(d3.scale.category10().range())
+               .color(d3.scale.category20c().range())
   
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
