@@ -15,7 +15,7 @@
               | ⟩
           li.active
             h1
-              | Senado Federal
+              = @orgao
       .span7
         .context-navigation
           .year-navigation.pull-right
@@ -23,7 +23,7 @@
               button.btn.btn-large[title='Ir para 2014']
                 span.icon-chevron-left
               button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
-                | 2012 
+                = @ano
                 span.icon-chevron-down
               button.btn.btn-large[title='Ir para 2013']
                 span.icon-chevron-right

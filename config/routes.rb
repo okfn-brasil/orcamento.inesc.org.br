@@ -1,6 +1,6 @@
 Inesc::Application.routes.draw do
 
   root 'home#index'
-  get '/profile' => 'home#profile'
+  get '/:orgao/:ano' => 'home#profile'
 
 end

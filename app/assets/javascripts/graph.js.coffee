@@ -6,11 +6,19 @@ INESC.Graphs.PaymentsPerMonth = do ->
     fetchData(orgao, ano).then(buildGraph(svgElement))
 
   fetchData = (orgao, ano) ->
-    autorizadoUrl = "http://openspending.org/api/2/aggregate?dataset=inesc&cut=time.year:#{ano}|from.label:#{orgao}&drilldown=from|time.month&order=time.month:asc"
-    pagoUrl = autorizadoUrl + "&measure=pago"
+    openspendingUrl = "http://openspending.org/api/2/aggregate"
+    autorizadoParameters =
+      dataset: "inesc"
+      cut: "time.year:#{ano}|orgao.label:#{orgao}"
+      drilldown: "orgao|time.month"
+      order: "time.month:asc"
+
+    pagoParameters =
+      measure: "pago"
+
     $.when(
-      $.getJSON(autorizadoUrl),
-      $.getJSON(pagoUrl)
+      $.getJSON(openspendingUrl, autorizadoParameters),
+      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, pagoParameters))
     )
 
   buildGraph = (svgElement) -> (autorizado, pago) ->
@@ -72,7 +80,13 @@ INESC.Graphs.PaymentsPerMonth = do ->
   api =
     create: create
 
+INESC.Graphs.parseUrl = ->
+  url = window.location.pathname.substr(1)
+  [orgao, ano] = url.split("/")
+  [orgao.replace(/-/g, " ").trim().toUpperCase(),
+   parseInt(ano)]
 
 $(document).ready ->
-  INESC.Graphs.PaymentsPerMonth.create(".graph svg", "SENADO FEDERAL", 2011)
+  [orgao, ano] = INESC.Graphs.parseUrl()
+  INESC.Graphs.PaymentsPerMonth.create(".graph svg", orgao, ano)
 
