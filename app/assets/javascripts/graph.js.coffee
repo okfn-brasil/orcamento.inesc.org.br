@@ -16,14 +16,18 @@ INESC.Graphs.PaymentsPerMonth = do ->
     pagoParameters =
       measure: "pago"
 
+    rppagoParameters =
+      measure: "rp-pago"
+
     $.when(
       $.getJSON(openspendingUrl, autorizadoParameters),
-      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, pagoParameters))
+      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, pagoParameters)),
+      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, rppagoParameters))
     )
 
-  buildGraph = (svgElement) -> (autorizado, pago) ->
+  buildGraph = (svgElement) -> (autorizado, pago, rppago) ->
      nv.addGraph () ->
-         data = processData(autorizado, pago)
+         data = processData(autorizado, pago, rppago)
          chart = nv.models.multiChart()
                .x((d,i) -> parseInt(d.x))
                .color(d3.scale.category20c().range())
@@ -45,7 +49,7 @@ INESC.Graphs.PaymentsPerMonth = do ->
      
          chart
 
-  processData = (autorizado, pago) ->
+  processData = (autorizado, pago, rppago) ->
     accumulateAmounts = (values, element) ->
       length = values.length
       amount = if length > 0 then values[length-1].y else 0
@@ -56,18 +60,23 @@ INESC.Graphs.PaymentsPerMonth = do ->
       }
       values
 
+    pagamentos = pago[0].drilldown.map (element, i) ->
+      rppago_amount = rppago[0].drilldown[i]["rp-pago"]
+      element.amount = element.pago + element["rp-pago"]
+      element
+
     [
       {
         key: "Pagamentos",
         yAxis: 1,
         type: "bar",
-        values: pago[0].drilldown.map (element) -> { x: element.time.month, y: element.pago }
+        values: pagamentos.map (element) -> { x: element.time.month, y: element.amount }
       },
       {
         key: "Pagamentos Acumulados",
         yAxis: 1,
         type: "line",
-        values: pago[0].drilldown.reduce(accumulateAmounts, [])
+        values: pagamentos.reduce(accumulateAmounts, [])
       },
       {
         key: "Autorizado",
