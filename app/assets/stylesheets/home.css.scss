@@ -4,7 +4,11 @@ $blue: #224982;
 $red: #ec193a;
 $black: #34495E;
 $clouds: #ECF0F1;
-
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body,
 select,
 input,
@@ -96,23 +100,55 @@ footer {
     width: 49%;
   }
 }
-#indicators {
-  margin: 3em 0;
-  width: 100%;
-  td, th {
-    text-align: center;
+.monitor {
+  background: $black;
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+  border-radius: 3px;
+  table {
+    color: white;
+    width: 100%;
   }
-  h3, p {
+  td,
+  th {
+    text-align: center;
+    padding: .5em;
+  }
+  th {
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  h3,
+  p {
     margin: .5em 0;
   }
 }
 
 .large-number {
-  font-size: 3em;
+  font-size: 3.5em;
   font-weight: 300;
-  display: inline-block;
+  display: block;
+  line-height: 1em;
+  margin: 0;
   small {
-    font-size: .5em;
+    font-size: .75em;
+    margin-left: .25em;
+  }
+}
+
+.profile-header {
+  .breadcrumb {
+    padding: 0;
+    background: white;
+    font-size: 1.25em;
+    h1 {
+      font-size: 1em;
+      margin: 0;
+      font-weight: 700;
+      color: $black;
+    }
   }
 }
 
@@ -124,22 +160,31 @@ footer {
 .negative-number {
   border-radius: 4px;
   padding: .15em .25em;
-  color: white;
   font-size: .85em;
   display: inline-block;
   margin-left: .5em;
-  margin-top: -1em;
   vertical-align: 1em;
+  background: white;
 }
 
 .positive-number {
-  background-color: $blue;
+  color: $blue;
 }
 
 .negative-number {
-  background-color: $red;
+  color: $red;
 }
 
+.meter-wrapper {
+  @include border-box;
+  background: $green;
+}
+.meter-graph {
+  @include border-box;
+  background: $blue;
+  color: white;
+  font-weight: 700;
+}
 
 /* BOOTSTRAP */
 .btn {
@@ -149,6 +194,7 @@ footer {
   text-shadow: none;
   box-shadow: none;
 }
+
 .btn-group {
   .btn {
     box-shadow: none;
@@ -165,17 +211,26 @@ footer {
   }
 }
 
+#graphs-tab-navigation {
+  background: $clouds;
+  padding-top: 1em;
+}
+
 svg#monthly-graph {
   width: 100%;
   height: 450px;
   .nvd3 {
     text {
       font-family: 'Open Sans', sans-serif !important;
+      fill: $black;
     }
     .y1.axis,
     .x.axis {
       line {
         stroke: #FFF;
+      }
+      text {
+        font-weight: 700;
       }
     }
     .y1.axis {
@@ -187,6 +242,11 @@ svg#monthly-graph {
       rect.nv-bar.positive {
         fill: $blue !important;
         stroke: $blue !important;
+        fill-opacity: .5 !important;
+        cursor: help;
+        &:hover {
+          fill-opacity: .75 !important;
+        }
       }
     }
     .nv-series-1 {
@@ -210,8 +270,13 @@ svg#monthly-graph {
         stroke-opacity: .5 !important;
       }
     }
+    .nv-point-paths {
+      path {
+        cursor: help;
+      }
+    }
     .nv-area.nv-area-0 {
-      fill-opacity: .4 !important;
+      fill-opacity: .2 !important;
     }
     .nv-wrap.nv-stackedarea {
       circle {

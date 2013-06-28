@@ -1,145 +1,157 @@
 .profile-header
-  .select-context.pull-right
-    p
-      | Alterar ano: 
-    .btn-group
-      button.btn.btn-large[title='Ir para 2014']
-        span.icon-chevron-left
-      button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
-        | 2012 
-        span.icon-chevron-down
-      button.btn.btn-large[title='Ir para 2013']
-        span.icon-chevron-right
-      ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
-        - (2001..2013).to_a.reverse.each do |year|
-          li
-            a[href='#']
-              b
-                | #{year}
-  p
-    | Alterar Órgão: 
-  .btn-group
-    button.btn.btn-large
-      span.icon-chevron-left[title='Ir para  MINISTERIO PUBLICO DA UNIAO']
-    button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
-      | Senado Federal 
-      span.icon-chevron-down
-    button.btn.btn-large
-      span.icon-chevron-right[title='Ir para MINISTERIO DA CULTURA']
-    ruby:
-      @orgaos = [
-        'REFINANCIAMENTO DA DIVIDA PUBLICA MOBILIARIA FEDERAL',
-        'MINISTERIO DA PREVIDENCIA SOCIAL',
-        'ENCARGOS FINANCEIROS DA UNIAO',
-        'TRANSFERENCIAS A ESTADOS, DISTRITO FEDERAL E MUNICIPIOS',
-        'MINISTERIO DA SAUDE',
-        'MINISTERIO DA EDUCACAO',
-        'MINISTERIO DA DEFESA',
-        'MINISTERIO DO TRABALHO E EMPREGO',
-        'MINISTERIO DO DESENVOLVIMENTO SOCIAL E COMBATE À FOME',
-        'OPERACOES OFICIAIS DE CREDITO',
-        'MINISTERIO DAS CIDADES',
-        'MINISTERIO DA FAZENDA',
-        'MINISTERIO DOS TRANSPORTES',
-        'JUSTICA DO TRABALHO',
-        'MINISTERIO DO PLANEJAMENTO, ORCAMENTO E GESTAO',
-        'MINISTERIO DA JUSTICA',
-        'MINISTERIO DA INTEGRACAO NACIONAL',
-        'MINISTERIO DE MINAS E ENERGIA',
-        'MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO',
-        'MINISTERIO DA CIENCIA E TECNOLOGIA',
-        'RESERVA DE CONTINGENCIA',
-        'JUSTICA FEDERAL',
-        'MINISTERIO DO DESENVOLVIMENTO AGRARIO',
-        'MINISTERIO DAS COMUNICACOES',
-        'JUSTICA ELEITORAL',
-        'CAMARA DOS DEPUTADOS',
-        'PRESIDENCIA DA REPUBLICA',
-        'MINISTERIO DO MEIO AMBIENTE',
-        'MINISTERIO PUBLICO DA UNIAO',
-        'SENADO FEDERAL',
-        'MINISTERIO DA CULTURA',
-        'MINISTERIO DO TURISMO',
-        'MINISTERIO DO ESPORTE',
-        'MINISTERIO DO DESENVOLVIMENTO, INDUSTRIA E COMERCIO EXTERIOR',
-        'ADVOCACIA-GERAL DA UNIAO',
-        'MINISTERIO DAS RELACOES EXTERIORES',
-        'PRESIDENCIA DA REPUBLICA',
-        'JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS',
-        'TRIBUNAL DE CONTAS DA UNIAO',
-        'SECRETARIA DE PORTOS',
-        'SUPERIOR TRIBUNAL DE JUSTICA',
-        'CONTROLADORIA-GERAL DA UNIAO',
-        'MINISTERIO DA PESCA E AQÜICULTURA',
-        'SUPREMO TRIBUNAL FEDERAL',
-        'JUSTICA MILITAR DA UNIAO',
-        'SECRETARIA DE DIREITOS HUMANOS',
-        'CONSELHO NACIONAL DE JUSTICA',
-        'SECRETARIA DE POLITICAS PARA AS MULHERES',
-        'CONSELHO NACIONAL DO MINISTERIO PUBLICO',
-        'SECRETARIA DE POLITICAS DE PROMOCAO DA IGUALDADE RACIAL',
-        'SECRETARIA DE AVIACAO CIVIL',
-        'SECRETARIA DE ASSUNTOS ESTRATEGICOS',
-        'GABINETE DA VICE-PRESIDENCIA DA REPUBLICA',
-        'RECEITA DO TESOURO DA UNIAO',
-        'ADVOCACIA-GERAL DA UNIAO'
-      ]
-    ul.main-dropdown-navigation.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
-      - @orgaos.each do |orgao|
+  .row
+    .span5
+      ul.breadcrumb
         li
-          a[href='#']
-            = orgao
-  /
-    .profile-description
-      p
-        | O Senado Federal é o representante dos estados no Congresso Nacional do Brasil. Foi criado junto com a constituição imperial brasileira de 1824, nos primeiros anos do Império do Brasil, sendo esta outorgada. Durante o Império, o Senado brasileiro atendia pelo nome de Senado do Império do Brasil. Tendo a primeira legislatura se reunido em 6 de maio de 1826.1 O Senado brasileiro foi inspirado na Câmara dos Lordes do Reino Unido da Grã-Bretanha e Irlanda do Norte, mas com a proclamação da república do Brasil foi adotado um modelo semelhante ao do Senado dos Estados Unidos.
-.indicators
-  table#indicators
+          a[href="#"]
+            | Home
+          span.divider
+            | ⟩
+        li
+          a[href="#"]
+            | Brasil
+          span.divider
+            | ⟩
+        li.active
+          h1
+            | Senado Federal
+    .span7
+      .context-navigation
+        .year-navigation.pull-right
+          .btn-group
+            button.btn.btn-large[title='Ir para 2014']
+              span.icon-chevron-left
+            button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
+              | 2012 
+              span.icon-chevron-down
+            button.btn.btn-large[title='Ir para 2013']
+              span.icon-chevron-right
+            ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
+              - (2001..2013).to_a.reverse.each do |year|
+                li
+                  a[href='#']
+                    b
+                      | #{year}
+        .item-navigation
+          .btn-group
+            button.btn.btn-large
+              span.icon-chevron-left[title='Ir para  MINISTERIO PUBLICO DA UNIAO']
+            button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
+              | Senado Federal 
+              span.icon-chevron-down
+            button.btn.btn-large
+              span.icon-chevron-right[title='Ir para MINISTERIO DA CULTURA']
+            ruby:
+              @orgaos = [
+                'REFINANCIAMENTO DA DIVIDA PUBLICA MOBILIARIA FEDERAL',
+                'MINISTERIO DA PREVIDENCIA SOCIAL',
+                'ENCARGOS FINANCEIROS DA UNIAO',
+                'TRANSFERENCIAS A ESTADOS, DISTRITO FEDERAL E MUNICIPIOS',
+                'MINISTERIO DA SAUDE',
+                'MINISTERIO DA EDUCACAO',
+                'MINISTERIO DA DEFESA',
+                'MINISTERIO DO TRABALHO E EMPREGO',
+                'MINISTERIO DO DESENVOLVIMENTO SOCIAL E COMBATE À FOME',
+                'OPERACOES OFICIAIS DE CREDITO',
+                'MINISTERIO DAS CIDADES',
+                'MINISTERIO DA FAZENDA',
+                'MINISTERIO DOS TRANSPORTES',
+                'JUSTICA DO TRABALHO',
+                'MINISTERIO DO PLANEJAMENTO, ORCAMENTO E GESTAO',
+                'MINISTERIO DA JUSTICA',
+                'MINISTERIO DA INTEGRACAO NACIONAL',
+                'MINISTERIO DE MINAS E ENERGIA',
+                'MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO',
+                'MINISTERIO DA CIENCIA E TECNOLOGIA',
+                'RESERVA DE CONTINGENCIA',
+                'JUSTICA FEDERAL',
+                'MINISTERIO DO DESENVOLVIMENTO AGRARIO',
+                'MINISTERIO DAS COMUNICACOES',
+                'JUSTICA ELEITORAL',
+                'CAMARA DOS DEPUTADOS',
+                'PRESIDENCIA DA REPUBLICA',
+                'MINISTERIO DO MEIO AMBIENTE',
+                'MINISTERIO PUBLICO DA UNIAO',
+                'SENADO FEDERAL',
+                'MINISTERIO DA CULTURA',
+                'MINISTERIO DO TURISMO',
+                'MINISTERIO DO ESPORTE',
+                'MINISTERIO DO DESENVOLVIMENTO, INDUSTRIA E COMERCIO EXTERIOR',
+                'ADVOCACIA-GERAL DA UNIAO',
+                'MINISTERIO DAS RELACOES EXTERIORES',
+                'PRESIDENCIA DA REPUBLICA',
+                'JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS',
+                'TRIBUNAL DE CONTAS DA UNIAO',
+                'SECRETARIA DE PORTOS',
+                'SUPERIOR TRIBUNAL DE JUSTICA',
+                'CONTROLADORIA-GERAL DA UNIAO',
+                'MINISTERIO DA PESCA E AQÜICULTURA',
+                'SUPREMO TRIBUNAL FEDERAL',
+                'JUSTICA MILITAR DA UNIAO',
+                'SECRETARIA DE DIREITOS HUMANOS',
+                'CONSELHO NACIONAL DE JUSTICA',
+                'SECRETARIA DE POLITICAS PARA AS MULHERES',
+                'CONSELHO NACIONAL DO MINISTERIO PUBLICO',
+                'SECRETARIA DE POLITICAS DE PROMOCAO DA IGUALDADE RACIAL',
+                'SECRETARIA DE AVIACAO CIVIL',
+                'SECRETARIA DE ASSUNTOS ESTRATEGICOS',
+                'GABINETE DA VICE-PRESIDENCIA DA REPUBLICA',
+                'RECEITA DO TESOURO DA UNIAO',
+                'ADVOCACIA-GERAL DA UNIAO'
+              ].sort
+            ul.main-dropdown-navigation.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
+              - @orgaos.each do |orgao|
+                li
+                  a[href='#']
+                    = orgao
+h2
+  | Monitor
+.monitor
+  table
     tr
       th
-        h3
-          | Orçamento autorizado
+        br
+        | Orçamento autorizado
       th
-        h3
-          | Gasto
+        br
+        | Pagamentos (Pago + RP Pago)
       th
-        h3
-          | Percentual do total
+        br
+        | Percentual do total
     tr
       td
         .large-number[title="R$ 3.343.609.606,00"]
           | R$ 3.34
           small
             | bi
-        .positive-number[title="Variação em relação ao ano anterior"]
-          | ▲4%
+        p.positive-number[title="Variação em relação ao ano anterior"]
+          | Crescimento de ▲4% em relação à 2011
         p
-          small
-            | R$ 3.343.609.606,00
+          | Valor absoluto: R$ 3.343.609.606,00
       td
         .large-number[title="R$ 3.310.778.543,02"]
           | R$ 3.31
           small
             | bi
-        .positive-number[title="Variação em relação ao ano anterior"]
-          | ▲1%
+        p.positive-number[title="Variação em relação ao ano anterior"]
+          | Crescimento de ▲1% em relação à 2011
         p
-          small
-            | R$ 3.310.778.543,02
+          | Valor absoluto: R$ 3.310.778.543,02
       td
         .large-number[title="Representação do orçamento federal"]
           | 0.65
           small
             | %
-        .negative-number[title="Variação em relação ao ano anterior"]
-          | ▼0.3%
+        p.negative-number[title="Variação em relação ao ano anterior"]
+          | Redução de ▼0.3% em relação à 2011
         p
-          small
-            | Representação do orçamento federal
+          | Representação do orçamento federal
+h2
+  | Gráficos
 ul#graphs-tab-navigation.nav.nav-tabs
   li.active
     a[href='#monthly-tab' data-toggle='tab']
-      | Execuções por mês
+      | Pagamentos por mês
   li
     a[href='#gnd-tab' data-toggle='tab']
       | Gastos por Natureza de Despesa (GND)
@@ -149,9 +161,86 @@ ul#graphs-tab-navigation.nav.nav-tabs
 .tab-content
   #monthly-tab.tab-pane.active
     .gasto-acumulado-por-mes.graph
+      p.pull-right.muted
+        | Posicione o cursor sobre as áreas para visualizar detalhes.
       h3
-        | Execuções por mês
+        | Pagamentos por mês
       svg#monthly-graph
+      .graph-help
+        h3
+          | Endendendo o gráfico
+        dl
+          dt
+            | Autorizado
+          dd
+            | O orçamento <b>autorizado</b>.
+          dt
+            | Pagamentos Acumulados
+          dd
+            | Representação do acúmulo de pagamentos realizados a cada mês.
+          dt
+            | Pagamentos
+          dd
+            | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
+      .table-data
+        .pull-right
+          button.btn.btn-large
+            | <span class='icon-download'></span> Baixar dados em formato aberto
+        h3
+          | O gráfico em números
+        table.table.graph-numbers
+          thead
+            tr
+              th
+                | Mês 
+                span.icon-angle-down
+              th
+                | Ano
+              th
+                | Autorizado
+              th
+                | Pago
+              th
+                | RP Pago
+              th
+                | Pagamentos (Pago + RP Pago)
+              th
+                | Percentual
+          tbody
+            - x = 0
+            - 12.times do |i|
+              tr
+                td
+                  | #{i+1}
+                td
+                  | 2012
+                td
+                  | 3.452bi
+                td
+                  | 3.420bi
+                td
+                  | 0
+                td
+                  | 3.422bi
+                td
+                  .meter-wrapper
+                    - x = (x + (100.00/12.00)).round(2)
+                    .meter-graph[style="width: #{x}%;"]
+                      | #{x}%
+          tfoot
+            tr
+              td[colspan='2']
+                | Total
+              td
+                | 3.452bi
+              td
+                | 3.420bi
+              td
+                | 0
+              td
+                | 3.422bi
+              td
+                | 100%
   #gnd-tab.tab-pane
     .distribuicao-gnd.graph
       h3
