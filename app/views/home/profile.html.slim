@@ -1,7 +1,7 @@
 .profile-header
   .container
     .row
-      .span5
+      .span10
         ul.breadcrumb
           li
             a[href="#"]
@@ -16,17 +16,17 @@
           li.active
             h1
               = @orgao
-      .span7
+      .span2
         .context-navigation
           .year-navigation.pull-right
             .btn-group
               button.btn.btn-large[title='Ir para 2014']
-                span.icon-chevron-left
+                span.icon-angle-left
               button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
-                = @ano
-                span.icon-chevron-down
+                | #{@ano} 
+                span.icon-angle-down
               button.btn.btn-large[title='Ir para 2013']
-                span.icon-chevron-right
+                span.icon-angle-right
               ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
                 - (2001..2013).to_a.reverse.each do |year|
                   li
