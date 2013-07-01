@@ -10,24 +10,19 @@ html
   body
     header
       .container
+        form.search.pull-right
+          input.search-query[type="text" placeholder="Buscar…"]
         h1
           = link_to root_path, class: 'logo' do
             | Onde está o nosso dinheiro?
-        form.pull-right
-          input.search-query[type="text" placeholder="Buscar…"]
-        nav
-          a.active[href='#']
-            | Início
-          a[href='#']
-            | Sobre o projeto
-          a[href='#']
-            | Quem Somos
-          a[href='#']
-            | Perguntas Frequentes
-          a[href='#']
-            | Ajuda
-          a[href='#']
-            | Contato
+      nav
+        .container
+          = nav_link 'Início', root_path
+          = nav_link 'Sobre o Projeto', about_path
+          = nav_link 'Quem Somos', who_we_are_path
+          = nav_link 'Perguntas Frequentes', faq_path
+          = nav_link 'Ajuda', help_path
+          = nav_link 'Contato', contact_path
     #main
       = yield
     footer

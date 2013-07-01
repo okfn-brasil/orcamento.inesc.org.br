@@ -4,8 +4,24 @@ class HomeController < ApplicationController
   end
 
   def profile
-    @orgao = params[:orgao].gsub("-", " ").titleize
-    @ano = params[:ano].to_i
+    @slug   = params[:orgao]
+    @orgao  = params[:orgao].gsub("-", " ").titleize
+    @ano    = params[:ano].to_i
+  end
+
+  def about
+  end
+
+  def who_we_are
+  end
+
+  def faq
+  end
+
+  def help
+  end
+
+  def contact
   end
 
 end
