@@ -20,55 +20,85 @@
         .context-navigation
           .year-navigation.pull-right
             .btn-group
-              button.btn.btn-large[title='Ir para 2014']
+              a.btn.btn-large[title='Ir para 2014' href="/#{@slug}/#{@ano - 1}"]
                 span.icon-angle-left
               button.btn.btn-large.year.dropdown-toggle[data-toggle='dropdown']
                 | #{@ano} 
                 span.icon-angle-down
-              button.btn.btn-large[title='Ir para 2013']
+              a.btn.btn-large[title='Ir para 2013' href="/#{@slug}/#{@ano + 1}"]
                 span.icon-angle-right
               ul.dropdown-menu[role="menu" aria-labelledby="dropdownMenu"]
                 - (2001..2013).to_a.reverse.each do |year|
                   li
-                    a[href='#']
+                    a[href="/#{@slug}/#{year}"]
                       b
                         | #{year}
 .monitor
   .container
     .row
-      .span4.positive-value-box
+      .span4.value-box.positive-box
         h4
-          | Orçamento autorizado
+          | Orçamento Autorizado
+          br
+          small
+            | (#{@ano})
         .large-number[title="R$ 3.343.609.606,00"]
           | R$ 3.34
           small
-            | bi
+            | BI
         p.positive-number[title="Variação em relação ao ano anterior"]
-          | Crescimento de ▲4% em relação à 2011
+          | Crescimento de ▲4% em relação à #{@ano - 1}
         p
           | Valor absoluto: R$ 3.343.609.606,00
-      .span4.positive-value-box
+      .span4.value-box.positive-box
         h4
-          | Pagamentos (Pago + RP Pago)
+          | Pagamentos
+          br
+          small
+            | (Pago + RP Pago)
         .large-number[title="R$ 3.310.778.543,02"]
           | R$ 3.31
           small
-            | bi
+            | BI
         p.positive-number[title="Variação em relação ao ano anterior"]
-          | Crescimento de ▲1% em relação à 2011
+          | Crescimento de ▲1% em relação à #{@ano - 1}
         p
           | Valor absoluto: R$ 3.310.778.543,02
-      .span4.negative-value-box
+      .span4.value-box.attention-box
         h4
-          | Percentual do total
-        .large-number[title="Representação do orçamento federal"]
-          | 0.65
+          | Valor Restante
+          br
           small
-            | %
-        p.negative-number[title="Variação em relação ao ano anterior"]
-          | Redução de ▼0.3% em relação à 2011
+            | (Autorizado - Pagamentos)
+        .large-number[title="R$ 3.310.778.543,02"]
+          | R$ 32
+          small
+            | MI
+        p.positive-number[title="Variação em relação ao ano anterior"]
+          | Redução de ▲1% em relação à #{@ano - 1}
         p
-          | Representação do orçamento federal
+          | Valor absoluto: R$ 3.310.778.543,02
+    br
+    .row
+      .span12.value-box.negative-box
+        .span4
+          h4
+            | Percentual do total
+          .large-number[title="Representação do orçamento federal"]
+            | 0.65
+            small
+              | %
+          p.negative-number[title="Variação em relação ao ano anterior"]
+            | Redução de ▼0.3% em relação à 2011
+          p
+            | Representação do orçamento federal
+        .span7
+          .bar-graph
+            - (2001..2013).to_a.each do |year|
+              .meter[class="#{year == @ano ? 'this' : '' }"]
+                .meter-bar[style="height:#{(rand*100).to_i}%;"]
+                .meter-label
+                  | #{year}
 .graphs
   .tabs-navigation-wrapper
     .container
@@ -91,27 +121,6 @@
           h3
             | Pagamentos por mês
           svg#monthly-graph
-      .graph-help
-        .container
-          h3
-            | Interpretando o gráfico
-          .row
-            .span4
-              span.icon-bar-chart
-            .span8
-              dl
-                dt
-                  | Autorizado
-                dd
-                  | O orçamento <b>autorizado</b>.
-                dt
-                  | Pagamentos Acumulados
-                dd
-                  | Representação do acúmulo de pagamentos realizados a cada mês.
-                dt
-                  | Pagamentos
-                dd
-                  | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
       .table-data
         .container
           .pull-right
@@ -172,6 +181,27 @@
                   | 3420000000
                 td
                   | 100%
+      .graph-help
+        .container
+          h3
+            | Interpretando o gráfico
+          .row
+            .span4
+              span.icon-bar-chart
+            .span8
+              dl
+                dt
+                  | Autorizado
+                dd
+                  | O orçamento <b>autorizado</b>.
+                dt
+                  | Pagamentos Acumulados
+                dd
+                  | Representação do acúmulo de pagamentos realizados a cada mês.
+                dt
+                  | Pagamentos
+                dd
+                  | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
     #gnd-tab.tab-pane
       .distribuicao-gnd.graph
         .container

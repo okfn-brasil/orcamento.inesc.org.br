@@ -54,22 +54,29 @@ header {
     height: 35px;
     margin: 1em 0;
   }
+  .search {
+    padding: 2em 0 0;
+  }
   nav {
+    background: $blue;
+    padding: .5em 0;
     a {
-      color: $black;
+      &, &:visited {
+        color: white;
+      }
       padding: .25em .5em;
-      margin: 1em .5em 0 0;
+      margin: 0 .5em 0 0;
       display: inline-block;
       border-radius: 3px;
       &:hover {
         text-decoration: none;
-        background: $clouds;
+        background: white;
         color: $black;
       }
       &.active,
       &:hover.active {
-        background: $blue;
-        color: white;
+        background: white;
+        color: $blue;
       }
     }
   }

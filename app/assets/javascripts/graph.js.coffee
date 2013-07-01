@@ -31,22 +31,22 @@ INESC.Graphs.PaymentsPerMonth = do ->
          chart = nv.models.multiChart()
                .x((d,i) -> parseInt(d.x))
                .color(d3.scale.category20c().range())
-  
+
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
            dx = data[0].values[index] && data[0].values[index].x
            d3.time.format('%b')(new Date(dx))
          )
-     
+
          chart.yAxis1.showMaxMin(true)
              .tickFormat(d3.format(',s.2'))
-     
+
          d3.select(svgElement)
              .datum(data)
            .transition().duration(500).call(chart)
-     
+
          nv.utils.windowResize(chart.update)
-     
+
          chart
 
   processData = (autorizado, pago, rppago) ->
@@ -97,5 +97,4 @@ INESC.Graphs.parseUrl = ->
 
 $(document).ready ->
   [orgao, ano] = INESC.Graphs.parseUrl()
-  INESC.Graphs.PaymentsPerMonth.create(".graph svg", orgao, ano)
-
+  INESC.Graphs.PaymentsPerMonth.create("svg#monthly-graph", orgao, ano)

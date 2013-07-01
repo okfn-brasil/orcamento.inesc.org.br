@@ -36,29 +36,36 @@
     font-size: 1em;
     letter-spacing: 1px;
     margin: 0em;
+    small {
+      color: white;
+      font-weight: 300;
+      font-size: .75em;
+    }
   }
   p {
     margin: 0;
   }
-  .positive-value-box,
-  .negative-value-box {
+  .value-box {
     border-radius: 3px;
     padding: 1.5em 0;
     color: white;
     text-align: center;
   }
-  .positive-value-box {
+  .positive-box {
     background: $green;
   }
-  .negative-value-box {
+  .negative-box {
     background: $red;
+  }
+  .attention-box {
+    background: $orange;
   }
   .large-number {
     font-size: 3.5em;
     font-weight: 300;
     display: block;
     line-height: 1em;
-    margin: .75em 0;
+    margin: .5em 0 .75em;
     small {
       font-size: .75em;
       margin-left: .25em;
@@ -66,3 +73,29 @@
   }
 }
 
+.bar-graph {
+  height: 170px;
+  .meter {
+    display: inline-block;
+    font-size: 1em;
+    margin-right: .5em;
+    height: 150px;
+    position: relative;
+    opacity: .5;
+    width: 2.25em;
+    &.this {
+      opacity: 1;
+    }
+  }
+  .meter-bar {
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 2em;
+  }
+  .meter-label {
+    position: absolute;
+    bottom: -1.75em;
+    width: 2em;
+  }
+}
