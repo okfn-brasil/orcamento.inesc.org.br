@@ -41,9 +41,9 @@
           | Orçamento Autorizado
           br
           small
-            | (#{@ano})
+            | (referente à #{@ano})
         .large-number[title="R$ 3.343.609.606,00"]
-          | R$ 3.34
+          | R$ #{(rand*4).round(2)}
           small
             | BI
         p.positive-number[title="Variação em relação ao ano anterior"]
@@ -57,7 +57,7 @@
           small
             | (Pago + RP Pago)
         .large-number[title="R$ 3.310.778.543,02"]
-          | R$ 3.31
+          | R$ #{(rand*4).round(2)}
           small
             | BI
         p.positive-number[title="Variação em relação ao ano anterior"]
@@ -71,7 +71,7 @@
           small
             | (Autorizado - Pagamentos)
         .large-number[title="R$ 3.310.778.543,02"]
-          | R$ 32
+          | R$ #{(rand*4).round(2)}
           small
             | MI
         p.positive-number[title="Variação em relação ao ano anterior"]
@@ -80,25 +80,25 @@
           | Valor absoluto: R$ 3.310.778.543,02
     br
     .row
-      .span12.value-box.negative-box
-        .span4
+      .span12.bar-graph-box.negative-box
+        .span4.inner-box
           h4
             | Percentual do total
           .large-number[title="Representação do orçamento federal"]
-            | 0.65
+            | #{(rand*100).round(2)}
             small
               | %
           p.negative-number[title="Variação em relação ao ano anterior"]
             | Redução de ▼0.3% em relação à 2011
           p
             | Representação do orçamento federal
-        .span7
-          .bar-graph
-            - (2001..2013).to_a.each do |year|
-              .meter[class="#{year == @ano ? 'this' : '' }"]
-                .meter-bar[style="height:#{(rand*100).to_i}%;"]
-                .meter-label
-                  | #{year}
+        .span8.inner-box.bar-graph
+          - (2001..2013).to_a.each do |year|
+            - x = (rand*100).to_i
+            a.meter[class="#{year == @ano ? 'this' : '' }" title="#{x}% em #{year}" href="/#{@slug}/#{year}"]
+              .meter-bar[style="height:#{x}%;"]
+              .meter-label
+                | #{year}
 .graphs
   .tabs-navigation-wrapper
     .container

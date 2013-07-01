@@ -5,6 +5,7 @@
     background: white;
     font-size: 1.25em;
     text-transform: uppercase;
+    margin: 0;
     h1 {
       font-size: 1em;
       margin: 0;
@@ -16,15 +17,6 @@
     li {
       display: inline;
     }
-  }
-}
-
-.main-dropdown-navigation {
-  width: 940px;
-  li {
-    font-size: .875em;
-    float: left;
-    width: 49%;
   }
 }
 
@@ -45,17 +37,27 @@
   p {
     margin: 0;
   }
-  .value-box {
-    border-radius: 3px;
-    padding: 1.5em 0;
+  .value-box,
+  .bar-graph-box {
     color: white;
     text-align: center;
+    border-radius: 3px;
+  }
+  .value-box {
+    padding: 1.5em 0;
+  }
+  .bar-graph-box {
+    padding: 0;
+    .inner-box {
+      padding: 1.5em 0;
+      margin-left: 10px;
+    }
   }
   .positive-box {
     background: $green;
   }
   .negative-box {
-    background: $red;
+    background: $deep-red;
   }
   .attention-box {
     background: $orange;
@@ -74,7 +76,9 @@
 }
 
 .bar-graph {
-  height: 170px;
+  height: 180px;
+  background: $red;
+  border-radius: 0 3px 3px 0;
   .meter {
     display: inline-block;
     font-size: 1em;
@@ -83,7 +87,10 @@
     position: relative;
     opacity: .5;
     width: 2.25em;
-    &.this {
+    color: white;
+    -webkit-
+    &.this,
+    &:hover {
       opacity: 1;
     }
   }
