@@ -32,6 +32,7 @@
       color: white;
       font-weight: 300;
       font-size: .75em;
+      opacity: .5;
     }
   }
   p {
@@ -54,7 +55,7 @@
     }
   }
   .positive-box {
-    background: $green;
+    background: $blue;
   }
   .negative-box {
     background: $deep-red;
@@ -67,11 +68,16 @@
     font-weight: 300;
     display: block;
     line-height: 1em;
-    margin: .5em 0 .75em;
+    margin: .5em 0 .05em;
     small {
       font-size: .75em;
       margin-left: .25em;
     }
+  }
+  .absolute-value {
+    margin-bottom: 2em;
+    letter-spacing: 2px;
+    opacity: .5;
   }
 }
 
@@ -94,6 +100,9 @@
       opacity: 1;
     }
   }
+  span {
+    display: block;
+  }
   .meter-bar {
     position: absolute;
     bottom: 0;
@@ -103,6 +112,9 @@
   .meter-label {
     position: absolute;
     bottom: -1.75em;
-    width: 2.5em;
+    width: 3em;
+    font-size: .875em;
+    text-align: center;
+    letter-spacing: 1px;
   }
 }

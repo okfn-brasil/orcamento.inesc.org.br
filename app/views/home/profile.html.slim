@@ -41,10 +41,11 @@
           | R$ #{(rand*4).round(2)}
           small
             | BI
+        p.absolute-value
+          small
+            | R$ 3.343.609.606,00
         p.positive-number[title="Variação em relação ao ano anterior"]
-          | Crescimento de ▲4% em relação à #{@ano - 1}
-        p
-          | Valor absoluto: R$ 3.343.609.606,00
+          | ▲ 4% em relação à #{@ano - 1}
       .span4.value-box.positive-box
         h4
           | Pagamentos
@@ -55,10 +56,11 @@
           | R$ #{(rand*4).round(2)}
           small
             | BI
+        p.absolute-value
+          small
+            | R$ 3.310.778.543,02
         p.positive-number[title="Variação em relação ao ano anterior"]
-          | Crescimento de ▲1% em relação à #{@ano - 1}
-        p
-          | Valor absoluto: R$ 3.310.778.543,02
+          | ▲ 1% em relação à #{@ano - 1}
       .span4.value-box.attention-box
         h4
           | Não executado
@@ -69,10 +71,11 @@
           | R$ #{(rand*4).round(2)}
           small
             | MI
+        p.absolute-value
+          small
+            | R$ 31.778.543,02
         p.positive-number[title="Variação em relação ao ano anterior"]
-          | Redução de ▲1% em relação à #{@ano - 1}
-        p
-          | Valor absoluto: R$ 3.310.778.543,02
+          | ▼ 1% em relação à #{@ano - 1}
     br
     .row
       .span12.bar-graph-box.negative-box
@@ -83,16 +86,17 @@
             | #{(rand*100).round(2)}
             small
               | %
+          p.absolute-value
+            small
+              | #{@ano}
           p.negative-number[title="Variação em relação ao ano anterior"]
-            | Redução de ▼0.3% em relação à 2011
-          p
-            | Representação do orçamento federal
+            | ▼0.3% em relação à 2011
         .span8.inner-box.bar-graph
           - (2001..2013).to_a.each do |year|
             - x = (rand*100).to_i
             a.meter[class="#{year == @ano ? 'this' : '' }" title="#{x}% em #{year}" href="/#{@slug}/#{year}"]
-              .meter-bar[style="height:#{x}%;"]
-              .meter-label
+              span.meter-bar[style="height:#{x}%;"]
+              span.meter-label
                 | #{year}
 .graphs
   .tabs-navigation-wrapper
