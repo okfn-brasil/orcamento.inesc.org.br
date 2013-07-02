@@ -1,8 +1,18 @@
 .profile-header {
-  padding: 0 0 3em;
+  padding: 2em 0 0;
+  background: $clouds;
+  .btn-group {
+    .btn {
+      background: lighten($clouds, 4%);
+      &:hover {
+        background: white;
+      }
+    }
+  }
   .breadcrumb {
     padding: 0.8em 0;
-    background: white;
+    background: none;
+    border-radius: 0;
     font-size: 1.25em;
     text-transform: uppercase;
     margin: 0;
@@ -43,6 +53,7 @@
     color: white;
     text-align: center;
     border-radius: 3px;
+    border-bottom: 1px solid white;
   }
   .value-box {
     padding: 1.5em 0;
@@ -56,16 +67,28 @@
   }
   .positive-box {
     background: $blue;
+    h4,
+    .large-number {
+      text-shadow: $deep-blue 2px 2px 0;
+    }
   }
   .negative-box {
     background: $deep-red;
+    h4,
+    .large-number {
+      text-shadow: darken($deep-red, 10%) 2px 2px 0;
+    }
   }
   .attention-box {
     background: $orange;
+    h4,
+    .large-number {
+      text-shadow: darken($orange, 10%) 2px 2px 0;
+    }
   }
   .large-number {
     font-size: 3.5em;
-    font-weight: 300;
+    font-weight: 800;
     display: block;
     line-height: 1em;
     margin: .5em 0 .05em;

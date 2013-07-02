@@ -7,6 +7,11 @@
 #graphs-tab-navigation {
   margin-bottom: 0;
   border-bottom: 0 none;
+  text-align: center;
+  li {
+    float: none;
+    display: inline-block;
+  }
   a {
     color: $black;
   }
