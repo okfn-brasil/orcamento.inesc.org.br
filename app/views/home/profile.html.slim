@@ -4,13 +4,8 @@
       .span10
         ul.breadcrumb
           li
-            a[href="#"]
-              | Home
-            span.divider
-              | ⟩
-          li
-            a[href="#"]
-              | Brasil
+            = link_to root_path do
+              | Início
             span.divider
               | ⟩
           li.active
@@ -66,7 +61,7 @@
           | Valor absoluto: R$ 3.310.778.543,02
       .span4.value-box.attention-box
         h4
-          | Valor Restante
+          | Não executado
           br
           small
             | (Autorizado - Pagamentos)

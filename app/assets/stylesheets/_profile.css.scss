@@ -86,9 +86,9 @@
     height: 150px;
     position: relative;
     opacity: .5;
-    width: 2.25em;
+    width: 2.5em;
     color: white;
-    -webkit-
+    text-align: center;
     &.this,
     &:hover {
       opacity: 1;
@@ -98,11 +98,11 @@
     position: absolute;
     bottom: 0;
     background: white;
-    width: 2em;
+    width: 2.5em;
   }
   .meter-label {
     position: absolute;
     bottom: -1.75em;
-    width: 2em;
+    width: 2.5em;
   }
 }

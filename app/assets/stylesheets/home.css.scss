@@ -45,27 +45,35 @@ address {
 
 header {
   background: white;
-  .logo {
-    background: url(/assets/logo.png) no-repeat scroll left top;
-    background-size: 100%;
-    text-indent: -9999em;
-    display: block;
-    width: 400px;
-    height: 35px;
+  h1 {
+    font-size: 1.5em;
     margin: 1em 0;
+    .logo {
+      color: $black;
+    }
   }
   .search {
-    padding: 2em 0 0;
+    padding: 1.75em 0 0;
+    margin: 0;
+    input {
+      width: 300px;
+      -webkit-transition: width .25s ease-in;
+      -moz-transition: width .25s ease-in;
+      transition: width .25s ease-in;
+      &:focus {
+        width: 450px;
+      }
+    }
   }
   nav {
-    background: $blue;
+    background: $deep-blue;
     padding: .5em 0;
     a {
       &, &:visited {
         color: white;
       }
       padding: .25em .5em;
-      margin: 0 .5em 0 0;
+      margin: 0 .75em 0 0;
       display: inline-block;
       border-radius: 3px;
       &:hover {
@@ -85,10 +93,10 @@ header {
 #main,
 .monitor,
 footer {
-  padding: 3em 0;
+  padding: 3em 0 0;
 }
 .graphs {
-  padding: 0 0 3em;
+  padding: 0;
 }
 
 #main {

@@ -1,6 +1,6 @@
 .tabs-navigation-wrapper {
   background: $clouds;
-  padding-top: 1em;
+  padding-top: 3em;
   padding-left: 1em;
   border-bottom: 1px solid #DDD;
 }
@@ -17,6 +17,7 @@
     margin-top: 1em;
   }
 }
+
 .graph-help {
   background: $clouds;
   color: $gray;
@@ -36,6 +37,7 @@
     margin: 0 0 1.5em;
   }
 }
+
 .graph,
 .graph-help,
 .table-data {
@@ -53,7 +55,7 @@ svg#monthly-graph {
     .y1.axis,
     .x.axis {
       line {
-        stroke: #FFF;
+        stroke: white;
       }
       text {
         font-weight: 700;
@@ -80,13 +82,7 @@ svg#monthly-graph {
         stroke: $green !important;
       }
     }
-    .nv-group.nv-series-0 {
-      fill: $yellow !important;
-      stroke: $yellow !important;
-    }
     circle.nv-point {
-      fill: $yellow !important;
-      stroke: $yellow !important;
       stroke-opacity: 1 !important;
       fill-opacity: 1 !important;
       &:hover {
@@ -115,4 +111,19 @@ svg#monthly-graph {
   padding: 0 .25em;
   color: white;
   font-weight: 700;
+}
+.nvtooltip {
+  border-radius: 3px;
+  background: lighten($blue, 5%);
+  color: white;
+  border: 0 none;
+  box-shadow: none;
+  h3 {
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+    background: none;
+    box-shadow: none;
+    border-bottom: 0 none;
+  }
 }
