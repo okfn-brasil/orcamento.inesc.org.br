@@ -26,6 +26,8 @@ gem 'sass-rails', '~> 4.0.0.rc2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'angularjs-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
