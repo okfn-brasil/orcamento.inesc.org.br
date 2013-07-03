@@ -1,27 +1,7 @@
 angular.module('InescApp').directive 'monthlyGraph', ->
-  fetchData = (entity, year) ->
-    openspendingUrl = "http://openspending.org/api/2/aggregate?callback=?"
-    autorizadoParameters =
-      dataset: "inesc"
-      cut: "time.year:#{year}|#{entity.type}:#{entity.id}"
-      drilldown: "time.month|#{entity.type}"
-      order: "time.month:asc"
-
-    pagoParameters =
-      measure: "pago"
-
-    rppagoParameters =
-      measure: "rp-pago"
-
-    $.when(
-      $.getJSON(openspendingUrl, autorizadoParameters),
-      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, pagoParameters)),
-      $.getJSON(openspendingUrl, $.extend(autorizadoParameters, rppagoParameters))
-    )
-
-  buildGraph = (svgElement) -> (autorizado, pago, rppago) ->
+  buildGraph = (svgElement, entity) ->
      nv.addGraph () ->
-         data = processData(autorizado, pago, rppago)
+         data = processData(entity)
          chart = nv.models.multiChart()
                .x((d,i) -> parseInt(d.x))
                .color(d3.scale.category20c().range())
@@ -43,7 +23,11 @@ angular.module('InescApp').directive 'monthlyGraph', ->
 
          chart
 
-  processData = (autorizado, pago, rppago) ->
+  processData = (entity) ->
+    autorizado = entity.amounts.autorizado
+    pago = entity.amounts.pago
+    rppago = entity.amounts.rppago
+
     accumulateAmounts = (values, element) ->
       length = values.length
       amount = if length > 0 then values[length-1].y else 0
@@ -54,8 +38,8 @@ angular.module('InescApp').directive 'monthlyGraph', ->
       }
       values
 
-    pagamentos = pago[0].drilldown.map (element, i) ->
-      rppago_amount = rppago[0].drilldown[i]["rp-pago"]
+    pagamentos = pago.drilldown.map (element, i) ->
+      rppago_amount = rppago.drilldown[i]["rp-pago"]
       element.amount = element.pago + rppago_amount
       element
 
@@ -76,7 +60,7 @@ angular.module('InescApp').directive 'monthlyGraph', ->
         key: "Autorizado",
         yAxis: 1,
         type: "area",
-        values: autorizado[0].drilldown.reduce(accumulateAmounts, [])
+        values: autorizado.drilldown.reduce(accumulateAmounts, [])
       },
     ]
 
@@ -85,8 +69,8 @@ angular.module('InescApp').directive 'monthlyGraph', ->
     entity: '=',
     year: '='
   link: (scope, element, attributes) ->
-    scope.$watch 'entity.id + year', ->
+    scope.$watch 'entity.amounts + year', ->
       [entity, year] = [scope.entity, scope.year]
-      if entity? and entity.id? and entity.type? and year?
-        fetchData(entity, year).then(buildGraph(element[0]))
+      if entity? and entity.amounts? and year?
+        buildGraph(element[0], entity)
 
