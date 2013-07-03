@@ -53,13 +53,13 @@
         .span4.inner-box
           h4
             | Percentual do total
+            br
+            small
+              | (referente à #{@ano})
           .large-number[title="Representação do orçamento federal"]
             | #{(rand*100).round(2)}
             small
               | %
-          p.absolute-value
-            small
-              | #{@ano}
           p.negative-number[title="Variação em relação ao ano anterior"]
             | ▼0.3% em relação à 2011
         .span8.inner-box.bar-graph

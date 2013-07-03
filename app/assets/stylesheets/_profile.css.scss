@@ -71,12 +71,18 @@
     .large-number {
       text-shadow: $deep-blue 2px 2px 0;
     }
+    .bar-graph {
+      background: $deep-blue;
+    }
   }
   .negative-box {
     background: $deep-red;
     h4,
     .large-number {
       text-shadow: darken($deep-red, 10%) 2px 2px 0;
+    }
+    .bar-graph {
+      background: $red;
     }
   }
   .attention-box {
@@ -91,11 +97,7 @@
     font-weight: 800;
     display: block;
     line-height: 1em;
-    margin: .5em 0 .05em;
-    small {
-      font-size: .75em;
-      margin-left: .25em;
-    }
+    margin: .5em 0 .75em;
   }
   .absolute-value {
     margin-bottom: 2em;
@@ -106,7 +108,6 @@
 
 .bar-graph {
   height: 180px;
-  background: $red;
   border-radius: 0 3px 3px 0;
   .meter {
     display: inline-block;
