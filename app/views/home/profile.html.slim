@@ -65,7 +65,8 @@
         .span8.inner-box.bar-graph
           - (2001..2013).to_a.each do |year|
             - x = (rand*100).to_i
-            a.meter[class="#{year == @ano ? 'this' : '' }" title="#{x}% em #{year}" href="/#{@slug}/#{year}"]
+            label.meter[class="#{year == @ano ? 'current' : '' }"]
+              input[type='radio' name='yearly-change-graph']
               span.meter-bar[style="height:#{x}%;"]
               span.meter-label
                 | #{year}

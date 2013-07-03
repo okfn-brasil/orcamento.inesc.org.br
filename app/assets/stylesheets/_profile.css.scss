@@ -119,9 +119,12 @@
     width: 2.5em;
     color: white;
     text-align: center;
-    &.this,
+    &.current,
     &:hover {
       opacity: 1;
+    }
+    input[type='radio'] {
+      visibility: hidden;
     }
   }
   span {
