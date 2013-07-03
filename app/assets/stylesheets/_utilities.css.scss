@@ -18,3 +18,8 @@ $clouds: #ECF0F1;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+@mixin transition($params) {
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  transition: $params;
+}

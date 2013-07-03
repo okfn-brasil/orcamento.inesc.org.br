@@ -10,20 +10,19 @@ html[ng-app='InescApp']
   body[ng-controller='AppController']
     header
       .container
-        form.search.pull-right
-          input.search-query[type="text" ng-class="{loading: entity && !entities}" placeholder="Buscar…"
-          ng-model="entity" typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         h1
           = link_to root_path, class: 'logo' do
             | Onde está o nosso dinheiro?
-      nav
-        .container
+        nav
           = nav_link 'Início', root_path
           = nav_link 'Sobre o Projeto', about_path
           = nav_link 'Quem Somos', who_we_are_path
           = nav_link 'Perguntas Frequentes', faq_path
           = nav_link 'Ajuda', help_path
           = nav_link 'Contato', contact_path
+        form.search
+          input.search-query[type="text" ng-class="{loading: entity && !entities}" placeholder="Buscar…"
+          ng-model="entity" typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
     #main
       = yield
     footer
