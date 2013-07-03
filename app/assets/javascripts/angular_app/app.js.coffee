@@ -1,1 +1,1 @@
-angular.module('InescApp', ['$strap.directives'])
+angular.module('InescApp', ['ui.bootstrap'])

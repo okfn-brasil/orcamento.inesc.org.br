@@ -11,7 +11,8 @@ html[ng-app='InescApp']
     header
       .container
         form.search.pull-right
-          input.search-query[type="text" placeholder="Buscar…" ng-model="query" bs-typeahead="typeahead"]
+          input.search-query[type="text" placeholder="Buscar…"
+          ng-model="entity" typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         h1
           = link_to root_path, class: 'logo' do
             | Onde está o nosso dinheiro?
