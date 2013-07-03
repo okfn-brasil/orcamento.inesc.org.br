@@ -35,7 +35,10 @@ h2 {
 
 a,
 a:visited {
-  color: lighten($blue, 20%);
+  color: $blue;
+  &:hover {
+    color: lighten($blue,5%);
+  }
 }
 
 address {
@@ -66,27 +69,38 @@ header {
     }
   }
   nav {
-    background: $deep-blue;
+    /*background: $deep-blue;*/
     padding: .5em 0;
     a {
-      &, &:visited {
-        color: white;
-      }
       padding: .25em .5em;
       margin: 0 .75em 0 0;
       display: inline-block;
       border-radius: 3px;
+      &,
+      &:visited {
+        color: $black;
+      }
       &:hover {
         text-decoration: none;
-        background: white;
-        color: $black;
       }
       &.active,
       &:hover.active {
-        background: white;
         color: $blue;
       }
     }
+  }
+}
+
+.showcase {
+  background: url(/assets/showcase.jpg) no-repeat scroll center center; /*http://www.flickr.com/photos/zetotal/3840452595/*/
+  background-size: cover;
+  padding: 10em 0;
+  color: white;
+  text-shadow: $black 2px 2px 0;
+  h2 {
+    font-size: 3em;
+    font-weight: 800;
+    margin: 0 0 .5em;
   }
 }
 
