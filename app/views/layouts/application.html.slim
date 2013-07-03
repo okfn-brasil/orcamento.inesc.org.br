@@ -21,8 +21,11 @@ html[ng-app='InescApp']
           = nav_link 'Ajuda', help_path
           = nav_link 'Contato', contact_path
         form.search
-          input.search-query[type="text" ng-class="{loading: entity && !entities}" placeholder="Buscar…"
-          ng-model="entity" typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
+          input.search-query[type="text"
+            ng-class="{loading: entity && !entities}"
+            placeholder="Buscar…"
+            ng-model="entity"
+            typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
     #main
       = yield
     footer
