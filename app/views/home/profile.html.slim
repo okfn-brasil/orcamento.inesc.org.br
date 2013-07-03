@@ -53,10 +53,8 @@
         .span4.inner-box
           h4
             | Percentual do total
-          .large-number[title="Representação do orçamento federal"]
-            | #{(rand*100).round(2)}
-            small
-              | %
+          .large-number[title="Representação do orçamento federal"
+            ng-bind="autorizado | percentual:totals.autorizado"]
           p.absolute-value
             small
               | #{@ano}
