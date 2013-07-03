@@ -1,10 +1,4 @@
-INESC = {}
-INESC.Graphs = {}
-
-INESC.Graphs.PaymentsPerMonth = do ->
-  create = (svgElement, orgao, ano) ->
-    fetchData(orgao, ano).then(buildGraph(svgElement))
-
+angular.module('InescApp').directive 'monthlyGraph', ->
   fetchData = (orgao, ano) ->
     openspendingUrl = "http://openspending.org/api/2/aggregate"
     autorizadoParameters =
@@ -86,15 +80,12 @@ INESC.Graphs.PaymentsPerMonth = do ->
       },
     ]
 
-  api =
-    create: create
+  restrict: 'A',
+  scope:
+    entity: '=',
+    year: '='
+  link: (scope, element, attributes) ->
+    scope.$watch('entity + year', ->
+      fetchData(scope.entity, scope.year).then(buildGraph(element)) if scope.entity? and scope.year?
+    )
 
-INESC.Graphs.parseUrl = ->
-  url = window.location.pathname.substr(1)
-  [orgao, ano] = url.split("/")
-  [orgao.replace(/-/g, " ").trim().toUpperCase(),
-   parseInt(ano)]
-
-$(document).ready ->
-  [orgao, ano] = INESC.Graphs.parseUrl()
-  INESC.Graphs.PaymentsPerMonth.create("svg#monthly-graph", orgao, ano)

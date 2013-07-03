@@ -17,4 +17,3 @@
 //= require vendor/d3.v3
 //= require vendor/nv.d3
 //= require angular_app
-//= require graph
