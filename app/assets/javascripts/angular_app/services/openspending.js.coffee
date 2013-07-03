@@ -20,6 +20,17 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
           label: element.orgao.label
       deferred.resolve(result)
     deferred.promise
+  getTotals: ->
+    deferred = $q.defer()
+    $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=time.year").success (data) ->
+      years = data.drilldown.map (element) ->
+        year: element.time.year
+        autorizado: element.amount
+      totals =
+        years: years
+        autorizado: data.summary.amount
+      deferred.resolve(totals)
+    deferred.promise
   get: (entity, year) ->
     autorizadoParameters =
       dataset: dataset

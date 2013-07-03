@@ -69,7 +69,7 @@ angular.module('InescApp').directive 'monthlyGraph', ->
     entity: '=',
     year: '='
   link: (scope, element, attributes) ->
-    scope.$watch 'entity.autorizado + year', ->
+    scope.$watch 'entity.autorizado', ->
       [entity, year] = [scope.entity, scope.year]
       if entity? and entity.autorizado? and year?
         buildGraph(element[0], entity)
