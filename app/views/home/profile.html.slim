@@ -121,9 +121,6 @@
           svg#monthly-graph[monthly-graph entity='entity' year='2012']
       .table-data
         .container
-          .pull-right
-            button.btn.btn-large
-              | <span class='icon-download'></span> Baixar dados em formato aberto
           h3
             | O gráfico em números
           table.table.graph-numbers
@@ -179,32 +176,11 @@
                   | 3420000000
                 td
                   | 100%
-      .graph-help
-        .container
-          h3
-            | Interpretando o gráfico
-          .row
-            .span4
-              span.icon-bar-chart
-            .span8
-              dl
-                dt
-                  | Autorizado
-                dd
-                  | O orçamento <b>autorizado</b>.
-                dt
-                  | Pagamentos Acumulados
-                dd
-                  | Representação do acúmulo de pagamentos realizados a cada mês.
-                dt
-                  | Pagamentos
-                dd
-                  | Representação da soma dos valores <b>Pagos</b> com <b>RP Pagos</b> (restos a pagar).
     #gnd-tab.tab-pane
       .distribuicao-gnd.graph
         .container
           h3
-            | Gastos por Natureza da Despesa (GND)
+            | Grupo da Natureza da Despesa (GND)
           = image_tag 'proto/distribuicao-gnd.png'
     #uo-tab.tab-pane
       .distribuicao-uo.graph
@@ -212,3 +188,85 @@
           h3
             | Distribuição por Unidade Orçamentária (UO)
           = image_tag 'proto/distribuicao-uo.png'
+.graph-help
+  .container
+    h3
+      | Interpretando os gráficos
+    .row
+      .span4
+        span.icon-bar-chart
+      .span8
+        h3
+          | Pagamentos por mês
+        p
+          mark
+            | Interpretando o gráfico de pagamentos por mês
+        h3
+          | Distribuição por GND
+        p
+          mark
+            | Interpretando o gráfico de distribuição por GND
+        h3
+          | Distribuição por UO
+        p
+          mark
+            | Interpretando o gráfico de distribuição por UO
+        hr
+        h3
+          | Glossário
+        dl
+          dt
+            | Autorizado
+          dd
+            | O orçamento autorizado.
+          dt
+            | Grupo da Natureza da Despesa (GND)
+          dd
+            | Classificação da despesa agregando elementos de despesa com as mesmas características quanto ao objeto de gasto. Pode ser dividido em:
+            dl
+              dt
+                | 1 - Pessoal e Encargos Sociais
+              dd
+                | Inclui a despesa com o pagamento pelo efetivo serviço exercido de cargo/emprego ou função no setor público, quer civil ou militar, ativo ou inativo, bem como as obrigações de responsabilidade do empregador.
+              dt
+                | 2 - Juros e Encargos da Dívida
+              dd
+                | O adimplemento de juros, comissões, dívida pública mobiliária e despesas com operações de crédito internas e externas.
+              dt
+                | 3 - Outras Despesas Correntes
+              dd
+                | Os gastos com a manutenção das atividades dos órgãos, cujos exemplos mais típicos são: material de consumo, material de distribuição gratuita, passagens e despesas de locomoção, serviços de terceiros, locação de mão de obra, arrendamento mercantil, auxílio alimentação etc.
+              dt
+                | 4 - Investimentos
+              dd
+                | Toda e qualquer despesa relacionada com planejamento e execução de obras, aquisição de imóveis e instalações, equipamentos e material permanente, constituição ou aumento de capital de empresas que não sejam de caráter comercial ou financeiro.
+              dt
+                mark
+                  | 5 - Inversões Financeiras
+              dd
+                mark
+                  | ?
+              dt
+                mark
+                  | 6 - Amortização da Dívida
+              dd
+                mark
+                  | ?
+              dt
+                | 9 - Reserva de Contingência
+              dd
+                | Dotação global não especificamente destinada a determinado órgão, unidade orçamentária, programa ou categoria econômica, cujos recursos serão utilizados para abertura de créditos adicionais.
+          dt
+            | Pagamentos Acumulados
+          dd
+            | Representação do acúmulo de pagamentos realizados a cada mês.
+          dt
+            | Pagamentos
+          dd
+            | Representação da soma dos valores Pagos com RP Pagos (restos a pagar).
+          dt
+            | Unidade Orçamentária (UO)
+          dd
+            | Entidade da administração direta, inclusive fundo ou órgão autônomo, da administração indireta (autarquia, fundação ou empresa estatal) em cujo nome a lei orçamentária ou crédito adicional consigna, expressamente, dotações com vistas à sua manutenção e à realização de um determinado programa de trabalho. Constituem desdobramentos dos órgãos orçamentários.
+        a.btn.btn-large.btn-block[href='#']
+          | <span class='icon-download'></span> Baixar dados em formato aberto

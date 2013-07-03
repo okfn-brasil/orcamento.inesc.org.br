@@ -25,21 +25,25 @@
 
 .graph-help {
   background: $clouds;
-  color: $gray;
-  font-size: 1.25em;
-  text-shadow: lighten($clouds, 5%) 0 2px 0;
+  color: $black;
   span.icon-bar-chart {
     font-size: 14em;
+    color: $gray;
   }
   dt {
     margin: 0 0 .5em;
     font-weight: 300;
     text-transform: uppercase;
-    font-size: .75em;
     letter-spacing: 1px;
   }
   dd {
     margin: 0 0 1.5em;
+  }
+  dl {
+    font-size: 1em;
+    dl {
+      margin-left: 1em;
+    }
   }
 }
 
