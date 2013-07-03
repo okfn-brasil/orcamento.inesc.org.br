@@ -1,10 +1,10 @@
 angular.module('InescApp').directive 'monthlyGraph', ->
-  fetchData = (orgao, ano) ->
+  fetchData = (entity, year) ->
     openspendingUrl = "http://openspending.org/api/2/aggregate?callback=?"
     autorizadoParameters =
       dataset: "inesc"
-      cut: "time.year:#{ano}|orgao:#{orgao.id}"
-      drilldown: "orgao|time.month"
+      cut: "time.year:#{year}|#{entity.type}:#{entity.id}"
+      drilldown: "time.month|#{entity.type}"
       order: "time.month:asc"
 
     pagoParameters =
