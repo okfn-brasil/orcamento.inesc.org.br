@@ -1,6 +1,6 @@
 angular.module('InescApp').directive 'monthlyGraph', ->
   fetchData = (orgao, ano) ->
-    openspendingUrl = "http://openspending.org/api/2/aggregate"
+    openspendingUrl = "http://openspending.org/api/2/aggregate?callback=?"
     autorizadoParameters =
       dataset: "inesc"
       cut: "time.year:#{ano}|orgao.label:#{orgao}"
@@ -85,7 +85,6 @@ angular.module('InescApp').directive 'monthlyGraph', ->
     entity: '=',
     year: '='
   link: (scope, element, attributes) ->
-    scope.$watch('entity + year', ->
+    scope.$watch 'entity.id + year', ->
       fetchData(scope.entity, scope.year).then(buildGraph(element)) if scope.entity? and scope.year?
-    )
 

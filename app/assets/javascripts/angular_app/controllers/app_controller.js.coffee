@@ -1,6 +1,6 @@
 angular.module('InescApp').controller('AppController', ['$scope', ($scope) ->
   $scope.entities = []
-  $.getJSON 'http://openspending.org/api/2/aggregate?dataset=inesc&drilldown=orgao|unidade_orcamentaria', (data) ->
+  $.getJSON 'http://openspending.org/api/2/aggregate?callback=?&dataset=inesc&drilldown=orgao|unidade_orcamentaria', (data) ->
     result = []
     data.drilldown.map (element) ->
       # Os órgãos começam do índice 1. Como array começam do 0, tenho que
