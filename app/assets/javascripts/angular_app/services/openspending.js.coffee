@@ -41,11 +41,11 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) })
     ]).then (response) ->
       [autorizado, pago, rppago] = [response[0].data, response[1].data, response[2].data]
-      entity.amounts =
+      amounts =
         autorizado: autorizado,
         pago: pago,
         rppago: rppago
-      deferred.resolve entity
+      deferred.resolve $.extend(amounts, entity)
 
     deferred.promise
 

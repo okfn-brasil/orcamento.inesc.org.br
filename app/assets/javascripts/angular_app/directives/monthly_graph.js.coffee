@@ -24,9 +24,9 @@ angular.module('InescApp').directive 'monthlyGraph', ->
          chart
 
   processData = (entity) ->
-    autorizado = entity.amounts.autorizado
-    pago = entity.amounts.pago
-    rppago = entity.amounts.rppago
+    autorizado = entity.autorizado
+    pago = entity.pago
+    rppago = entity.rppago
 
     accumulateAmounts = (values, element) ->
       length = values.length
@@ -69,8 +69,8 @@ angular.module('InescApp').directive 'monthlyGraph', ->
     entity: '=',
     year: '='
   link: (scope, element, attributes) ->
-    scope.$watch 'entity.amounts + year', ->
+    scope.$watch 'entity.autorizado + year', ->
       [entity, year] = [scope.entity, scope.year]
-      if entity? and entity.amounts? and year?
+      if entity? and entity.autorizado? and year?
         buildGraph(element[0], entity)
 
