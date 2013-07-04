@@ -119,7 +119,7 @@
     width: 2.5em;
     color: white;
     text-align: center;
-    &.current,
+    & input:checked,
     &:hover {
       opacity: 1;
     }

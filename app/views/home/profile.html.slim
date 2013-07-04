@@ -60,13 +60,13 @@
           p.negative-number[title="Variação em relação ao ano anterior" ng-cloak]
             | ▼ 0.3% em relação à {{year - 1}}
         .span8.inner-box.bar-graph
-          - (2001..2013).to_a.each do |year|
-            - x = (rand*100).to_i
-            label.meter[class="#{year == @ano ? 'current' : '' }"]
-              input[type='radio' name='yearly-change-graph']
-              span.meter-bar[style="height:#{x}%;"]
-              span.meter-label
-                | #{year}
+          label.meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
+            input[type='radio'
+            name='yearly-change-graph'
+            ng-value='thisYear'
+            ng-model='$parent.year']
+            span.meter-bar[style="height:100%;"]
+            span.meter-label[ng-bind='thisYear']
 .graphs
   .tabs-navigation-wrapper
     .container
