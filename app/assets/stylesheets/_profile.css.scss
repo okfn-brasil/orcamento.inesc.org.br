@@ -109,22 +109,26 @@
 .bar-graph {
   height: 180px;
   border-radius: 0 3px 3px 0;
+  input[type='radio']:checked + label {
+    .meter-bar,
+    .meter-label {
+      opacity: 1;
+    }
+  }
+  input[type='radio'] {
+    visibility: hidden;
+  }
   .meter {
     display: inline-block;
     font-size: 1em;
     margin-right: .5em;
     height: 160px;
     position: relative;
-    opacity: .5;
     width: 2.5em;
     color: white;
     text-align: center;
-    & input:checked,
     &:hover {
       opacity: 1;
-    }
-    input[type='radio'] {
-      visibility: hidden;
     }
   }
   span {
@@ -135,6 +139,7 @@
     bottom: 0;
     background: white;
     width: 2.5em;
+    opacity: .5;
   }
   .meter-label {
     position: absolute;
@@ -143,5 +148,6 @@
     font-size: .875em;
     text-align: center;
     letter-spacing: 1px;
+    opacity: .5;
   }
 }

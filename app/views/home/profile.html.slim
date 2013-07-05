@@ -54,19 +54,21 @@
             br
             small
               | (referente à <span ng-bind="year"></span>)
-          .large-number[title="Representação do orçamento federal"
+          .large-number[title='Representação do orçamento federal'
             ng-bind="autorizado | percentual:totals.autorizado"]
           p.absolute-value
-          p.negative-number[title="Variação em relação ao ano anterior" ng-cloak]
+          p.negative-number[title='Variação em relação ao ano anterior' ng-cloak]
             | ▼ 0.3% em relação à {{year - 1}}
         .span8.inner-box.bar-graph
-          label.meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
-            input[type='radio'
-            name='yearly-change-graph'
-            ng-value='thisYear'
-            ng-model='$parent.year']
-            span.meter-bar[style="height:100%;"]
-            span.meter-label[ng-bind='thisYear']
+          .meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
+            input[id='select-year-{{thisYear}}'
+              type='radio'
+              name='yearly-change-graph'
+              ng-value='thisYear'
+              ng-model='$parent.year']
+            label[for='select-year-{{thisYear}}']
+              span.meter-bar[style='height:100%;']
+              span.meter-label[ng-bind='thisYear']
 .graphs
   .tabs-navigation-wrapper
     .container
