@@ -23,7 +23,36 @@
 .temp-navigation.container
   h3
     | Órgãos
-  ul
-    - @orgaos.each do |orgao|
-      li
-        = link_to "#{orgao} (2012)", "#{orgao.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')}/2012"
+  nav.pagination.pagination-centered
+    ul
+      - ('A'..'Z').to_a.each do |letter|
+        li
+          a[href='#']
+            = letter
+  table.table
+    tr
+      td
+        | A
+      td
+        a[href="advocacia-geral-da-uniao/2012"]
+          | ADVOCACIA-GERAL DA UNIAO (2012)
+    tr
+      td
+        | C
+      td
+        a[href="camara-dos-deputados/2012"]
+          | CAMARA DOS DEPUTADOS (2012)
+    tr
+      td
+      td
+        a[href="conselho-nacional-de-justica/2012"]
+          | CONSELHO NACIONAL DE JUSTICA (2012)
+    tr
+      td
+      td
+        a[href="conselho-nacional-do-ministerio-publico/2012"]
+          | CONSELHO NACIONAL DO MINISTERIO PUBLICO (2012)
+    tr
+      td
+      td
+        | …
