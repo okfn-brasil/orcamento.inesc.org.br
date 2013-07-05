@@ -61,13 +61,20 @@ header {
     margin: -.25em 0 1em;
     width: 100%;
     clear: both;
+    position: relative;
     input {
       @include border-box;
+      box-shadow: none;
+      border-radius: 0;
+      border: 2px solid $silver;
       font-size: 1.25em;
       height: 2em;
       line-height: 2em;
-      /*padding: .15em .75em;*/
       width: 100%;
+      &.loading {
+        background: url(/assets/spinner.gif) no-repeat scroll 99% center;
+        background-size: auto 80%;
+      }
     }
   }
   nav {
