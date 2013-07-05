@@ -76,10 +76,10 @@
     }
   }
   .negative-box {
-    background: $deep-red;
+    background: $red;
     h4,
     .large-number {
-      text-shadow: darken($deep-red, 10%) 2px 2px 0;
+      text-shadow: $deep-red 2px 2px 0;
     }
     .bar-graph {
       background: $red;
@@ -106,9 +106,13 @@
   }
 }
 
+.bar-graph-box {
+  background: $green;
+}
 .bar-graph {
   height: 180px;
   border-radius: 0 3px 3px 0;
+  background: $deep-green;
   input[type='radio']:checked + label {
     .meter-bar,
     .meter-label {

@@ -1,0 +1,47 @@
+.monitor
+  .container
+    .row
+      .span4.value-box.positive-box[data-amount="{{autorizado = entity.autorizado.summary.amount}}"]
+        h4
+          | Orçamento Autorizado
+          br
+          small[ng-cloak]
+            | (referente à {{year}})
+        .large-number[title="{{autorizado | currency:'R$ '}}" ng-bind="autorizado | roundedCurrency"]
+      .span4.value-box.negative-box[data-amount="{{pagamentos = entity.pago.summary.pago + entity.rppago.summary['rp-pago']}}"]
+        h4
+          | Pagamentos
+          br
+          small
+            | (Pago + RP Pago)
+        .large-number[title="{{pagamentos | currency:'R$ '}}" ng-bind="pagamentos | roundedCurrency"]
+      .span4.value-box.attention-box[data-amount="{{naoExecutado = autorizado - pagamentos}}"]
+        h4
+          | Não executado
+          br
+          small
+            | (Autorizado - Pagamentos)
+        .large-number[title="{{naoExecutado | currency:'R$ '}}" ng-bind="naoExecutado | roundedCurrency"]
+    br
+    .row
+      .span12.bar-graph-box
+        .span4.inner-box
+          h4
+            | Percentual do total
+            br
+            small
+              | (referente à <span ng-bind="year"></span>)
+          .large-number[title='Representação do orçamento federal'
+            ng-bind="autorizado | percentual:totals.autorizado"]
+          p.absolute-value
+        .span8.inner-box.bar-graph
+          .meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
+            input[id='select-year-{{thisYear}}'
+              type='radio'
+              name='yearly-change-graph'
+              ng-value='thisYear'
+              ng-model='$parent.year']
+            label[for='select-year-{{thisYear}}']
+              span.meter-bar[style='height:100%;']
+              span.meter-label[ng-bind='thisYear']
+    br

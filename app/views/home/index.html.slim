@@ -8,17 +8,43 @@
         a.btn-block.btn-large.btn[href='#']
           | <span class="icon-download"></span> Baixar os dados
 
+.graphs
+  .container
+    .pull-right
+      select
+        - (2001..2013).to_a.reverse.each do |year|
+          option
+            = year
+    h3
+      | O Orçamento Federal
+
+= render "shared/monitor"
+
 .graph
   .container
     .function
-      .pull-right
-        select
-          - (2001..2013).to_a.reverse.each do |year|
-            option
-              = year
       h3
         | Distribuição federal por Função
       iframe.funcao-treemap src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0'
+
+.graph-help
+  .container
+    h3
+      | Interpretando o gráfico de distribuição por Função
+    .row
+      .span4
+        span.icon-bar-chart
+      .span8
+        h3
+          | Encargos especiais
+        p
+          mark
+            | Descrição de encargos especiais
+        h3
+          | Previdência social
+        p
+          mark
+            | Descrição de previdência social
 
 .temp-navigation.container
   h3
