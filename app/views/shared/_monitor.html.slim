@@ -1,27 +1,30 @@
 .monitor
   .container
     .row
-      .span4.value-box.positive-box[data-amount="{{autorizado = entity.autorizado.summary.amount}}"]
+      .span4.value-box.positive-box
         h4
           | Orçamento Autorizado
           br
           small[ng-cloak]
             | (referente à {{year}})
-        .large-number[title="{{autorizado | currency:'R$ '}}" ng-bind="autorizado | roundedCurrency"]
-      .span4.value-box.negative-box[data-amount="{{pagamentos = entity.pago.summary.pago + entity.rppago.summary['rp-pago']}}"]
+        .large-number[title="{{entity.autorizado.total | currency:'R$ '}}"
+          ng-bind="entity.autorizado.total | roundedCurrency"]
+      .span4.value-box.negative-box
         h4
           | Pagamentos
           br
           small
             | (Pago + RP Pago)
-        .large-number[title="{{pagamentos | currency:'R$ '}}" ng-bind="pagamentos | roundedCurrency"]
-      .span4.value-box.attention-box[data-amount="{{naoExecutado = autorizado - pagamentos}}"]
+        .large-number[title="{{entity.pagamentos.total | currency:'R$ '}}"
+          ng-bind="entity.pagamentos.total | roundedCurrency"]
+      .span4.value-box.attention-box
         h4
-          | Não executado
+          | Não Executado
           br
           small
             | (Autorizado - Pagamentos)
-        .large-number[title="{{naoExecutado | currency:'R$ '}}" ng-bind="naoExecutado | roundedCurrency"]
+        .large-number[title="{{entity.naoExecutado.total | currency:'R$ '}}"
+          ng-bind="entity.naoExecutado.total | roundedCurrency"]
     br
     .row
       .span12.bar-graph-box
@@ -32,7 +35,7 @@
             small
               | (referente à <span ng-bind="year"></span>)
           .large-number[title='Representação do orçamento federal'
-            ng-bind="autorizado | percentual:totals.autorizado"]
+            ng-bind="entity.autorizado.total | percentual:totals.autorizado"]
           p.absolute-value
         .span8.inner-box.bar-graph
           .meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
