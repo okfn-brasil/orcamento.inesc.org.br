@@ -16,20 +16,25 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
     updateRoute = ->
       newUrl = generateUrl($scope.entity, $scope.year)
       if window.location.pathname != newUrl
-        if window.history
+        if window.history && !inRootPage()
           window.history.pushState({}, '', newUrl)
         else
           window.location.pathname = newUrl
 
     parseUrl = ->
-      urlParts = window.location.pathname.substr(1).split('/')
-      id = if urlParts == 3
-             slugToId(urlParts[1]) # É uma unidade orçamentária
+      return if inRootPage()
+      path = window.location.pathname.substr(1)
+      parts = path.split('/')
+      id = if parts == 3
+             slugToId(parts[1]) # É uma unidade orçamentária
            else
-             slugToId(urlParts[0]) # É um órgão
+             slugToId(parts[0]) # É um órgão
 
       $scope.entity = entity for entity in $scope.entities when parseInt(entity.id) is id
-      $scope.year = parseInt(urlParts[urlParts.length-1])
+      $scope.year = parseInt(parts[parts.length-1])
+
+    inRootPage = () ->
+      window.location.pathname == '/'
 
     generateUrl = (entity, year) ->
       entitySlug = slugify(entity)
