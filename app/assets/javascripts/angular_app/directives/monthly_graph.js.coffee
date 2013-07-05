@@ -4,7 +4,7 @@ angular.module('InescApp').directive 'monthlyGraph', ->
          data = processData(entity)
          chart = nv.models.multiChart()
                .x((d,i) -> parseInt(d.x))
-               .color(d3.scale.category20c().range())
+               .color(['#E74C3C','#C0392b','#3498DB'])
 
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1

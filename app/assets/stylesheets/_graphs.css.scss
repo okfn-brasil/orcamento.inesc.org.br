@@ -77,8 +77,6 @@ svg#monthly-graph {
     }
     .nv-series-0 {
       rect.nv-bar.positive {
-        fill: $blue !important;
-        stroke: $blue !important;
         fill-opacity: .5 !important;
         &:hover {
           fill-opacity: .75 !important;
@@ -123,7 +121,7 @@ svg#monthly-graph {
 }
 .nvtooltip {
   border-radius: 3px;
-  background: lighten($blue, 5%);
+  background: lighten($red, 5%);
   color: white;
   border: 0 none;
   box-shadow: none;
