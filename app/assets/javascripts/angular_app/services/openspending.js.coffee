@@ -10,14 +10,15 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       data.drilldown.map (element) ->
         # Os órgãos começam do índice 1. Como array começam do 0, tenho que
         # diminuir um elemento, ou o bootstrap tentará acessar um elemento nulo.
-        result[element.unidade_orcamentaria.id-1] =
-          id: element.unidade_orcamentaria.name
-          type: 'unidade_orcamentaria'
-          label: element.unidade_orcamentaria.label
         result[element.orgao.id-1] =
           id: element.orgao.name
           type: 'orgao'
           label: element.orgao.label
+        result[element.unidade_orcamentaria.id-1] =
+          id: element.unidade_orcamentaria.name
+          type: 'unidade_orcamentaria'
+          label: element.unidade_orcamentaria.label
+          orgao: result[element.orgao.id-1]
       deferred.resolve(result)
     deferred.promise
   getTotals: ->
