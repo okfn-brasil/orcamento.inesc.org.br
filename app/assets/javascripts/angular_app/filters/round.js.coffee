@@ -1,8 +1,9 @@
 angular.module('InescApp').filter 'round', ->
   (value, sufix='') ->
-    decimalCases = if value > 100
+    absValue = Math.abs(value)
+    decimalCases = if absValue > 100
                      0
-                   else if value > 10
+                   else if absValue > 10
                      1
                    else
                      2
