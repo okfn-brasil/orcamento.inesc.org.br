@@ -7,6 +7,7 @@ Inesc::Application.routes.draw do
   get  'contato' => 'home#contact', as: :contact
 
   get  '/:orgao/:ano' => 'home#profile'
+  get  '/:orgao/:unidade_orcamentaria/:ano' => 'home#profile'
 
   root 'home#index'
 
