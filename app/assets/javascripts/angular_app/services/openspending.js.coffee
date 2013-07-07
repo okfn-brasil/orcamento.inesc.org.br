@@ -62,7 +62,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         rppago: rppago
         pagamentos: pagamentos
         naoExecutado: naoExecutado
-      deferred.resolve $.extend(amounts, entity)
+      deferred.resolve $.extend(entity, amounts)
 
     deferred.promise
 
