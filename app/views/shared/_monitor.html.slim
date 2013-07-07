@@ -38,13 +38,13 @@
             ng-bind="entity.autorizado.total | percentual:totals.autorizado"]
           p.absolute-value
         .span8.inner-box.bar-graph
-          .meter[ng-repeat='thisYear in [2010, 2011, 2012, 2013]']
-            input[id='select-year-{{thisYear}}'
+          .meter[ng-repeat='thisYear in totals.years']
+            input[id='select-year-{{thisYear.year}}'
               type='radio'
               name='yearly-change-graph'
-              ng-value='thisYear'
+              ng-value='thisYear.year'
               ng-model='$parent.year']
-            label[for='select-year-{{thisYear}}']
+            label[for='select-year-{{thisYear.year}}']
               span.meter-bar[style='height:100%;']
-              span.meter-label[ng-bind='thisYear']
+              span.meter-label[ng-bind='thisYear.year']
     br

@@ -14,7 +14,7 @@
         .context-navigation
           .year-navigation.pull-right
             select[ng-model='year'
-            ng-options='y for y in [2013, 2012, 2011, 2010]']
+            ng-options='y.year for thisYear in totals.years']
 
 = render "shared/monitor"
 
