@@ -52,8 +52,8 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
       slug = slug.trim().toLowerCase()
 
       # remove accents, swap ñ for n, etc
-      from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;"
-      to   = "aaaaeeeeiiiioooouuuunc------"
+      from = "àáäâãèéëêìíïîòóöôõùúüûñç·/_,:;"
+      to   = "aaaaaeeeeiiiiooooouuuunc------"
       for char, i in from
         slug = slug.replace(new RegExp(char, 'g'), to.charAt(i))
 
