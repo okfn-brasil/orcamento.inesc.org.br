@@ -1,4 +1,4 @@
-angular.module('InescApp').directive 'monthlyGraph', ->
+angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
   buildGraph = (svgElement, entity) ->
      nv.addGraph () ->
          data = processData(entity)
@@ -9,11 +9,11 @@ angular.module('InescApp').directive 'monthlyGraph', ->
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
            dx = data[0].values[index] && data[0].values[index].x
-           d3.time.format('%b')(new Date(dx))
+           $filter('month')(dx)
          )
 
          chart.yAxis1.showMaxMin(true)
-             .tickFormat(d3.format(',s.2'))
+             .tickFormat($filter('roundedCurrency'))
 
          d3.select(svgElement)
              .datum(data)
@@ -73,4 +73,5 @@ angular.module('InescApp').directive 'monthlyGraph', ->
       [entity, year] = [scope.entity, scope.year]
       if entity? and entity.autorizado? and year?
         buildGraph(element[0], entity)
+]
 

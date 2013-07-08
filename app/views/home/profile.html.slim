@@ -42,61 +42,7 @@
           svg#monthly-graph[monthly-graph entity='entity' year='year']
       .table-data
         .container
-          h3
-            | O gráfico em números
-          table.table.graph-numbers
-            thead
-              tr
-                th
-                  | Mês 
-                  span.icon-angle-down
-                th
-                  | Ano
-                th
-                  | Autorizado
-                th
-                  | Pago
-                th
-                  | RP Pago
-                th
-                  | Pagamentos (Pago + RP Pago)
-                th
-                  | Percentual
-            tbody
-              - x = 0
-              - 12.times do |i|
-                tr
-                  td
-                    | #{i+1}
-                  td
-                    | 2012
-                  td
-                    | 3420000000
-                  td
-                    | 3420000000
-                  td
-                    | 3420000000
-                  td
-                    | 3420000000
-                  td
-                    .meter-wrapper
-                      - x = (x + (100.00/12.00)).round(2)
-                      .meter-graph[style="width: #{x}%;"]
-                        | #{x}%
-            tfoot
-              tr
-                td[colspan='2']
-                  | Total
-                td
-                  | 3420000000
-                td
-                  | 3420000000
-                td
-                  | 3420000000
-                td
-                  | 3420000000
-                td
-                  | 100%
+          table-graph[entity='entity']
     #gnd-tab.tab-pane
       .distribuicao-gnd.graph
         .container

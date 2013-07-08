@@ -63,7 +63,9 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
     ]).then (response) ->
       [autorizado, pago, rppago, yearlyPago] = [response[0].data, response[1].data, response[2].data, response[3].data]
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
-      pagamentos = total: pago.summary.pago + rppago.summary['rp-pago']
+      pago = $.extend(pago, total: pago.summary.pago)
+      rppago = $.extend(rppago, total: rppago.summary['rp-pago'])
+      pagamentos = total: pago.total + rppago.total
       naoExecutado = total: autorizado.total - pagamentos.total
       amounts =
         autorizado: autorizado
