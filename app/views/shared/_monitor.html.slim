@@ -27,24 +27,4 @@
           ng-bind="entity.naoExecutado.total | roundedCurrency"]
     br
     .row
-      .span12.bar-graph-box
-        .span4.inner-box
-          h4
-            | Percentual do total
-            br
-            small
-              | (referente à <span ng-bind="year"></span>)
-          .large-number[title='Representação do orçamento federal'
-            ng-bind="entity.autorizado.total | percentual:totals.autorizado"]
-          p.absolute-value
-        .span8.inner-box.bar-graph
-          .meter[ng-repeat='thisYear in totals.years']
-            input[id='select-year-{{thisYear.year}}'
-              type='radio'
-              name='yearly-change-graph'
-              ng-value='thisYear.year'
-              ng-model='$parent.year']
-            label[for='select-year-{{thisYear.year}}']
-              span.meter-bar[style='height:100%;']
-              span.meter-label[ng-bind='thisYear.year']
-    br
+      percentual-graph[entity='entity' totals='totals' year='year']

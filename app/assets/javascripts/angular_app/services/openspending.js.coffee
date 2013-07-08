@@ -33,10 +33,14 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       deferred.resolve(totals)
     deferred.promise
   get: (entity, year) ->
-    autorizadoParameters =
+    parameters =
       dataset: dataset
-      cut: "time.year:#{year}|#{entity.type}:#{entity.id}"
-      drilldown: "time.month|#{entity.type}"
+      cut: "#{entity.type}:#{entity.id}"
+
+    autorizadoParameters =
+      dataset: parameters.dataset
+      cut: parameters.cut + "|time.year:#{year}"
+      drilldown: "time.month"
       order: "time.month:asc"
 
     pagoParameters =
@@ -45,14 +49,19 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
     rppagoParameters =
       measure: "rp-pago"
 
+    yearlyPagoParameters =
+      drilldown: "time.year"
+      order: "time.year:asc"
+
     deferred = $q.defer()
 
     $q.all([
       $http.jsonp(aggregateUrl, { params: autorizadoParameters }),
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, pagoParameters) }),
-      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) })
+      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) }),
+      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyPagoParameters) })
     ]).then (response) ->
-      [autorizado, pago, rppago] = [response[0].data, response[1].data, response[2].data]
+      [autorizado, pago, rppago, yearlyPago] = [response[0].data, response[1].data, response[2].data, response[3].data]
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
       pagamentos = total: pago.summary.pago + rppago.summary['rp-pago']
       naoExecutado = total: autorizado.total - pagamentos.total
@@ -62,6 +71,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         rppago: rppago
         pagamentos: pagamentos
         naoExecutado: naoExecutado
+        yearly: yearlyPago.drilldown
       deferred.resolve $.extend(entity, amounts)
 
     deferred.promise
