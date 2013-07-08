@@ -1,5 +1,5 @@
 angular.module('InescApp').directive 'percentualGraph', ->
-  buildGraph = (entity, totals) ->
+  calculateYears = (entity, totals) ->
     years = entity.yearly.map (year) ->
       totalsYear = $.grep(totals.years, (element) -> element.year == year.time.year)[0]
       total = totalsYear.autorizado if totalsYear
@@ -56,7 +56,7 @@ angular.module('InescApp').directive 'percentualGraph', ->
     scope.$watch 'entity.yearly + totals + year', ->
       [entity, totals, year] = [scope.entity, scope.totals, scope.year]
       if entity? and entity.yearly? and totals? and year?
-        scope.years = buildGraph(entity, totals)
+        scope.years = calculateYears(entity, totals)
         scope.currentYear = $.grep(scope.years, (thisYear) ->
           parseInt(thisYear.label) == parseInt(year)
         )[0]
