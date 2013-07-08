@@ -25,7 +25,7 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
       return if inRootPage()
       path = window.location.pathname.substr(1)
       parts = path.split('/')
-      id = if parts == 3
+      id = if parts.length == 3
              slugToId(parts[1]) # É uma unidade orçamentária
            else
              slugToId(parts[0]) # É um órgão
