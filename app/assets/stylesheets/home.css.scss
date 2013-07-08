@@ -119,9 +119,16 @@ header {
   }
 }
 
-.monitor,
+.home-header {
+  background: $clouds;
+  padding-top: 2em;
+  .year-navigation {
+    padding-top: 1em;
+  }
+}
+
 footer {
-  padding: 3em 0 0;
+  padding: 2em 0;
 }
 .graphs {
   padding: 0;
@@ -145,6 +152,12 @@ footer {
 iframe.funcao-treemap {
   width: 100%;
   height: 500px;
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  &:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+  }
 }
 
 @import 'profile';

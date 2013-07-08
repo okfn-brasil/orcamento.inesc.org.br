@@ -31,6 +31,7 @@
 }
 
 .monitor {
+  padding: 1em 0;
   background: $clouds;
   h4 {
     font-weight: 300;
@@ -42,7 +43,7 @@
       color: white;
       font-weight: 300;
       font-size: .75em;
-      opacity: .5;
+      opacity: .75;
     }
   }
   p {

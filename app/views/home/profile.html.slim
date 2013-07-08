@@ -11,10 +11,9 @@
           li.active
             h1[ng-bind='entity.label']
       .span3
-        .context-navigation
-          .year-navigation.pull-right
-            select[ng-model='year'
-            ng-options='y.year for thisYear in totals.years']
+        .year-navigation.pull-right
+          select[ng-model='year'
+          ng-options='y.year for thisYear in totals.years']
 
 = render "shared/monitor"
 

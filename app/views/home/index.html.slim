@@ -8,9 +8,9 @@
         a.btn-block.btn-large.btn[href='#']
           | <span class="icon-download"></span> Baixar os dados
 
-.graphs
+.home-header
   .container
-    .pull-right
+    .year-navigation.pull-right
       select
         - (2001..2013).to_a.reverse.each do |year|
           option
@@ -24,7 +24,7 @@
   .container
     .function
       h3
-        | Distribuição federal por Função
+        | Distribuição do orçamento autorizado federal por Função
       iframe.funcao-treemap src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0'
 
 .graph-help
@@ -45,6 +45,11 @@
         p
           mark
             | Descrição de previdência social
+        h3
+          | …
+        p
+          mark
+            | …
 
 .temp-navigation.container
   h3
