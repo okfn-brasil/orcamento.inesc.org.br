@@ -21,32 +21,33 @@ angular.module('InescApp').directive 'tableGraph', ->
   template: '<h3>O gráfico em números</h3>' +
             '<table class="table graph-numbers">' +
               '<thead>' +
-              '<tr>' +
-                '<th>Mês</th>' +
-                '<th>Autorizado</th>' +
-                '<th>Pago</th>' +
-                '<th>RP Pago</th>' +
-                '<th>Pagamentos (Pago + RP Pago)</th>' +
-              '</tr>' +
+                '<tr>' +
+                  '<th>Mês</th>' +
+                  '<th>Autorizado (em R$)</th>' +
+                  '<th>Pago (em R$)</th>' +
+                  '<th>RP Pago (em R$)</th>' +
+                  '<th>Pagamentos (Pago + RP Pago, em R$)</th>' +
+                '</tr>' +
+              '</thead>' +
               '<tbody>' +
-              '<tr ng-repeat="month in months">' +
-                '<td>{{month.label | month}}</td>' +
-                '<td>{{month.autorizado | currency:""}}</td>' +
-                '<td>{{month.pago | currency:""}}</td>' +
-                '<td>{{month.rppago | currency:""}}</td>' +
-                '<td>{{month.pagamentos | currency:""}}</td>' +
-              '</tr>' +
-              '<tfoot>' +
-              '<tr>' +
-                '<td>Total</td>' +
-                '<td>{{entity.autorizado.total | currency:""}}</td>' +
-                '<td>{{entity.pago.total | currency:""}}</td>' +
-                '<td>{{entity.rppago.total | currency:""}}</td>' +
-                '<td>{{entity.pagamentos.total | currency:""}}</td>' +
-              '</tr>' +
-              '</tfoot>' +
+                '<tr ng-repeat="month in months">' +
+                  '<td>{{month.label | month}}</td>' +
+                  '<td class="number-value">{{month.autorizado | currency:""}}</td>' +
+                  '<td class="number-value">{{month.pago | currency:""}}</td>' +
+                  '<td class="number-value">{{month.rppago | currency:""}}</td>' +
+                  '<td class="number-value">{{month.pagamentos | currency:""}}</td>' +
+                '</tr>' +
               '</tbody>' +
-              '</table>'
+              '<tfoot>' +
+                '<tr>' +
+                  '<td>Total</td>' +
+                  '<td class="number-value">{{entity.autorizado.total | currency:""}}</td>' +
+                  '<td class="number-value">{{entity.pago.total | currency:""}}</td>' +
+                  '<td class="number-value">{{entity.rppago.total | currency:""}}</td>' +
+                  '<td class="number-value">{{entity.pagamentos.total | currency:""}}</td>' +
+                '</tr>' +
+              '</tfoot>' +
+            '</table>'
 
   link: (scope, element, attributes) ->
     scope.$watch 'entity.autorizado', ->

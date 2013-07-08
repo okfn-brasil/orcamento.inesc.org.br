@@ -107,17 +107,17 @@ svg#monthly-graph {
     }
   }
 }
-/* TABLE */
-.meter-wrapper {
-  @include border-box;
-  background: $black;
-}
-.meter-graph {
-  @include border-box;
-  background: $green;
-  padding: 0 .25em;
-  color: white;
-  font-weight: 700;
+.graph-numbers {
+  thead {
+    th {
+      text-align: center;
+    }
+  }
+  .number-value {
+    font-family: 'Menlo', 'Andale Mono', monospace;
+    font-size: 1.25em;
+    text-align: right;
+  }
 }
 .nvtooltip {
   border-radius: 3px;
