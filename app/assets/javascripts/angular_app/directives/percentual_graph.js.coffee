@@ -34,8 +34,10 @@ angular.module('InescApp').directive 'percentualGraph', ->
     year: '='
   template: '<div class="span12 bar-graph-box">' +
               '<div class="span4 inner-box">' +
-                '<h4>Percentual do total</h4><br/>' +
-                '<small>(referente à <span>{{currentYear.label}}</span>)</small>' +
+                '<h4>' +
+                  'Percentual do total<br/>' +
+                  '<small>(referente à <span>{{currentYear.label}}</span>)</small>' +
+                '</h4>' +
                 '<div class="large-number" title="Representação do orçamento federal"' +
                 'ng-bind="currentYear.percentual | percentual"></div>' +
                 '<p class="absolute-value"></p>' +
