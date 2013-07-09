@@ -6,6 +6,11 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
                .x((d,i) -> parseInt(d.x))
                .color(['#E74C3C','#C0392b','#3498DB'])
 
+         chart.tooltipContent((key, x, y, e, graph) ->
+           "<h3>#{key}</h3>" +
+           "<p>#{y} em #{x}</p>"
+         )
+
          chart.xAxis.showMaxMin(true).tickFormat((d) ->
            index = d - 1
            dx = data[0].values[index] && data[0].values[index].x
