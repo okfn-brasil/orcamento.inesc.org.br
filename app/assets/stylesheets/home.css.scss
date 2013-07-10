@@ -57,8 +57,8 @@ header {
     }
   }
   .search {
-    padding: 0;
-    margin: -.25em 0 1em;
+    padding: 0 0 2em;
+    margin: -.25em 0 0;
     width: 100%;
     clear: both;
     position: relative;
@@ -107,11 +107,9 @@ header {
 }
 
 .showcase {
-  background: url(/assets/showcase.jpg) no-repeat scroll center center; /*http://www.flickr.com/photos/zetotal/3840452595/*/
-  background-size: cover;
+  background: $black;
   padding: 10em 0;
   color: white;
-  text-shadow: $black 2px 2px 0;
   h2 {
     font-size: 3em;
     font-weight: 800;

@@ -23,7 +23,7 @@ html[ng-app='InescApp']
         form.search
           input.search-query[type="text"
             ng-class="{loading: entity && !entities}"
-            placeholder="Buscar…"
+            placeholder="Buscar por órgão ou unidade orçamentária…"
             ng-model="entity"
             typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
     #main
