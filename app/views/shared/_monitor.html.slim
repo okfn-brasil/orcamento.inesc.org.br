@@ -26,5 +26,6 @@
         .large-number[title="{{entity.naoExecutado.total | currency:'R$ '}}"
           ng-bind="entity.naoExecutado.total | roundedCurrency"]
     br
-    .row
-      percentual-graph[entity='entity' totals='totals' year='year']
+    - unless params['action'] == 'index'
+      .row
+        percentual-graph[entity='entity' totals='totals' year='year']
