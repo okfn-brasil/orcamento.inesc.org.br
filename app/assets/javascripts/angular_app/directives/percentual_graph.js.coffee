@@ -43,13 +43,14 @@ angular.module('InescApp').directive 'percentualGraph', ->
                 '<p class="absolute-value"></p>' +
               '</div>' +
               '<div class="span8 inner-box bar-graph">' +
-                '<div class="meter" title="{{year.amount | currency:\'R$ \'}}"' +
+                '<div class="meter" title="{{year.amount | currency:\'R$ \'}} ({{year.percentual}}%)"' +
                 'ng-repeat="year in years">' +
                   '<input id="select-year-{{year.label}}" type="radio"' +
                   'ng-value="year.label" ng-model="$parent.$parent.year">' +
                   '<label for="select-year-{{year.label}}">' +
                     '<span class="meter-bar" style="height: {{year.height}}%;"></span>' +
-                    '<span class="meter-label" ng-bind="year.label"></span>' +
+                    '<span class="meter-year" ng-bind="year.label"></span>' +
+                    '<span class="meter-percentual" ng-bind="year.percentual"></span>' +
                   '</label>' +
                 '</div>' +
               '</div>' +

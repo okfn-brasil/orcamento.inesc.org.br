@@ -139,20 +139,29 @@
   span {
     display: block;
   }
-  .meter-bar {
+  .meter-bar,
+  .meter-year,
+  .meter-percentual {
     position: absolute;
-    bottom: 0;
-    background: white;
-    width: 2.5em;
+    font-size: .875em;
+    width: 3em;
+    text-align: center;
+  }
+  .meter-bar,
+  .meter-year {
     opacity: .5;
   }
-  .meter-label {
-    position: absolute;
+  .meter-bar {
+    bottom: 0;
+    background: white;
+  }
+  .meter-year {
     bottom: -1.75em;
-    width: 3em;
-    font-size: .875em;
-    text-align: center;
     letter-spacing: 1px;
-    opacity: .5;
+  }
+  .meter-percentual {
+    bottom: 0;
+    color: darken($deep-green,10%);
+    font-weight: 900;
   }
 }
