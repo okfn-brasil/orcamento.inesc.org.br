@@ -107,18 +107,7 @@ svg#monthly-graph {
     }
   }
 }
-.graph-numbers {
-  thead {
-    th {
-      text-align: center;
-    }
-  }
-  .number-value {
-    font-family: 'Menlo', 'Andale Mono', monospace;
-    font-size: 1.25em;
-    text-align: right;
-  }
-}
+
 .nvtooltip {
   border-radius: 3px;
   background: lighten($red, 5%);
