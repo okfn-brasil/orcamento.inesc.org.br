@@ -61,7 +61,7 @@ angular.module('InescApp').directive 'percentualGraph', ->
       if entity? and entity.yearly? and totals? and year?
         scope.years = calculateYears(entity, totals)
         scope.currentYear = $.grep(scope.years, (thisYear) ->
-          parseInt(thisYear.label) == parseInt(year)
+          thisYear.label == year
         )[0]
 
 
