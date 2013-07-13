@@ -2,7 +2,7 @@ doctype html
 html[ng-app='InescApp']
   head
     title
-      | Onde está o nosso dinheiro?
+      | Orçamento ao seu Alcance
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     link[href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"]
     link[href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css']
@@ -12,13 +12,13 @@ html[ng-app='InescApp']
       .container
         h1
           = link_to root_path, class: 'logo' do
-            | Onde está o nosso dinheiro?
+            span.icon-compass.icon-large>
+            | Orçamento ao seu Alcance
         nav
-          = nav_link 'Início', root_path
           = nav_link 'Sobre o Projeto', about_path
           = nav_link 'Quem Somos', who_we_are_path
           = nav_link 'Perguntas Frequentes', faq_path
-          = nav_link 'Ajuda', help_path
+          = nav_link 'Análises do Orçamento Federal', budget_analysis_path
           = nav_link 'Contato', contact_path
         form.search
           input.search-query[type="text"
@@ -30,20 +30,34 @@ html[ng-app='InescApp']
       = yield
     footer
       .container
-        .row
-          .span1
+        .nav
+          = nav_link 'Sobre o Projeto', about_path
+          = nav_link 'Quem Somos', who_we_are_path
+          = nav_link 'Perguntas Frequentes', faq_path
+          = nav_link 'Análises do Orçamento Federal', budget_analysis_path
+          = nav_link 'Contato', contact_path
+        .share
+          = link_to '#', class: 'btn' do
+            span.icon-facebook.icon-large>
+            b
+              | facebook
+          = link_to '#', class: 'btn' do
+            span.icon-twitter.icon-large>
+            b
+              | twitter
+          = link_to '#', class: 'btn' do
+            span.icon-google-plus.icon-large>
+            b
+              | google+
+        .authorship
+          = link_to 'http://www.inesc.org.br/', target: '_blank' do
             = image_tag 'inesc-small.png'
-          .span11.last
-            p
-              | © #{Time.new.year} · 
-              a[href='http://www.inesc.org.br/' target='_blank']
-                | Inesc · Instituto de Estudos Socioeconômicos
-            address
-              | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
-            p.contact
-              | E-mail: 
-              a[href='mailto:protocoloinesc@inesc.org.br']
-                | protocoloinesc@inesc.org.br
-              |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
+            | Inesc · Instituto de Estudos Socioeconômicos
+          = link_to 'http://br.okfn.br/', target: '_blank' do
+            = image_tag 'okfn-small.png'
+            | OpenKnowledge Foundation Brazil
+        .colophon
+          p
+            | #{Time.new.year} · #{link_to 'Licença', '#'} · #{link_to 'Código no github', 'http://github.com/vitorpbaptista/inesc', target: '_blank'}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     / #TODO ANALYTICS

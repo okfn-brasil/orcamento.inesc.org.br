@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 
-  def index
-  end
+  def index; end
 
   def profile
     @slug   = params[:orgao]
@@ -9,19 +8,14 @@ class HomeController < ApplicationController
     @ano    = params[:ano].to_i
   end
 
-  def about
-  end
+  def about; end
 
-  def who_we_are
-  end
+  def who_we_are; end
 
-  def faq
-  end
+  def faq; end
 
-  def help
-  end
+  def budget_analysis; end
 
-  def contact
-  end
+  def contact; end
 
 end
