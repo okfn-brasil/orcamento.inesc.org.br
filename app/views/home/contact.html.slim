@@ -1,10 +1,7 @@
-.contact
+.contact.content
   .container
     h1
       | Contato
-    p
-      mark
-        | Tire suas dúvidas
     .row
       form.span6
         label
@@ -20,9 +17,15 @@
           | Enviar
       .span6
         p
-          mark
-            | Nomes e Telefones
-            br
-            | Nomes e Emails
-            br
-            | Endereço
+          = link_to 'http://www.inesc.org.br/', target: '_blank' do
+            | Inesc · Instituto de Estudos Socioeconômicos
+        address
+          | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
+        p.contact
+          | E-mail: 
+          = link_to 'mailto:protocoloinesc@inesc.org.br', target: '_blank' do
+            | protocoloinesc@inesc.org.br
+          |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
+        p
+          = link_to 'http://br.okfn.br/', target: '_blank' do
+            | OpenKnowledge Foundation Brazil
