@@ -13,40 +13,30 @@
             = year
     h3
       | O Orçamento Federal
-
 = render "shared/monitor"
-
 .graph
   .container
-    .function
-      h3
-        | Distribuição do orçamento autorizado federal por Função
-      iframe.funcao-treemap src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0'
-
-.graph-help
-  .container
     h3
-      | Interpretando o gráfico de distribuição por Função
+      | Distribuição do Orçamento Autorizado por Função e Subfunção
     .row
+      .span8.function
+        iframe.funcao-treemap[src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0']
       .span4
-        span.icon-bar-chart
-      .span8
-        h3
-          | Encargos especiais
-        p
-          mark
-            | Descrição de encargos especiais
-        h3
-          | Previdência social
-        p
-          mark
-            | Descrição de previdência social
-        h3
-          | …
-        p
-          mark
+        h4
+          | Interpretando o gráfico
+        dl
+          dt
+            | Encargos Especiais
+          dd
             | …
-
+          dt
+            | Previdência social
+          dd
+            | …
+          dt
+            | Saúde
+          dd
+            | …
 .temp-navigation.container
   h3
     | Órgãos

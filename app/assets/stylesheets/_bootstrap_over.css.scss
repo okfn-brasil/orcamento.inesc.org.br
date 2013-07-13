@@ -25,3 +25,27 @@
     }
   }
 }
+
+.alert-info {
+  background-color: $blue;
+  text-shadow: none;
+  border: 0 none;
+  color: white;
+}
+
+.dropdown-menu {
+  @include border-box;
+  min-width: 100%;
+  box-shadow: none;
+  border-radius: 0;
+  border: 2px solid $blue;
+  border-top: 0 none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background: $blue;
+}

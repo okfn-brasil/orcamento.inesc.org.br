@@ -21,9 +21,10 @@ html[ng-app='InescApp']
           = nav_link 'Análises do Orçamento Federal', budget_analysis_path
           = nav_link 'Contato', contact_path
         form.search
+          span.icon-search
           input.search-query[type="text"
             ng-class="{loading: entity && !entities}"
-            placeholder="Buscar por órgão ou unidade orçamentária…"
+            placeholder="buscar por órgão ou unidade orçamentária do governo federal"
             ng-model="entity"
             typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
     #main
