@@ -3,29 +3,22 @@
     h1
       | Contato
     .row
-      form.span6
-        label
-          | Nome
-        input[type='text']
-        label
-          | Email
-        input[type='text']
-        label
-          | Mensagem
-        textarea
-        button.btn.btn-large.btn-block
-          | Enviar
-      .span6
+      .span7
         p
           = link_to 'http://www.inesc.org.br/', target: '_blank' do
             | Inesc · Instituto de Estudos Socioeconômicos
-        address
+        p.address
           | SCS, QD 01, Bloco L, Nº 17, cobertura · Ed Marcia, Brasília, DF · CEP 70.307-900
         p.contact
           | E-mail: 
           = link_to 'mailto:protocoloinesc@inesc.org.br', target: '_blank' do
             | protocoloinesc@inesc.org.br
-          |  Fone: +55 61 3212 0200 · Fax: +55 61 3212 0216
+          br
+          |  Fone: +55 61 3212 0200
+          br
+          | Fax: +55 61 3212 0216
         p
           = link_to 'http://br.okfn.br/', target: '_blank' do
             | OpenKnowledge Foundation Brazil
+      .span5.illustration
+        span.icon-comment.icon-huge
