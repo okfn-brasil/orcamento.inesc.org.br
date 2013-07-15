@@ -1,9 +1,11 @@
 .showcase
   .container
     .row
-      .span8
+      .span7
         h2
           | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
+      .span5
+        = image_tag 'logo.png'
 .home-header
   .container
     .year-navigation.pull-right
@@ -40,36 +42,30 @@
 .temp-navigation.container
   h3
     | Órgãos
-  nav.pagination.pagination-centered
-    ul
-      - ('A'..'Z').to_a.each do |letter|
-        li
-          a[href='#']
-            = letter
+  form.search
+    span.icon-search
+    input.search-query[type="text"
+      ng-class="{loading: entity && !entities}"
+      placeholder="buscar por órgão ou unidade orçamentária do governo federal"
+      ng-model="entity"
+      typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
   table.table
     tr
-      td
-        | A
       td
         a[href="advocacia-geral-da-uniao/2012"]
           | ADVOCACIA-GERAL DA UNIAO (2012)
     tr
       td
-        | C
-      td
         a[href="camara-dos-deputados/2012"]
           | CAMARA DOS DEPUTADOS (2012)
     tr
-      td
       td
         a[href="conselho-nacional-de-justica/2012"]
           | CONSELHO NACIONAL DE JUSTICA (2012)
     tr
       td
-      td
         a[href="conselho-nacional-do-ministerio-publico/2012"]
           | CONSELHO NACIONAL DO MINISTERIO PUBLICO (2012)
     tr
-      td
       td
         | …

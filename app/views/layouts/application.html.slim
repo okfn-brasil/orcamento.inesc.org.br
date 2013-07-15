@@ -12,7 +12,7 @@ html[ng-app='InescApp']
       .container
         h1
           = link_to root_path, class: 'logo' do
-            span.icon-compass.icon-large>
+            = image_tag 'logo.png'
             | Orçamento ao seu Alcance
         nav
           = nav_link 'Sobre o Projeto', about_path
@@ -20,13 +20,6 @@ html[ng-app='InescApp']
           = nav_link 'Perguntas Frequentes', faq_path
           = nav_link 'Análises do Orçamento Federal', budget_analysis_path
           = nav_link 'Contato', contact_path
-        form.search
-          span.icon-search
-          input.search-query[type="text"
-            ng-class="{loading: entity && !entities}"
-            placeholder="buscar por órgão ou unidade orçamentária do governo federal"
-            ng-model="entity"
-            typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
     #main
       = yield
     footer
