@@ -9,7 +9,7 @@ angular.module('InescApp').directive 'percentualGraph', ->
       percentual: calculatePercentual(year.amount, total)
     percentuals = years.map (year) -> year.percentual
     scale = d3.scale.linear()
-              .domain([min(percentuals), max(percentuals)])
+              .domain([0, max(percentuals)])
               .range([1, 100])
     years.map (year) ->
       year.height = scale(year.percentual)
