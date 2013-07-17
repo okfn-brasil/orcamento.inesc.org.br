@@ -13,7 +13,7 @@
       .span3
         .year-navigation.pull-right
           select[ng-model='year'
-          ng-options='thisYear.year as thisYear.year for thisYear in totals.years | orderBy:"year":"reverse"']
+          ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
 
 = render "shared/monitor"
 
