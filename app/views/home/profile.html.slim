@@ -2,14 +2,7 @@
   .container
     .row
       .span9
-        ul.breadcrumb
-          li
-            = link_to root_path do
-              | Início
-            span.divider
-              | ⟩
-          li.active
-            h1[ng-bind='entity.label']
+        h1[ng-bind='entity.label']
       .span3
         .year-navigation.pull-right
           select[ng-model='year'
