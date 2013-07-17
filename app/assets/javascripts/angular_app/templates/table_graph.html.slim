@@ -1,0 +1,39 @@
+h3
+  | O gráfico em números
+table.table.graph-numbers
+  thead
+    tr
+      th
+        | Mês
+      th
+        | Autorizado (em R$)
+      th
+        | Pago (em R$)
+      th
+        | RP Pago (em R$)
+      th
+        | Pagamentos (Pago + RP Pago, em R$)
+  tbody
+    tr[ng-repeat="month in months"]
+      td
+        | {{month.label | month}}
+      td.number-value
+        | {{month.autorizado | currency:""}}
+      td.number-value
+        | {{month.pago | currency:""}}
+      td.number-value
+        | {{month.rppago | currency:""}}
+      td.number-value
+        | {{month.pagamentos | currency:""}}
+  tfoot
+    tr
+      td
+        | Total
+      td.number-value
+        | {{entity.autorizado.total | currency:""}}
+      td.number-value
+        | {{entity.pago.total | currency:""}}
+      td.number-value
+        | {{entity.rppago.total | currency:""}}
+      td.number-value
+        | {{entity.pagamentos.total | currency:""}}

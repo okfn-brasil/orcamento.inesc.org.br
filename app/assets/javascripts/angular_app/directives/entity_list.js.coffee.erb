@@ -1,0 +1,27 @@
+angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
+  buildList = (element, entities, year) ->
+    orgaos = entities.filter((entity) -> !entity.orgao?)
+      .map (orgao) ->
+        url = routing.generateUrl(orgao, year)
+        ["<a href='#{url}'>#{orgao.label}</a>"]
+
+    element.dataTable
+      aaData: orgaos
+      aoColumns: [ sTitle: 'Órgão' ]
+      bPaginate: false
+      sDom: 'ft'
+      oLanguage:
+        sSearch: 'Filtrar:'
+
+  restrict: 'E',
+  template: '<table></table>',
+  scope:
+    entities: '='
+  link: (scope, element, attributes) ->
+    currentYear = new Date().getFullYear().toString()
+    table = $(element).children('table')
+    scope.$watch 'entities', ->
+      entities = scope.entities
+      buildList(table, entities, currentYear) if entities?
+]
+
