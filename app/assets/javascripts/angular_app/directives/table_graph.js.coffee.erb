@@ -6,7 +6,7 @@ angular.module('InescApp').directive 'tableGraph', ->
       months[element.time.month].autorizado = element.amount
     $.each entity.rppago.drilldown, (i, element) ->
       months[element.time.month] ||= {label: element.time.month}
-      months[element.time.month].rppago = element['rp-pago']
+      months[element.time.month].rppago = element.rppago
     $.each entity.pago.drilldown, (i, element) ->
       months[element.time.month] ||= {label: element.time.month}
       months[element.time.month].pago = element.pago

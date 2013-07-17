@@ -44,7 +44,7 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
       values
 
     pagamentos = pago.drilldown.map (element, i) ->
-      rppago_amount = rppago.drilldown[i]["rp-pago"]
+      rppago_amount = rppago.drilldown[i].rppago
       element.amount = element.pago + rppago_amount
       element
 

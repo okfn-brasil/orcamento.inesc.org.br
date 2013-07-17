@@ -1,7 +1,7 @@
 angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) ->
   url = 'http://openspending.org/api/2'
   aggregateUrl = "#{url}/aggregate?callback=JSON_CALLBACK"
-  dataset = "inesc"
+  dataset = "orcamento_federal"
 
 
   get = (entity, year) ->
@@ -20,7 +20,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       measure: "pago"
 
     rppagoParameters =
-      measure: "rp-pago"
+      measure: "rppago"
 
     yearlyParameters =
       drilldown: "time.year"
@@ -37,7 +37,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       [autorizado, pago, rppago, yearly] = [response[0].data, response[1].data, response[2].data, response[3].data]
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
       pago = $.extend(pago, total: pago.summary.pago)
-      rppago = $.extend(rppago, total: rppago.summary['rp-pago'])
+      rppago = $.extend(rppago, total: rppago.summary.rppago)
       pagamentos = total: pago.total + rppago.total
       naoExecutado = total: autorizado.total - pagamentos.total
       amounts =
@@ -53,7 +53,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
 
   query: ->
     deferred = $q.defer()
-    $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=orgao|unidade_orcamentaria").success (data) ->
+    $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=orgao|uo").success (data) ->
       result = []
       data.drilldown.map (element) ->
         # Os órgãos começam do índice 1. Como array começam do 0, tenho que
@@ -62,10 +62,10 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
           id: element.orgao.name
           type: 'orgao'
           label: element.orgao.label
-        result[element.unidade_orcamentaria.id-1] =
-          id: element.unidade_orcamentaria.name
-          type: 'unidade_orcamentaria'
-          label: element.unidade_orcamentaria.label
+        result[element.uo.id-1] =
+          id: element.uo.name
+          type: 'uo'
+          label: element.uo.label
           orgao: result[element.orgao.id-1]
       deferred.resolve(result)
     deferred.promise
