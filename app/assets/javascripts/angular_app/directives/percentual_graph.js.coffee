@@ -24,9 +24,6 @@ angular.module('InescApp').directive 'percentualGraph', ->
   max = (array) ->
     Math.max.apply(Math, array)
 
-  min = (array) ->
-    Math.min.apply(Math, array)
-
   restrict: 'E',
   scope:
     entity: '=',
