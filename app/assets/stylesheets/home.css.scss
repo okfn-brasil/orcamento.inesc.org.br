@@ -72,12 +72,12 @@ header {
       position: absolute;
       color: $silver;
       font-size: 1.5em;
-      left: .45em;
+      right: .45em;
       top: 1.55em;
     }
     input {
       @include border-box;
-      padding-left: 1.75em;
+      padding-right: 1.75em;
       box-shadow: none;
       border-radius: 2em;
       border: 2px solid $silver;
@@ -228,6 +228,62 @@ iframe.funcao-treemap {
       }
       td {
         white-space: nowrap;
+      }
+    }
+  }
+}
+
+.persistent-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $silver;
+  display: none;
+  &.show {
+    display: block;
+  }
+  form,
+  select {
+    margin: 0;
+  }
+  .container {
+    padding: .5em 0;
+  }
+  .logo-small,
+  .search,
+  .year-navigation {
+    display: block;
+    float: left;
+  }
+  .search {
+    margin: 0 .5em;
+    position: relative;
+    width: 400px;
+    span.icon-search {
+      position: absolute;
+      color: $silver;
+      font-size: 1.5em;
+      right: .45em;
+      top: .25em;
+    }
+    input {
+      @include border-box;
+      padding-right: 1.75em;
+      box-shadow: none;
+      border-radius: 2em;
+      border: 2px solid $silver;
+      font-size: 1.15em;
+      height: 2em;
+      line-height: 2em;
+      width: 100%;
+      &:focus {
+        box-shadow: none;
+        border-color: $blue;
+      }
+      &.loading {
+        background: url(/assets/spinner.gif) no-repeat scroll 99% center;
+        background-size: auto 80%;
       }
     }
   }

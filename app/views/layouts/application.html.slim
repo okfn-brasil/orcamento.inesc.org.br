@@ -24,21 +24,23 @@ html[ng-app='InescApp']
                 ng-model="entity"
                 typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         nav
-          = nav_link 'Sobre o Projeto', about_path
-          = nav_link 'Quem Somos', who_we_are_path
-          = nav_link 'Perguntas Frequentes', faq_path
-          = nav_link 'Análises do Orçamento Federal', budget_analysis_path
-          = nav_link 'Contato', contact_path
+          ruby:
+            @links = {
+              about: 'Sobre o Projeto',
+              who_we_are: 'Quem Somos',
+              faq: 'Perguntas Frequentes',
+              budget_analysis: 'Análises do Orçamento Federal',
+              contact: 'Contato'
+            }
+          - @links.each do |key, value|
+            = nav_link value, key
     #main
       = yield
     footer
       .container
         .nav
-          = nav_link 'Sobre o Projeto', about_path
-          = nav_link 'Quem Somos', who_we_are_path
-          = nav_link 'Perguntas Frequentes', faq_path
-          = nav_link 'Análises do Orçamento Federal', budget_analysis_path
-          = nav_link 'Contato', contact_path
+          - @links.each do |key, value|
+            = nav_link value, key
         .share
           = link_to '#', class: 'btn' do
             span.icon-facebook.icon-large>
@@ -62,5 +64,32 @@ html[ng-app='InescApp']
         .colophon
           p
             | #{Time.new.year} · #{link_to 'Licença', '#'} · #{link_to 'Código no github', 'https://github.com/okfn-brasil/orcamento-ao-seu-alcance', target: '_blank'}
+    .persistent-header
+      .container
+        = link_to root_path, class: 'logo-small' do
+          = image_tag 'logo.png', size: '32x32'
+        form.search
+          span.icon-search
+          input.search-query[type="text"
+            ng-class="{loading: entity && !entities}"
+            placeholder="buscar por órgão ou unidade orçamentária do governo federal"
+            ng-model="entity"
+            typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
+        .year-navigation
+          select[ng-model='year'
+          ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
+        .btn-group.pull-right
+          a.btn.dropdown-toggle[data-toggle="dropdown" href="#"]
+            | Menu
+            span.icon-caret-down
+          ul.dropdown-menu
+            - @links.each do |key, value|
+              li
+                = nav_link value, key
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    javascript:
+      $(window).scroll(function () {
+        var pheader = $('.persistent-header');
+        $(window).scrollTop() < 130 ? pheader.removeClass('show') : pheader.addClass('show');
+      });
     / #TODO ANALYTICS
