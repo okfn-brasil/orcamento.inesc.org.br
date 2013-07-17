@@ -1,4 +1,6 @@
 angular.module('InescApp').controller('AppController', ['$scope', 'openspending', ($scope, openspending) ->
+    inRootPage = window.location.pathname == '/'
+
     openspending.query().then (entities) ->
       $scope.entities = entities
       parseUrl()
@@ -11,17 +13,19 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
       else if entity? and entity.id? and entity.type?
         openspending.get(entity, year).then (entity) -> $scope.entity = entity
         updateRoute()
+      else if inRootPage
+        openspending.getBrasil(year).then (brasil) -> $scope.entity = brasil
 
     updateRoute = ->
       newUrl = generateUrl($scope.entity, $scope.year)
       if window.location.pathname != newUrl
-        if window.history && !inRootPage()
+        if window.history && !inRootPage
           window.history.pushState({}, '', newUrl)
         else
           window.location.pathname = newUrl
 
     parseUrl = ->
-      return if inRootPage()
+      return if inRootPage
       path = window.location.pathname.substr(1)
       parts = path.split('/')
       id = if parts.length == 3
@@ -32,8 +36,6 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
       $scope.entity = entity for entity in $scope.entities when parseInt(entity.id) is id
       $scope.year = parts[parts.length-1]
 
-    inRootPage = () ->
-      window.location.pathname == '/'
 
     generateUrl = (entity, year) ->
       entitySlug = slugify(entity)

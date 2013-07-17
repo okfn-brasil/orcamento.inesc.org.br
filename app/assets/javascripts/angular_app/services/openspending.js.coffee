@@ -3,6 +3,54 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
   aggregateUrl = "#{url}/aggregate?callback=JSON_CALLBACK"
   dataset = "inesc"
 
+
+  get = (entity, year) ->
+    parameters =
+      dataset: dataset
+    parameters.cut = "#{entity.type}:#{entity.id}" if entity.type
+
+    autorizadoParameters =
+      dataset: parameters.dataset
+      cut: "time.year:#{year}"
+      drilldown: "time.month"
+      order: "time.month:asc"
+    autorizadoParameters.cut += "|#{parameters.cut}" if parameters.cut
+
+    pagoParameters =
+      measure: "pago"
+
+    rppagoParameters =
+      measure: "rp-pago"
+
+    yearlyParameters =
+      drilldown: "time.year"
+      order: "time.year:asc"
+
+    deferred = $q.defer()
+
+    $q.all([
+      $http.jsonp(aggregateUrl, { params: autorizadoParameters }),
+      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, pagoParameters) }),
+      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) }),
+      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyParameters) })
+    ]).then (response) ->
+      [autorizado, pago, rppago, yearly] = [response[0].data, response[1].data, response[2].data, response[3].data]
+      autorizado = $.extend(autorizado, total: autorizado.summary.amount)
+      pago = $.extend(pago, total: pago.summary.pago)
+      rppago = $.extend(rppago, total: rppago.summary['rp-pago'])
+      pagamentos = total: pago.total + rppago.total
+      naoExecutado = total: autorizado.total - pagamentos.total
+      amounts =
+        autorizado: autorizado
+        pago: pago
+        rppago: rppago
+        pagamentos: pagamentos
+        naoExecutado: naoExecutado
+        yearly: yearly.drilldown
+      deferred.resolve $.extend(entity, amounts)
+
+    deferred.promise
+
   query: ->
     deferred = $q.defer()
     $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=orgao|unidade_orcamentaria").success (data) ->
@@ -32,51 +80,11 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         autorizado: data.summary.amount
       deferred.resolve(totals)
     deferred.promise
-  get: (entity, year) ->
-    parameters =
-      dataset: dataset
-      cut: "#{entity.type}:#{entity.id}"
-
-    autorizadoParameters =
-      dataset: parameters.dataset
-      cut: parameters.cut + "|time.year:#{year}"
-      drilldown: "time.month"
-      order: "time.month:asc"
-
-    pagoParameters =
-      measure: "pago"
-
-    rppagoParameters =
-      measure: "rp-pago"
-
-    yearlyPagoParameters =
-      drilldown: "time.year"
-      order: "time.year:asc"
-
-    deferred = $q.defer()
-
-    $q.all([
-      $http.jsonp(aggregateUrl, { params: autorizadoParameters }),
-      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, pagoParameters) }),
-      $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) }),
-      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyPagoParameters) })
-    ]).then (response) ->
-      [autorizado, pago, rppago, yearlyPago] = [response[0].data, response[1].data, response[2].data, response[3].data]
-      autorizado = $.extend(autorizado, total: autorizado.summary.amount)
-      pago = $.extend(pago, total: pago.summary.pago)
-      rppago = $.extend(rppago, total: rppago.summary['rp-pago'])
-      pagamentos = total: pago.total + rppago.total
-      naoExecutado = total: autorizado.total - pagamentos.total
-      amounts =
-        autorizado: autorizado
-        pago: pago
-        rppago: rppago
-        pagamentos: pagamentos
-        naoExecutado: naoExecutado
-        yearly: yearlyPago.drilldown
-      deferred.resolve $.extend(entity, amounts)
-
-    deferred.promise
+  getBrasil: (year) ->
+    brasil =
+      label: "Brasil"
+    get(brasil, year)
+  get: get
 
 
 ])

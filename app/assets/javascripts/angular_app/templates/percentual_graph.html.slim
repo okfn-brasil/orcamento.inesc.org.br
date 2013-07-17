@@ -1,0 +1,19 @@
+.span12.bar-graph-box
+  .span4.inner-box
+    h4
+      | Percentual do total
+      br
+      small
+        | (referente à {{currentYear.label}})
+    .large-number[title="Representação do orçamento federal"
+      ng-bind="currentYear.percentual | percentual"]
+  .span8.inner-box.bar-graph
+    .meter[title="{{year.amount | currency:'R$ '}} ({{year.percentual}}%)"
+      ng-repeat="year in years"]
+      input[id="select-year-{{year.label}}" type="radio"
+      ng-value="year.label" ng-model="$parent.$parent.year"]
+      label[for="select-year-{{year.label}}"]
+        span.meter-bar[style="height: {{year.height}}%;"]
+        span.meter-year[ng-bind="year.label"]
+        span.meter-percentual[ng-bind="year.percentual"]
+
