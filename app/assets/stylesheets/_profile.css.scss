@@ -1,31 +1,11 @@
 .profile-header {
   padding: 2em 0 0;
   background: $clouds;
-  .btn-group {
-    .btn {
-      background: lighten($clouds, 4%);
-      &:hover {
-        background: white;
-      }
-    }
-  }
-  .breadcrumb {
-    padding: 0.8em 0;
-    background: none;
-    border-radius: 0;
-    font-size: 1.25em;
-    text-transform: uppercase;
+  h1 {
+    font-size: 1.5em;
     margin: 0;
-    h1 {
-      font-size: 1em;
-      margin: 0;
-      font-weight: 700;
-      color: $black;
-      line-height: 1em;
-      display: inline;
-    }
-    li {
-      display: inline;
-    }
+    font-weight: 700;
+    color: $black;
+    line-height: 1em;
   }
 }

@@ -1,6 +1,11 @@
 .monitor
   .container
     .row
+      .span12
+        .year-navigation.pull-right
+          select[ng-model='year'
+          ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
+    .row
       .span4.value-box.positive-box
         h4
           | Orçamento Autorizado

@@ -8,11 +8,6 @@
         = image_tag 'logo.png'
 .home-header
   .container
-    .year-navigation.pull-right
-      select
-        - (2001..2013).to_a.reverse.each do |year|
-          option
-            = year
     h3
       | O Orçamento Federal
 = render "shared/monitor"

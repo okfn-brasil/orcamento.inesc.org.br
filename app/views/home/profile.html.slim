@@ -1,15 +1,7 @@
 .profile-header
   .container
-    .row
-      .span9
-        h1[ng-bind='entity.label']
-      .span3
-        .year-navigation.pull-right
-          select[ng-model='year'
-          ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
-
+    h1[ng-bind='entity.label']
 = render "shared/monitor"
-
 .graphs
   .tabs-navigation-wrapper
     .container
