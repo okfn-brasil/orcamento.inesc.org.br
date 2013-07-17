@@ -82,7 +82,8 @@
   height: 180px;
   border-radius: 0 3px 3px 0;
   background: $deep-green;
-  input[type='radio']:checked + label {
+  input[type='radio']:checked + label,
+  label:hover {
     .meter-bar,
     .meter-label {
       opacity: 1;
