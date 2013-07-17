@@ -1,35 +1,30 @@
-.monitor
-  .container
-    .row
-      .span12
-        .year-navigation.pull-right
-          select[ng-model='year'
-          ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
-    .row
-      .span4.value-box.positive-box
-        h4
-          | Orçamento Autorizado
-          br
-          small[ng-cloak]
-            | (referente à {{year}})
-        .large-number[title="{{entity.autorizado.total | currency:'R$ '}}"
-          ng-bind="entity.autorizado.total | roundedCurrency"]
-      .span4.value-box.negative-box
-        h4
-          | Pagamentos
-          br
-          small
-            | (Pago + RP Pago)
-        .large-number[title="{{entity.pagamentos.total | currency:'R$ '}}"
-          ng-bind="entity.pagamentos.total | roundedCurrency"]
-      .span4.value-box.attention-box
-        h4
-          | Não Executado
-          br
-          small
-            | (Autorizado - Pagamentos)
-        .large-number[title="{{entity.naoExecutado.total | currency:'R$ '}}"
-          ng-bind="entity.naoExecutado.total | roundedCurrency"]
-    br
-    .row
-      percentual-graph[entity='entity' totals='totals' year='year']
+.row
+  .span12
+    .year-navigation.pull-right
+      select[ng-model='year'
+      ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
+.row
+  .span4.value-box.positive-box
+    h4
+      | Orçamento Autorizado
+      br
+      small[ng-cloak]
+        | (referente à {{year}})
+    .large-number[title="{{entity.autorizado.total | currency:'R$ '}}"
+      ng-bind="entity.autorizado.total | roundedCurrency"]
+  .span4.value-box.negative-box
+    h4
+      | Pagamentos
+      br
+      small
+        | (Pago + RP Pago)
+    .large-number[title="{{entity.pagamentos.total | currency:'R$ '}}"
+      ng-bind="entity.pagamentos.total | roundedCurrency"]
+  .span4.value-box.attention-box
+    h4
+      | Não Executado
+      br
+      small
+        | (Autorizado - Pagamentos)
+    .large-number[title="{{entity.naoExecutado.total | currency:'R$ '}}"
+      ng-bind="entity.naoExecutado.total | roundedCurrency"]

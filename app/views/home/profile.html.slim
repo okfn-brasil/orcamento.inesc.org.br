@@ -2,7 +2,12 @@ div[ng-controller="ProfileController"]
   .profile-header
     .container
       h1[ng-bind='entity.label']
-  monitor[entity='entity' year='year']
+  .monitor
+    .container
+      monitor[entity='entity' year='year']
+      br
+      .row
+        percentual-graph[entity='entity' totals='totals' year='year']
   .graphs
     .tabs-navigation-wrapper
       .container
