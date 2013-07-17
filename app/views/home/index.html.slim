@@ -1,59 +1,60 @@
-.showcase
-  .container
-    .row
-      .span7
-        h2
-          | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
-      .span5
-        = image_tag 'logo.png'
-.home-header
-  .container
+div[ng-controller="IndexController"]
+  .showcase
+    .container
+      .row
+        .span7
+          h2
+            | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
+        .span5
+          = image_tag 'logo.png'
+  .home-header
+    .container
+      h3
+        | O Orçamento Federal
+  monitor[entity='brasil' year='year']
+  .graph
+    .container
+      h3
+        | Distribuição do Orçamento Autorizado por Função e Subfunção
+      .row
+        .span8.function
+          iframe.funcao-treemap[src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0']
+        .span4
+          h4
+            | Interpretando o gráfico
+          dl
+            dt
+              | Encargos Especiais
+            dd
+              | …
+            dt
+              | Previdência social
+            dd
+              | …
+            dt
+              | Saúde
+            dd
+              | …
+  .temp-navigation.container
     h3
-      | O Orçamento Federal
-= render "shared/monitor"
-.graph
-  .container
-    h3
-      | Distribuição do Orçamento Autorizado por Função e Subfunção
-    .row
-      .span8.function
-        iframe.funcao-treemap[src='http://openspending.org/orcamento_brasil_2000_2013/embed?widget=treemap&state=%7B%22drilldowns%22%3A%5B%22funcao%22%5D%2C%22year%22%3A2012%2C%22cuts%22%3A%7B%7D%7D' frameborder='0']
-      .span4
-        h4
-          | Interpretando o gráfico
-        dl
-          dt
-            | Encargos Especiais
-          dd
-            | …
-          dt
-            | Previdência social
-          dd
-            | …
-          dt
-            | Saúde
-          dd
-            | …
-.temp-navigation.container
-  h3
-    | Órgãos
-  table.table
-    tr
-      td
-        a[href="advocacia-geral-da-uniao/2012"]
-          | ADVOCACIA-GERAL DA UNIAO (2012)
-    tr
-      td
-        a[href="camara-dos-deputados/2012"]
-          | CAMARA DOS DEPUTADOS (2012)
-    tr
-      td
-        a[href="conselho-nacional-de-justica/2012"]
-          | CONSELHO NACIONAL DE JUSTICA (2012)
-    tr
-      td
-        a[href="conselho-nacional-do-ministerio-publico/2012"]
-          | CONSELHO NACIONAL DO MINISTERIO PUBLICO (2012)
-    tr
-      td
-        | …
+      | Órgãos
+    table.table
+      tr
+        td
+          a[href="advocacia-geral-da-uniao/2012"]
+            | ADVOCACIA-GERAL DA UNIAO (2012)
+      tr
+        td
+          a[href="camara-dos-deputados/2012"]
+            | CAMARA DOS DEPUTADOS (2012)
+      tr
+        td
+          a[href="conselho-nacional-de-justica/2012"]
+            | CONSELHO NACIONAL DE JUSTICA (2012)
+      tr
+        td
+          a[href="conselho-nacional-do-ministerio-publico/2012"]
+            | CONSELHO NACIONAL DO MINISTERIO PUBLICO (2012)
+      tr
+        td
+          | …

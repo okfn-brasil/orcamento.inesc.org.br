@@ -1,70 +1,71 @@
-.profile-header
-  .container
-    h1[ng-bind='entity.label']
-= render "shared/monitor"
-.graphs
-  .tabs-navigation-wrapper
+div[ng-controller="ProfileController"]
+  .profile-header
     .container
-      ul#graphs-tab-navigation.nav.nav-tabs
-        li.active
-          a[href='#monthly-tab' data-toggle='tab']
-            | Pagamentos por mês
-        li
-          a[href='#gnd-tab' data-toggle='tab']
-            | Gastos por Natureza de Despesa (GND)
-        li
-          a[href='#uo-tab' data-toggle='tab']
-            | Distribuição por Unidade Orçamentária (UO)
-  .tab-content
-    #monthly-tab.tab-pane.active
-      .gasto-acumulado-por-mes.graph
-        .container
-          p.pull-right.muted
-            | Posicione o cursor sobre as áreas para visualizar detalhes.
+      h1[ng-bind='entity.label']
+  monitor[entity='entity' year='year']
+  .graphs
+    .tabs-navigation-wrapper
+      .container
+        ul#graphs-tab-navigation.nav.nav-tabs
+          li.active
+            a[href='#monthly-tab' data-toggle='tab']
+              | Pagamentos por mês
+          li
+            a[href='#gnd-tab' data-toggle='tab']
+              | Gastos por Natureza de Despesa (GND)
+          li
+            a[href='#uo-tab' data-toggle='tab']
+              | Distribuição por Unidade Orçamentária (UO)
+    .tab-content
+      #monthly-tab.tab-pane.active
+        .gasto-acumulado-por-mes.graph
+          .container
+            p.pull-right.muted
+              | Posicione o cursor sobre as áreas para visualizar detalhes.
+            h3
+              | Pagamentos por mês
+            svg#monthly-graph[monthly-graph entity='entity' year='year']
+        .table-data
+          .container
+            table-graph[entity='entity']
+            a.btn.btn-large.btn-block[href='#']
+              | <span class='icon-download'></span> Baixar dados em formato aberto
+      #gnd-tab.tab-pane
+        .distribuicao-gnd.graph
+          .container
+            h3
+              | Grupo da Natureza da Despesa (GND)
+            = image_tag 'proto/distribuicao-gnd.png'
+      #uo-tab.tab-pane
+        .distribuicao-uo.graph
+          .container
+            h3
+              | Distribuição por Unidade Orçamentária (UO)
+            = image_tag 'proto/distribuicao-uo.png'
+  .graph-help
+    .container
+      h3
+        | Interpretando os gráficos
+      .row
+        .span4
+          span.icon-bar-chart
+        .span8
           h3
             | Pagamentos por mês
-          svg#monthly-graph[monthly-graph entity='entity' year='year']
-      .table-data
-        .container
-          table-graph[entity='entity']
-          a.btn.btn-large.btn-block[href='#']
-            | <span class='icon-download'></span> Baixar dados em formato aberto
-    #gnd-tab.tab-pane
-      .distribuicao-gnd.graph
-        .container
+          p
+            mark
+              | Interpretando o gráfico de pagamentos por mês
           h3
-            | Grupo da Natureza da Despesa (GND)
-          = image_tag 'proto/distribuicao-gnd.png'
-    #uo-tab.tab-pane
-      .distribuicao-uo.graph
-        .container
+            | Distribuição por GND
+          p
+            mark
+              | Interpretando o gráfico de distribuição por GND
           h3
-            | Distribuição por Unidade Orçamentária (UO)
-          = image_tag 'proto/distribuicao-uo.png'
-.graph-help
-  .container
-    h3
-      | Interpretando os gráficos
-    .row
-      .span4
-        span.icon-bar-chart
-      .span8
-        h3
-          | Pagamentos por mês
-        p
-          mark
-            | Interpretando o gráfico de pagamentos por mês
-        h3
-          | Distribuição por GND
-        p
-          mark
-            | Interpretando o gráfico de distribuição por GND
-        h3
-          | Distribuição por UO
-        p
-          mark
-            | Interpretando o gráfico de distribuição por UO
-        hr
-        h3
-          | Glossário
-        = render 'shared/glossary'
+            | Distribuição por UO
+          p
+            mark
+              | Interpretando o gráfico de distribuição por UO
+          hr
+          h3
+            | Glossário
+          = render 'shared/glossary'

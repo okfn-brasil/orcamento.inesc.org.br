@@ -8,6 +8,7 @@ Inesc::Application.routes.draw do
 
   get  '/:orgao/:ano' => 'home#profile'
   get  '/:orgao/:unidade_orcamentaria/:ano' => 'home#profile'
+  get  '/:ano' => 'home#index'
 
   root 'home#index'
 
