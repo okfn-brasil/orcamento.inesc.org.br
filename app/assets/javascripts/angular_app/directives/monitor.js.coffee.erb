@@ -1,0 +1,7 @@
+angular.module('InescApp').directive 'monitor', ->
+  restrict: 'E',
+  scope:
+    entity: '=',
+    year: '='
+  templateUrl: '<%= asset_path("angular_app/templates/monitor.html") %>'
+
