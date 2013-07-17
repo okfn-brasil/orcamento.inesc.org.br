@@ -48,5 +48,6 @@ angular.module('InescApp').factory('routing', ['openspending', (openspending) ->
         (entities.filter (entity) -> parseInt(entity.id) == id)[0]
       year = parts[parts.length-1] || undefined
       [entity, year]
+    generateUrl: generateUrl
 ])
 
