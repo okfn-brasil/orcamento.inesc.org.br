@@ -49,7 +49,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
     rppagoParameters =
       measure: "rp-pago"
 
-    yearlyPagoParameters =
+    yearlyParameters =
       drilldown: "time.year"
       order: "time.year:asc"
 
@@ -59,9 +59,9 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       $http.jsonp(aggregateUrl, { params: autorizadoParameters }),
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, pagoParameters) }),
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) }),
-      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyPagoParameters) })
+      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyParameters) })
     ]).then (response) ->
-      [autorizado, pago, rppago, yearlyPago] = [response[0].data, response[1].data, response[2].data, response[3].data]
+      [autorizado, pago, rppago, yearly] = [response[0].data, response[1].data, response[2].data, response[3].data]
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
       pago = $.extend(pago, total: pago.summary.pago)
       rppago = $.extend(rppago, total: rppago.summary['rp-pago'])
@@ -73,7 +73,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         rppago: rppago
         pagamentos: pagamentos
         naoExecutado: naoExecutado
-        yearly: yearlyPago.drilldown
+        yearly: yearly.drilldown
       deferred.resolve $.extend(entity, amounts)
 
     deferred.promise
