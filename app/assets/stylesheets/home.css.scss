@@ -50,8 +50,8 @@ address {
 header {
   background: white;
   h1 {
-    font-size: 1.25em;
-    margin: 1em 0;
+    font-size: 1.5em;
+    margin: 1em 0 0;
     float: left;
     .logo {
       color: $black;
@@ -65,16 +65,46 @@ header {
       }
     }
   }
+  .search {
+    padding: 2em 0 0;
+    position: relative;
+    span.icon-search {
+      position: absolute;
+      color: $silver;
+      font-size: 1.5em;
+      left: .45em;
+      top: 1.55em;
+    }
+    input {
+      @include border-box;
+      padding-left: 1.75em;
+      box-shadow: none;
+      border-radius: 2em;
+      border: 2px solid $silver;
+      font-size: 1.15em;
+      height: 2em;
+      line-height: 2em;
+      width: 100%;
+      &:focus {
+        box-shadow: none;
+        border-color: $blue;
+      }
+      &.loading {
+        background: url(/assets/spinner.gif) no-repeat scroll 99% center;
+        background-size: auto 80%;
+      }
+    }
+  }
   nav {
-    padding: 2.25em 0 0;
-    float: right;
+    padding: 1em 0;
     line-height: 1;
+    text-align: center;
     a {
       padding: .25em 0em;
-      margin: 0 1.25em 0 0;
+      margin: 0 2em 0 0;
       display: inline-block;
       text-transform: uppercase;
-      font-size: .75em;
+      font-size: 1em;
       border-bottom: 2px solid white;
       &:last-child {
         margin-right: 0;
@@ -106,40 +136,6 @@ header {
     font-weight: 300;
     line-height: 1.2;
     margin: 0;
-  }
-}
-
-.search {
-  padding: 0 0 2em;
-  margin: -.25em 0 0;
-  width: 100%;
-  clear: both;
-  position: relative;
-  span.icon-search {
-    position: absolute;
-    color: $silver;
-    font-size: 1.5em;
-    left: .35em;
-    top: .25em;
-  }
-  input {
-    @include border-box;
-    padding-left: 1.75em;
-    box-shadow: none;
-    border-radius: 0;
-    border: 2px solid $silver;
-    font-size: 1.25em;
-    height: 2em;
-    line-height: 2em;
-    width: 100%;
-    &:focus {
-      box-shadow: none;
-      border-color: $blue;
-    }
-    &.loading {
-      background: url(/assets/spinner.gif) no-repeat scroll 99% center;
-      background-size: auto 80%;
-    }
   }
 }
 

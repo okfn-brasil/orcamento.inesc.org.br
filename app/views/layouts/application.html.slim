@@ -10,10 +10,19 @@ html[ng-app='InescApp']
   body[ng-controller='AppController']
     header
       .container
-        h1
-          = link_to root_path, class: 'logo' do
-            = image_tag 'logo.png'
-            | Orçamento ao seu Alcance
+        .row
+          h1.span5
+            = link_to root_path, class: 'logo' do
+              = image_tag 'logo.png', size: '53x53'
+              | Orçamento ao seu Alcance
+          .span7
+            form.search
+              span.icon-search
+              input.search-query[type="text"
+                ng-class="{loading: entity && !entities}"
+                placeholder="buscar por órgão ou unidade orçamentária do governo federal"
+                ng-model="entity"
+                typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         nav
           = nav_link 'Sobre o Projeto', about_path
           = nav_link 'Quem Somos', who_we_are_path

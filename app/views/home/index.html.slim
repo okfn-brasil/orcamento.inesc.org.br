@@ -37,13 +37,6 @@
 .temp-navigation.container
   h3
     | Órgãos
-  form.search
-    span.icon-search
-    input.search-query[type="text"
-      ng-class="{loading: entity && !entities}"
-      placeholder="buscar por órgão ou unidade orçamentária do governo federal"
-      ng-model="entity"
-      typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
   table.table
     tr
       td
