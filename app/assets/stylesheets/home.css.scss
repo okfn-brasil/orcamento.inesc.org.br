@@ -238,7 +238,8 @@ iframe.funcao-treemap {
   top: 0;
   left: 0;
   width: 100%;
-  background: $silver;
+  background: darken($clouds, 5%);
+  border-bottom: 1px solid $silver;
   display: none;
   &.show {
     display: block;
@@ -256,10 +257,18 @@ iframe.funcao-treemap {
     display: block;
     float: left;
   }
+  .btn-group {
+    .btn:first-child {
+      border-radius: 0 none !important;
+    }
+  }
   .search {
     margin: 0 .5em;
     position: relative;
     width: 400px;
+    .dropdown-menu {
+      margin: 0 0 0 17px;
+    }
     span.icon-search {
       position: absolute;
       color: $silver;
@@ -269,7 +278,7 @@ iframe.funcao-treemap {
     }
     input {
       @include border-box;
-      padding-right: 1.75em;
+      padding-right: 2em;
       box-shadow: none;
       border-radius: 2em;
       border: 2px solid $silver;
