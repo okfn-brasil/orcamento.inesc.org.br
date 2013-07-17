@@ -13,15 +13,10 @@
 .btn-group {
   .btn {
     box-shadow: none;
+      border-radius: 0 !important;
     &.dropdown-toggle {
       box-shadow: none;
       border-radius: 0 !important;
-    }
-    &:first-child {
-      border-radius: 3px 0 0 3px !important;
-    }
-    &:last-child {
-      border-radius: 0 3px 3px 0 !important;
     }
   }
 }
