@@ -24,23 +24,15 @@ html[ng-app='InescApp']
                 ng-model="entity"
                 typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         nav
-          ruby:
-            @links = {
-              about: 'Sobre o Projeto',
-              who_we_are: 'Quem Somos',
-              faq: 'Perguntas Frequentes',
-              budget_analysis: 'Análises do Orçamento Federal',
-              contact: 'Contato'
-            }
-          - @links.each do |key, value|
-            = nav_link value, key
+          - pages.each do |page|
+            = nav_link page[:label], page[:path]
     #main
       = yield
     footer
       .container
         .nav
-          - @links.each do |key, value|
-            = nav_link value, key
+          - pages.each do |page|
+            = nav_link page[:label], page[:path]
         .share
           = link_to '#', class: 'btn' do
             span.icon-facebook.icon-large>
@@ -83,9 +75,9 @@ html[ng-app='InescApp']
             | Menu
             span.icon-caret-down
           ul.dropdown-menu
-            - @links.each do |key, value|
+            - pages.each do |page|
               li
-                = nav_link value, key
+                = nav_link page[:label], page[:path]
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     javascript:
       $(window).scroll(function () {

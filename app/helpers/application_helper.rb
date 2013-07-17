@@ -7,4 +7,14 @@ module ApplicationHelper
       link_to text, link
     end
   end
+
+  def pages
+    [
+      { label: 'Sobre o Projeto', path: about_path },
+      { label: 'Quem Somos', path: who_we_are_path },
+      { label: 'Perguntas Frequentes', path: faq_path },
+      { label: 'Análises do Orçamento Federal', path: budget_analysis_path },
+      { label: 'Contato', path: contact_path }
+    ]
+  end
 end
