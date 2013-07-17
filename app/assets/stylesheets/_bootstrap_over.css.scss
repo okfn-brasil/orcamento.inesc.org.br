@@ -28,6 +28,12 @@
   color: white;
 }
 
+.dropdown-menu {
+  @include border-box;
+  border-radius: 0;
+  border: 2px solid $silver;
+  box-shadow: none;
+}
 .search {
   .dropdown-menu {
     @include border-box;
