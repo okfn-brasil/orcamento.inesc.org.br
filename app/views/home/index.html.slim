@@ -6,6 +6,13 @@ div[ng-controller="IndexController"]
         .span7
           h2
             | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
+          a.btn-large.btn[href='http://openspending.org/unidade_orcamentaria.csv' target='_blank']
+            span.icon-download.icon-large>
+            span.text
+              | Baixar planilha com os dados
+              br
+              small
+                | (em formato CSV - XX mb)
         .span5
           = image_tag 'logo.png'
   .home-header
@@ -24,5 +31,5 @@ div[ng-controller="IndexController"]
         drilldowns='"funcao","subfuncao"']
   .temp-navigation.container
     h3
-      | Órgãos
+      | Lista de Órgãos e Unidades Orçamentárias
     entity-list[class='table' entities='entities']
