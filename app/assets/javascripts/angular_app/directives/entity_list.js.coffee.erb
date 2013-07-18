@@ -12,9 +12,10 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
       sDom: 'ft'
       oLanguage:
         sSearch: 'Filtrar:'
+        sZeroRecords: 'Nenhum resultado encontrado.'
 
   restrict: 'E',
-  template: '<table></table>',
+  template: '<table class="table table-bordered table-striped table-condensed"></table>',
   scope:
     entities: '='
   link: (scope, element, attributes) ->
