@@ -1,0 +1,29 @@
+.persistent-header
+  .container
+    = link_to root_path, class: 'logo-small' do
+      = image_tag 'logo.png', size: '32x32'
+    form.search
+      span.icon-search
+      input.search-query[type="text"
+        ng-class="{loading: entity && !entities}"
+        placeholder="buscar por órgão ou unidade orçamentária do governo federal"
+        ng-model="entity"
+        typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
+    / - unless params[:action] #index or profile : )
+    .year-navigation
+      select[ng-model='year'
+      ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
+    .btn-group.pull-right
+      a.btn.dropdown-toggle[data-toggle="dropdown" href="#"]
+        | Menu
+        span.icon-caret-down<
+      ul.dropdown-menu
+        - pages.each do |page|
+          li
+            = nav_link page[:label], page[:path]
+- content_for :page_scripts do
+  javascript:
+    $(window).scroll(function () {
+      var pheader = $('.persistent-header');
+      $(window).scrollTop() < 130 ? pheader.removeClass('show') : pheader.addClass('show');
+    });
