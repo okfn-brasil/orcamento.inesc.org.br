@@ -4,9 +4,24 @@
       text-align: center;
     }
   }
+  .month-value {
+    text-align: center;
+    text-transform: uppercase;
+  }
   .number-value {
     font-family: 'Menlo', 'Andale Mono', monospace;
     font-size: 1.25em;
     text-align: right;
+  }
+}
+.data-download-cta {
+  background-color: $green;
+  color: white;
+  small {
+    opacity: .75;
+  }
+  &:hover {
+    background-color: lighten($green,6%);
+    color: white;
   }
 }
