@@ -18,26 +18,9 @@ div[ng-controller="IndexController"]
     .container
       h3
         | Distribuição do Orçamento Autorizado por Função e Subfunção
-      .row
-        .span8.function
-          funcao-graph.funcao-treemap[year='year'
-          drilldowns='"funcao","subfuncao"']
-        .span4
-          h4
-            | Interpretando o gráfico
-          dl
-            dt
-              | Encargos Especiais
-            dd
-              | …
-            dt
-              | Previdência social
-            dd
-              | …
-            dt
-              | Saúde
-            dd
-              | …
+    .function
+      funcao-graph.funcao-treemap[year='year'
+        drilldowns='"funcao","subfuncao"']
   .temp-navigation.container
     h3
       | Órgãos

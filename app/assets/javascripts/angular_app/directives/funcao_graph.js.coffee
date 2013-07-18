@@ -1,6 +1,6 @@
 angular.module('InescApp').directive 'funcaoGraph', ['openspending', (openspending) ->
   restrict: 'E',
-  template: '<iframe frameborder="0"></iframe>',
+  template: '<iframe class="funcao-treemap" frameborder="0"></iframe>',
   scope:
     year: '='
   link: (scope, element, attributes) ->
