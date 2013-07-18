@@ -10,19 +10,6 @@ html[ng-app='InescApp']
   body[ng-controller='AppController']
     header
       .container
-        .row
-          h1.span5
-            = link_to root_path, class: 'logo' do
-              = image_tag 'logo.png', size: '53x53'
-              | Orçamento ao seu Alcance
-          .span7
-            form.search
-              span.icon-search
-              input.search-query[type="text"
-                ng-class="{loading: entity && !entities}"
-                placeholder="buscar por órgão ou unidade orçamentária do governo federal"
-                ng-model="entity"
-                typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
         nav
           - pages.each do |page|
             = nav_link page[:label], page[:path]
@@ -57,5 +44,4 @@ html[ng-app='InescApp']
           p
             | #{Time.new.year} · #{link_to 'Licença', '#'} · #{link_to 'Código no github', 'https://github.com/okfn-brasil/orcamento-ao-seu-alcance', target: '_blank'}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = yield :page_scripts
     / #TODO ANALYTICS

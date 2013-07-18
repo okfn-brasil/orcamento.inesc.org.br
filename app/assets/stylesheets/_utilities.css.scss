@@ -25,3 +25,8 @@ $clouds: #ECF0F1;
   -moz-transition: $params;
   transition: $params;
 }
+@mixin currency() {
+  font-family: 'Menlo', 'Andale Mono', monospace;
+  font-size: 1.25em;
+  text-align: right;
+}

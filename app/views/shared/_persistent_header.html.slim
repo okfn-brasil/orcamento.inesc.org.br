@@ -1,7 +1,11 @@
 .persistent-header
   .container
-    = link_to root_path, class: 'logo-small' do
-      = image_tag 'logo.png', size: '32x32'
+    h1.logo
+      = link_to root_path, class: 'logo' do
+        = image_tag 'logo.png', size: '42x42'
+        | Orçamento ao seu Alcance
+    - if local_assigns[:year_navigation]
+      .year-navigation[entity="#{local_assigns[:entity] || 'entity'}" year='year']
     form.search
       span.icon-search
       input.search-query[type="text"
@@ -9,11 +13,3 @@
         placeholder="buscar por órgão ou unidade orçamentária do governo federal"
         ng-model="entity"
         typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
-    - if local_assigns[:year_navigation]
-      .year-navigation[entity="#{local_assigns[:entity] || 'entity'}" year='year']
-- content_for :page_scripts do
-  javascript:
-    $(window).scroll(function () {
-      var pheader = $('.persistent-header');
-      $(window).scrollTop() < 130 ? pheader.removeClass('show') : pheader.addClass('show');
-    });

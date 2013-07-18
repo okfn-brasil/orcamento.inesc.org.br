@@ -1,4 +1,5 @@
 div[ng-controller="IndexController"]
+  = render 'shared/persistent_header', entity: 'brasil', year_navigation: true
   .showcase
     .container
       .row
@@ -25,4 +26,3 @@ div[ng-controller="IndexController"]
     h3
       | Órgãos
     entity-list[class='table' entities='entities']
-  = render 'shared/persistent_header', entity: 'brasil', year_navigation: true
