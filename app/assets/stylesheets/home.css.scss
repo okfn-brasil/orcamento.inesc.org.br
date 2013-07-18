@@ -249,6 +249,9 @@ iframe.funcao-treemap {
   select {
     margin: 0;
   }
+  select {
+    width: 6em;
+  }
   .container {
     padding: .5em 0;
   }
@@ -266,7 +269,7 @@ iframe.funcao-treemap {
   .search {
     margin: 0 .5em;
     position: relative;
-    width: 400px;
+    width: 550px;
     .dropdown-menu {
       margin: 0 0 0 17px;
     }
