@@ -53,12 +53,10 @@ header {
   nav {
     padding: 1em 0;
     line-height: 1;
-    text-align: center;
     a {
       padding: .25em 0em;
       margin: 0 2em 0 0;
       display: inline-block;
-      text-transform: uppercase;
       font-size: 1em;
       border-bottom: 2px solid white;
       &:last-child {
@@ -86,7 +84,7 @@ header {
   padding: 4em 0;
   color: white;
   h2 {
-    padding-top: 2.5em;
+    padding-top: 1.5em;
     font-size: 2.5em;
     font-weight: 300;
     line-height: 1.2;
