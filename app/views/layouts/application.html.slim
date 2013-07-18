@@ -43,5 +43,14 @@ html[ng-app='InescApp']
         .colophon
           p
             | #{Time.new.year} · #{link_to 'Licença', '#'} · #{link_to 'Código no github', 'https://github.com/okfn-brasil/orcamento-ao-seu-alcance', target: '_blank'}
+    a.back-to-top[href="#faq-list"]
+      span.icon-large.icon-chevron-sign-up>
+      | Voltar ao topo
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = yield :page_scripts
+    javascript:
+      $(window).scroll(function () {
+        var toTop = $('.back-to-top');
+        $(window).scrollTop() < 500 ? toTop.removeClass('show') : toTop.addClass('show');
+      });
     / #TODO ANALYTICS

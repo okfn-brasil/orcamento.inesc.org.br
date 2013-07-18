@@ -25,7 +25,6 @@ h4 {
 
 h1 {
   font-size: 2em;
-  margin-bottom: 0;
 }
 
 h2 {
@@ -365,6 +364,51 @@ iframe.funcao-treemap {
       box-shadow: none;
       border-color: $blue;
     }
+  }
+}
+
+dl {
+  h3 {
+    padding-top: 56px;
+    font-weight: 700;
+    color: $black;
+    font-size: 1.25em;
+    line-height: 1em;
+  }
+  h4 {
+    font-weight: 700;
+    font-size: 1em;
+  }
+  dd {
+    margin: 0;
+  }
+}
+ul.faq-index {
+  text-align: left;
+  li {
+    margin: .5em 0;
+  }
+  .divider {
+    list-style: none;
+    display: block;
+    border-top: 1px solid $silver;
+    margin: 1em 0;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  padding: .25em .5em;
+  bottom: 1em;
+  right: 1em;
+  display: none;
+  &:hover {
+    text-decoration: none;
+    background: $blue;
+    color: white !important;
+  }
+  &.show {
+    display: inline;
   }
 }
 
