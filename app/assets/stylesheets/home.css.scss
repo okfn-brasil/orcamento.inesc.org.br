@@ -297,6 +297,33 @@ iframe.funcao-treemap {
     }
   }
 }
+.entity-table {
+  th {
+    cursor: pointer;
+  }
+  .sorting_asc {
+    span.icon-sort-by-alphabet-alt {
+      display: none;
+    }
+  }
+  .sorting_desc {
+    span.icon-sort-by-alphabet {
+      display: none;
+    }
+  }
+}
+.dataTables_filter {
+  input {
+    @include border-box;
+    padding-right: 2em;
+    box-shadow: none;
+    border: 2px solid $silver;
+    font-size: 1.15em;
+    height: 2em;
+    line-height: 2em;
+    width: 100%;
+  }
+}
 
 @import 'profile';
 @import 'bootstrap_over';

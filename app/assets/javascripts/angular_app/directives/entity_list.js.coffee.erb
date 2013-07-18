@@ -7,15 +7,15 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
 
     element.dataTable
       aaData: orgaos
-      aoColumns: [ sTitle: 'Órgão' ]
+      aoColumns: [ sTitle: '<span class="icon-sort-by-alphabet icon-large"></span><span class="icon-sort-by-alphabet-alt icon-large"></span> Orgão' ]
       bPaginate: false
       sDom: 'ft'
       oLanguage:
-        sSearch: 'Filtrar:'
+        sSearch: 'Filtrar órgão: '
         sZeroRecords: 'Nenhum resultado encontrado.'
 
   restrict: 'E',
-  template: '<table class="table table-bordered table-striped table-condensed"></table>',
+  template: '<table class="entity-table table table-bordered table-striped table-condensed"></table>',
   scope:
     entities: '='
   link: (scope, element, attributes) ->
