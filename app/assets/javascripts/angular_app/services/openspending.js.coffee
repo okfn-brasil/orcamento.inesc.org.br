@@ -3,8 +3,15 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
   apiUrl = "#{url}/api/2"
   aggregateUrl = "#{apiUrl}/aggregate?callback=JSON_CALLBACK"
   dataset = "orcamento_federal"
+  brasil =
+    label: "Brasil"
+  isBrasil = (entity) -> entity.label == brasil.label
 
-
+  downloadUrl = (entity) ->
+    if isBrasil(entity)
+      "#{url}/#{dataset}.csv"
+    else
+      "#{url}/#{dataset}/#{entity.type}/#{entity.id}/entries.csv?pagesize=1000000"
   get = (entity, year) ->
     parameters =
       dataset: dataset
@@ -48,6 +55,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         pagamentos: pagamentos
         naoExecutado: naoExecutado
         yearly: yearly.drilldown
+        downloadUrl: downloadUrl(entity)
       deferred.resolve $.extend(entity, amounts)
 
     deferred.promise
@@ -82,8 +90,6 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       deferred.resolve(totals)
     deferred.promise
   getBrasil: (year) ->
-    brasil =
-      label: "Brasil"
     get(brasil, year)
   get: get
   embedUrl: (widgetType, drilldowns, year) ->

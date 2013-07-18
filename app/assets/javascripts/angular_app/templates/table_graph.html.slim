@@ -37,3 +37,6 @@ table.table.graph-numbers
         | {{entity.rppago.total | currency:""}}
       td.number-value
         | {{entity.pagamentos.total | currency:""}}
+a.btn.btn-large.btn-block[ng-href="{{entity.downloadUrl}}"]
+  span.icon-download
+    | Baixar dados em CSV
