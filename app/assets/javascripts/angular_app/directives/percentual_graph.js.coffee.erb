@@ -14,6 +14,7 @@ angular.module('InescApp').directive 'percentualGraph', ->
     years.map (year) ->
       year.height = scale(year.percentual)
       year
+    years.sort (a, b) -> a.label > b.label
 
   calculatePercentual = (amount, total) ->
     if total != 0

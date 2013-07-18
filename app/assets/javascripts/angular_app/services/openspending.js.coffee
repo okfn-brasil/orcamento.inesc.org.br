@@ -25,7 +25,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
 
     yearlyParameters =
       drilldown: "time.year"
-      order: "time.year:asc"
+      order: "time.year:desc"
 
     deferred = $q.defer()
 

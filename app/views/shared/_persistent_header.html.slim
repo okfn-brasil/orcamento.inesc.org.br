@@ -9,10 +9,8 @@
         placeholder="buscar por órgão ou unidade orçamentária do governo federal"
         ng-model="entity"
         typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
-    / - unless params[:action] #index or profile : )
-    .year-navigation
-      select[ng-model='year'
-      ng-options='thisYear.time.year as thisYear.time.year for thisYear in entity.yearly | orderBy:"time.year":"reverse"']
+    - if local_assigns[:year_navigation]
+      .year-navigation[entity="#{local_assigns[:entity] || 'entity'}" year='year']
     .btn-group.pull-right
       a.btn.dropdown-toggle[data-toggle="dropdown" href="#"]
         | Menu
