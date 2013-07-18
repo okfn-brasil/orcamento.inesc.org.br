@@ -1,34 +1,25 @@
-angular.module('InescApp').directive 'entityList', ['$filter', 'routing', ($filter, routing) ->
-  currencyFilter = $filter('currency')
-  buildList = (element, entities, year) ->
-    currencyColumnClass = 'currency-column'
-    columns = [
-      { sTitle: 'Órgão', bVisible: false },
-      { sTitle: 'Orçamento Autorizado do Órgão', bVisible: false },
-      { sTitle: 'Unidade Orçamentária' }
-      { sTitle: 'Orçamento Autorizado', sClass: currencyColumnClass }
-    ]
-    unidadesOrcamentarias = entities.filter((entity) -> entity.orgao?)
-      .sort((a, b) ->
-        if b.orgao == a.orgao
-          b.amount - a.amount
-        else
-          b.orgao.amount - a.orgao.amount
-      )
+angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
+  processData = (entities, year) ->
+    entities.filter((entity) -> entity.orgao?)
       .map (uo) ->
         orgao = uo.orgao
         orgaoUrl = routing.generateUrl(orgao, year)
         uoUrl = routing.generateUrl(uo, year)
         ["<a href='#{orgaoUrl}'>#{orgao.label}</a>",
-         currencyFilter(orgao.amount, ''),
-         "<a href='#{uoUrl}'>#{uo.label}</a>",
-         currencyFilter(uo.amount, '')]
+         "<a href='#{uoUrl}'>#{uo.label}</a>"]
+
+  buildList = (element, entities, year) ->
+    columns = [
+      { sTitle: 'Órgão', bVisible: false },
+      { sTitle: 'Unidade Orçamentária' }
+    ]
+    data = processData(entities, year)
 
     element.dataTable
-      aaData: unidadesOrcamentarias
       aoColumns: columns
+      aaData: data
       bPaginate: false
-      bSort: false
+      bSort: true
       sDom: 'ft'
       oLanguage:
         sSearch: 'Filtrar por entidade: '
@@ -42,16 +33,11 @@ angular.module('InescApp').directive 'entityList', ['$filter', 'routing', ($filt
           iDisplayIndex = oSettings._iDisplayStart + i
           sGroup = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[0]
           if sGroup != sLastGroup
-            sGroupData = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[1]
             nGroup = document.createElement('tr')
             nGroup.className = 'entity-group'
             nCell = document.createElement('td')
             nCell.innerHTML = sGroup
-            nCellData = document.createElement('td')
-            nCellData.innerHTML = sGroupData
-            nCellData.className = currencyColumnClass
             nGroup.appendChild(nCell)
-            nGroup.appendChild(nCellData)
             tr.parentNode.insertBefore(nGroup, tr)
             sLastGroup = sGroup
 
