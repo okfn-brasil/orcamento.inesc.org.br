@@ -47,15 +47,17 @@ angular.module('InescApp').factory('routing', ['openspending', (openspending) ->
 
       if match = uoRegexp.exec(path)
         id = slugToId(match[2])
+        type = 'uo'
         year = match[3]
       else if match = orgaoRegexp.exec(path)
         id = slugToId(match[1])
+        type = 'orgao'
         year = match[2]
       else if match = anoRegexp.exec(path)
         year = match[1]
 
       entity = if id
-        (entities.filter (entity) -> parseInt(entity.id) == id)[0]
+        (entities.filter (entity) -> parseInt(entity.id) == id && entity.type == type)[0]
       [entity, year]
     generateUrl: generateUrl
 ])
