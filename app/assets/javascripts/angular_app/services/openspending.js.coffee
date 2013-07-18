@@ -12,6 +12,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       "#{url}/#{dataset}.csv"
     else
       "#{url}/#{dataset}/#{entity.type}/#{entity.id}/entries.csv?pagesize=1000000"
+
   get = (entity, year) ->
     parameters =
       dataset: dataset
@@ -63,19 +64,26 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
   query: ->
     deferred = $q.defer()
     $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=orgao|uo").success (data) ->
-      result = []
+      orgaos = []
+      uos = []
       data.drilldown.map (element) ->
         # Os órgãos começam do índice 1. Como array começam do 0, tenho que
         # diminuir um elemento, ou o bootstrap tentará acessar um elemento nulo.
-        result[element.orgao.id-1] =
+        idOrgao = element.orgao.id-1
+        idUO = element.uo.id-1
+        orgaos[idOrgao] ||=
           id: element.orgao.name
           type: 'orgao'
           label: element.orgao.label
-        result[element.uo.id-1] =
+          amount: 0
+        orgaos[idOrgao].amount += element.amount
+        uos[idUO] =
           id: element.uo.name
           type: 'uo'
           label: element.uo.label
-          orgao: result[element.orgao.id-1]
+          orgao: orgaos[idOrgao]
+          amount: element.amount
+      result = orgaos.concat(uos)
       deferred.resolve(result)
     deferred.promise
   getTotals: ->
