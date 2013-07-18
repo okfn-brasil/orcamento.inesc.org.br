@@ -259,7 +259,13 @@ iframe.funcao-treemap {
   .search,
   .year-navigation {
     display: block;
+  }
+  .logo-small,
+  .search {
     float: left;
+  }
+  .year-navigation {
+    float: right;
   }
   .btn-group {
     .btn:first-child {
