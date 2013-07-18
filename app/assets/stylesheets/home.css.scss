@@ -302,6 +302,25 @@ iframe.funcao-treemap {
   }
 }
 .entity-table {
+  border-radius: 0 !important;
+  &.table-bordered thead:first-child tr:first-child > th:last-child,
+  &.table-bordered tbody:first-child tr:first-child > td:last-child,
+  &.table-bordered tbody:first-child tr:first-child > th:last-child,
+  &.table-bordered thead:first-child tr:first-child > th:first-child,
+  &.table-bordered tbody:first-child tr:first-child > td:first-child,
+  &.table-bordered tbody:first-child tr:first-child > th:first-child {
+    border-radius: 0 !important;
+  }
+  .entity-group td {
+    background-color: $blue !important;
+    border-color: $blue !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    a {
+      color: white;
+      display: block;
+    }
+  }
   th {
     cursor: pointer;
   }
@@ -317,15 +336,18 @@ iframe.funcao-treemap {
   }
 }
 .dataTables_filter {
+  border: 1px solid $silver;
+  border-bottom: 0;
+  padding: 1em .5em .5em;
   input {
     @include border-box;
     padding-right: 2em;
     box-shadow: none;
-    border: 2px solid $silver;
+    border: 1px solid $silver;
     font-size: 1.15em;
     height: 2em;
     line-height: 2em;
-    width: 100%;
+    width: 50%;
   }
 }
 

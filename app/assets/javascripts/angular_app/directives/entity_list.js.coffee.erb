@@ -19,7 +19,7 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
       bPaginate: false
       sDom: 'ft'
       oLanguage:
-        sSearch: 'Filtrar órgão: '
+        sSearch: 'Filtrar por entidade: '
         sZeroRecords: 'Nenhum resultado encontrado.'
       fnDrawCallback: (oSettings) ->
         return if oSettings.aiDisplay.length == 0
@@ -41,7 +41,7 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
             sLastGroup = sGroup
 
   restrict: 'E',
-  template: '<table class="entity-table table table-bordered table-striped table-condensed"></table>',
+  template: '<table class="entity-table table table-bordered table-condensed"></table>',
   scope:
     entities: '='
   link: (scope, element, attributes) ->
