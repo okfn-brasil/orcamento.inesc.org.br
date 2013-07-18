@@ -1,6 +1,6 @@
 angular.module('InescApp').filter 'percentual', ['$filter', ($filter) ->
   round = $filter('round')
   (value) ->
-    round(value, '%') if value?
+    round(value || 0, '%')
 ]
 

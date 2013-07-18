@@ -7,7 +7,7 @@ angular.module('InescApp').filter 'roundedCurrency', ['$filter', ($filter) ->
   trillion = billion * thousand
 
   (value) ->
-    absValue = Math.abs(value)
+    absValue = Math.abs(value || 0)
     if absValue > trillion
       round(value/trillion, 'Tri')
     else if absValue > billion
@@ -16,7 +16,7 @@ angular.module('InescApp').filter 'roundedCurrency', ['$filter', ($filter) ->
       round(value/million, 'Mi')
     else if absValue > thousand
       round(value/thousand, 'Mil')
-    else if absValue
+    else
       round(value)
 ]
 
