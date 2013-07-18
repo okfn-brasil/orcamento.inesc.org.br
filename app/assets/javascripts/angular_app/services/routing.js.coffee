@@ -37,16 +37,25 @@ angular.module('InescApp').factory('routing', ['openspending', (openspending) ->
         else
           window.location.pathname = newUrl
     parseUrl: (entities) ->
-      path = window.location.pathname.substr(1)
-      parts = path.split('/')
-      id = if parts.length == 3
-             slugToId(parts[1]) # É uma unidade orçamentária
-           else if parts.length == 2
-             slugToId(parts[0]) # É um órgão
+      path = window.location.pathname
+      uoRegexp = /^\/(.+)\/(.+)\/([0-9]{4})$/
+      orgaoRegexp = /^\/(.+)\/([0-9]{4})$/
+      anoRegexp = /^\/([0-9]{4})$/
+
+      id = undefined
+      year = undefined
+
+      if match = uoRegexp.exec(path)
+        id = slugToId(match[2])
+        year = match[3]
+      else if match = orgaoRegexp.exec(path)
+        id = slugToId(match[1])
+        year = match[2]
+      else if match = anoRegexp.exec(path)
+        year = match[1]
 
       entity = if id
         (entities.filter (entity) -> parseInt(entity.id) == id)[0]
-      year = parts[parts.length-1] || undefined
       [entity, year]
     generateUrl: generateUrl
 ])
