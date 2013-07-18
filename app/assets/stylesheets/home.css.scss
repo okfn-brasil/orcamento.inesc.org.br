@@ -50,36 +50,6 @@ address {
 header {
   background: white;
   padding: 56px 0 0;
-  .search {
-    padding: 2em 0 0;
-    position: relative;
-    span.icon-search {
-      position: absolute;
-      color: $silver;
-      font-size: 1.5em;
-      right: .45em;
-      top: 1.55em;
-    }
-    input {
-      @include border-box;
-      padding-right: 1.75em;
-      box-shadow: none;
-      border-radius: 2em;
-      border: 2px solid $silver;
-      font-size: 1.15em;
-      height: 2em;
-      line-height: 2em;
-      width: 100%;
-      &:focus {
-        box-shadow: none;
-        border-color: $blue;
-      }
-      &.loading {
-        background: url(/assets/spinner.gif) no-repeat scroll 99% center;
-        background-size: auto 80%;
-      }
-    }
-  }
   nav {
     padding: 1em 0;
     line-height: 1;
@@ -234,8 +204,10 @@ iframe.funcao-treemap {
   h1 {
     font-size: 1.15em;
     margin: 0;
+    font-weight: 400;
     .logo {
       color: $black;
+      text-shadow: lighten($clouds,3%) 0 1px 0;
       img {
         margin-right: .5em;
         vertical-align: -.95em;
@@ -337,9 +309,6 @@ iframe.funcao-treemap {
     span.icon-sort-by-alphabet {
       display: none;
     }
-  }
-  .currency-column {
-    @include currency;
   }
 }
 .dataTables_filter {
