@@ -57,3 +57,18 @@
     background: $blue;
   }
 }
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: $clouds;
+}
+.table-bordered {
+  border-color: $silver;
+}
+.table-bordered th,
+.table-bordered td {
+  border-color: $silver;
+}
+.table th,
+.table td {
+  border-color: $silver;
+}
