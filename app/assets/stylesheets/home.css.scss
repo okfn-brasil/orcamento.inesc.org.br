@@ -196,10 +196,9 @@ iframe.funcao-treemap {
   left: 0;
   width: 100%;
   background: darken($clouds, 5%);
-  background: rgba(darken($clouds, 5%), .9);
   border-bottom: 1px solid $silver;
   &:hover {
-    background: darken($clouds, 5%);
+    background: $clouds;
   }
   h1 {
     font-size: 1.15em;
@@ -312,14 +311,29 @@ iframe.funcao-treemap {
   }
 }
 .dataTables_filter {
+  background: $clouds;
   border: 1px solid $silver;
   border-bottom: 0;
-  padding: 1em .5em .5em;
+  padding: 1em .5em;
+  span.icon-filter {
+    position: absolute;
+    left: 10.5em;
+    top: .5em;
+    color: $silver;
+  }
+  label {
+    position: relative;
+  }
+  label,
+  input {
+    margin: 0;
+  }
   input {
     @include border-box;
-    padding-right: 2em;
+    padding-left: 1.5em;
     box-shadow: none;
-    border: 1px solid $silver;
+    border-radius: 2em;
+    border: 2px solid $silver;
     font-size: 1.15em;
     height: 2em;
     line-height: 2em;

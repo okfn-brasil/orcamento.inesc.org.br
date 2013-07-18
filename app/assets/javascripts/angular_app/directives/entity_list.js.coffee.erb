@@ -11,7 +11,7 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
   buildList = (element, entities, year) ->
     columns = [
       { sTitle: 'Órgão', bVisible: false },
-      { sTitle: 'Unidade Orçamentária' }
+      { sTitle: '<span class="icon-sort-by-alphabet"></span><span class="icon-sort-by-alphabet-alt"></span> Unidades Orçamentárias (agrupadas por órgão)' }
     ]
     data = processData(entities, year)
 
@@ -22,7 +22,7 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
       bSort: true
       sDom: 'ft'
       oLanguage:
-        sSearch: 'Filtrar por entidade: '
+        sSearch: 'Filtrar por entidade: <span class="icon-filter icon-large"></span>'
         sZeroRecords: 'Nenhum resultado encontrado.'
       fnDrawCallback: (oSettings) ->
         return if oSettings.aiDisplay.length == 0
