@@ -5,4 +5,9 @@ angular.module('InescApp').controller('AppController', ['$scope', 'openspending'
       $scope.entities = entities
       $scope.entity = entity
       $scope.year = year || currentYear
+
+    $scope.$watch 'entity + year', ->
+      [entity, year] = [$scope.entity, $scope.year]
+      if entity? and entity.id and year
+        routing.updateRoute(entity, year)
 ])

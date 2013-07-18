@@ -6,7 +6,7 @@ angular.module('InescApp').controller('IndexController', ['$scope', 'openspendin
           $scope.brasil = brasil
           routing.updateRoute(undefined, year)
 
-    $scope.$watch 'entity', ->
+    $scope.$watch 'entity + year', ->
       [entity, year] = [$scope.entity, $scope.year]
       if entity? and entity.id and year
         routing.updateRoute(entity, year)
