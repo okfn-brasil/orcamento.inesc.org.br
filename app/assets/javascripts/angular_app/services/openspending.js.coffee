@@ -1,6 +1,7 @@
 angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) ->
-  url = 'http://openspending.org/api/2'
-  aggregateUrl = "#{url}/aggregate?callback=JSON_CALLBACK"
+  url = 'http://openspending.org'
+  apiUrl = "#{url}/api/2"
+  aggregateUrl = "#{apiUrl}/aggregate?callback=JSON_CALLBACK"
   dataset = "orcamento_federal"
 
 
@@ -85,6 +86,10 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       label: "Brasil"
     get(brasil, year)
   get: get
+  embedUrl: (widgetType, drilldowns, year) ->
+    state = "{\"drilldowns\": [#{drilldowns}], \"year\": #{year}}"
+    "#{url}/#{dataset}/embed?widget=#{widgetType}&state=#{state}"
+
 
 
 ])
