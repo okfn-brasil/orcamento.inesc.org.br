@@ -16,7 +16,7 @@ div[ng-controller="ProfileController"]
       .row
         percentual-graph[entity='entity' totals='totals' year='year']
   .graphs
-    .tabs-navigation-wrapper
+    .tabs-navigation-wrapper[ng-class='{visible: !entity.orgao}']
       .container
         ul#graphs-tab-navigation.nav.nav-tabs
           li.active
