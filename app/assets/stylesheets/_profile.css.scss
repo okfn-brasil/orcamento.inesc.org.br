@@ -13,6 +13,9 @@
     line-height: 1em;
     li:first-child {
       display: none;
+      &.visible {
+        display: inline-block;
+      }
     }
     h1 {
       font-size: 1em;
