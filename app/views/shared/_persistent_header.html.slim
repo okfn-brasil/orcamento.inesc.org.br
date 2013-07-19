@@ -7,7 +7,7 @@
     - if local_assigns[:year_navigation]
       .year-navigation[entity="#{local_assigns[:entity] || 'entity'}" year='year']
     form.search
-      span.icon-search
+      span.icon-search.icon-large
       input.search-query[type="text"
         ng-class="{loading: entity && !entities}"
         placeholder="buscar por órgão ou unidade orçamentária do governo federal"

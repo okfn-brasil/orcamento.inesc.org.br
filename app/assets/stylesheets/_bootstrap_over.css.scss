@@ -49,6 +49,9 @@
     li {
       cursor: pointer;
     }
+    a {
+      white-space: normal !important;
+    }
   }
 
   .dropdown-menu > .active > a,
