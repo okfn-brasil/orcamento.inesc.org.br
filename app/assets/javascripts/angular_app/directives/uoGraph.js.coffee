@@ -1,20 +1,25 @@
 angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
   columns = [
-    { sTitle: 'Entidade Orçamentária', bSortable: false },
+    { sTitle: 'Entidade Orçamentária', bSortable: false }
     { sTitle: 'Orçamento Autorizado', bSortable: false }
+    { sTitle: '%', bSortable: false }
+    { sTitle: 'Orçamento Autorizado', bVisible: false } # Usado só para sorting
   ]
 
-  processData = (data, year) ->
-    data.map (uo) ->
-      entityUrl = $filter('entityUrl')
-      currency = $filter('currency')
-      console.log(uo)
-      ["<a href='#{entityUrl(uo, year)}'>#{uo.label}</a>",
-        currency(uo.amount, '')]
+  processData = (entity, year) ->
+    entityUrl = $filter('entityUrl')
+    currency = $filter('currency')
+    percentual = $filter('percentual')
+    console.log(entity)
+    entity.unidades_orcamentarias.map (uo) ->
+      ["<a href='#{entityUrl(uo, year)}'>#{uo.label}</a>"
+        currency(uo.amount, '')
+        percentual((uo.amount*100)/entity.autorizado.total)
+        uo.amount]
 
   options =
     bPaginate: false
-    aaSorting: [[ 1, 'desc' ]]
+    aaSorting: [[ 3, 'desc' ]]
 
   restrict: 'E',
   template: '<my-data-table columns="columns" options="options" data="data"></my-data-table>',
@@ -27,7 +32,6 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
     scope.$watch 'entity.unidades_orcamentarias + year', ->
       [entity, year] = [scope.entity, scope.year]
       if entity? && entity.unidades_orcamentarias && year
-        scope.data = processData(entity.unidades_orcamentarias, year)
-
+        scope.data = processData(entity, year)
 ]
 
