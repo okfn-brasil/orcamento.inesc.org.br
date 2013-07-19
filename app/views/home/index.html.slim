@@ -22,11 +22,10 @@ div[ng-controller="IndexController"]
   .monitor
     .container
       monitor[entity='brasil' year='year']
-  .graph
+  .function
     .container
       h3
         | Distribuição do Orçamento Autorizado por Função e Subfunção
-    .function
       funcao-graph.funcao-treemap[year='year'
         drilldowns='"funcao","subfuncao"']
   .navigation
