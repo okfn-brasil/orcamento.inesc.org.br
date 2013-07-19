@@ -3,7 +3,7 @@ div[ng-controller="ProfileController"]
   .profile-header
     .container
       ul.breadcrumb
-        li[ng-show='entity.orgao']
+        li[ng-class='{visible: entity.orgao}']
           a[ng-href='{{entity.orgao | entityUrl:year}}' ng-bind='entity.orgao.label']
           span.divider
             | ⟩
