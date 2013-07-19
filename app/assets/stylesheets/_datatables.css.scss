@@ -29,6 +29,7 @@
       text-align: center;
       text-transform: uppercase;
       font-weight: 700;
+      background: $clouds;
     }
     &.currency {
       @include currency;
