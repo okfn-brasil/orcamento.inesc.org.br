@@ -4,4 +4,4 @@ angular.module('InescApp').filter 'month', ->
             'Set', 'Out', 'Nov', 'Dez']
   (month) ->
     index = parseInt(month) - 1
-    months[index]
+    months[index] || month

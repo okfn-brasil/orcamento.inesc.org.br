@@ -6,6 +6,10 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
     { sTitle: 'Orçamento Autorizado', bVisible: false } # Usado só para sorting
   ]
 
+  options =
+    bPaginate: false
+    aaSorting: [[ 3, 'desc' ]]
+
   processData = (entity, year) ->
     entityUrl = $filter('entityUrl')
     currency = $filter('currency')
@@ -16,10 +20,6 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
         currency(uo.amount, '')
         percentual((uo.amount*100)/entity.autorizado.total)
         uo.amount]
-
-  options =
-    bPaginate: false
-    aaSorting: [[ 3, 'desc' ]]
 
   restrict: 'E',
   template: '<my-data-table columns="columns" options="options" data="data"></my-data-table>',
