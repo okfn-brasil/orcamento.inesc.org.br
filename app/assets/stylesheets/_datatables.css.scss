@@ -37,6 +37,11 @@
     background: $clouds;
     padding-top: 1em;
     padding-bottom: 1em;
+    padding: 1em .5em;
+    white-space: nowrap;
+    &:focus {
+      outline: none;
+    }
   }
   .sorting_asc {
     span.icon-sort-by-alphabet-alt {
