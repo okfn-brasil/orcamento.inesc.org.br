@@ -53,7 +53,7 @@ angular.module('InescApp').directive 'tableGraph', ['$filter', ($filter) ->
             '<my-data-table class="table graph-numbers" columns="columns" options="options" data="data"></my-data-table>' +
             '<a class="btn btn-large btn-block data-download-cta ng-href="{{entity.downloadUrl}}">' +
               '<span class="icon-download icon-large">' +
-                'Baixar planilha com os dados <small>(em formato .CSV)</small>' +
+                ' Baixar planilha com os dados <small>(em formato .CSV)</small>' +
               '</span>' +
             '</a>',
   link: (scope, element, attributes) ->
