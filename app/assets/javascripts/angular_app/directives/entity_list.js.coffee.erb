@@ -1,10 +1,11 @@
 angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
   columns = [
     { sTitle: 'Órgão', bVisible: false },
-    { sTitle: '<span class="icon-sort-by-alphabet"></span><span class="icon-sort-by-alphabet-alt"></span> Unidades Orçamentárias (agrupadas por órgão)' }
+    { sTitle: 'Unidades Orçamentárias (agrupadas por órgão)', bSortable: false }
   ]
 
   options =
+    aaSorting: [[0, 'asc'], [1, 'asc']]
     fnDrawCallback: (oSettings) ->
       return if oSettings.aiDisplay.length == 0
       nTrs = $(oSettings.nTBody.children)

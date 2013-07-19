@@ -328,13 +328,9 @@ iframe.funcao-treemap {
   }
   th {
     border-left: 0 none !important;
-    cursor: pointer;
     background: $clouds;
     padding-top: 1em;
     padding-bottom: 1em;
-    &:hover {
-      background: lighten($clouds,5%);
-    }
   }
   .sorting_asc {
     span.icon-sort-by-alphabet-alt {
