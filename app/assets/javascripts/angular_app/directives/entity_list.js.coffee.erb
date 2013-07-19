@@ -33,7 +33,7 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
          "<a href='#{uoUrl}'>#{uo.label}</a>"]
 
   restrict: 'E',
-  template: '<my-data-table columns="columns" options="options" data="data"></my-data-table>',
+  template: '<my-data-table class="entity-list" columns="columns" options="options" data="data"></my-data-table>',
   scope:
     entities: '='
     year: '='

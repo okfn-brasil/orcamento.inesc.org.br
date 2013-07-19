@@ -19,7 +19,7 @@ angular.module('InescApp').directive 'myDataTable', ->
     element.dataTable $.extend(default_options, options)
 
   restrict: 'E',
-  template: '<table class="entity-table table table-bordered table-condensed"></table>',
+  template: '<table class="table table-bordered table-condensed"></table>',
   scope:
     columns: '='
     options: '='
