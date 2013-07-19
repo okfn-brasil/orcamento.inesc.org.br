@@ -371,8 +371,9 @@ iframe.funcao-treemap {
   span.icon-search {
     position: absolute;
     right: 1.6em;
-    top: 1.3em;
+    top: 1.35em;
     color: $silver;
+    cursor: default;
   }
   label,
   input {
@@ -380,7 +381,8 @@ iframe.funcao-treemap {
   }
   input {
     @include border-box;
-    padding-left: 1.5em;
+    padding-right: 1.75em;
+    padding-left: .75em;
     box-shadow: none;
     border-radius: 2em;
     border: 2px solid $silver;
