@@ -18,12 +18,19 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
     element.dataTable
       aoColumns: columns
       aaData: data
-      bPaginate: false
       bSort: true
-      sDom: 'ft'
+      sDom: 'ftip'
+      sPaginationType: 'full_numbers'
       oLanguage:
         sSearch: 'Filtrar por entidade: <span class="icon-filter icon-large"></span>'
         sZeroRecords: 'Nenhum resultado encontrado.'
+        sInfo: 'Mostrando de _START_ até _END_ de _TOTAL_ registros'
+        sInfoFiltered: '(_MAX_ registros no total)'
+        oPaginate:
+          sFirst: 'Primeiro'
+          sPrevious: 'Anterior'
+          sNext: 'Seguinte'
+          sLast: 'Último'
       fnDrawCallback: (oSettings) ->
         return if oSettings.aiDisplay.length == 0
         nTrs = element.children('tbody').children('tr')
