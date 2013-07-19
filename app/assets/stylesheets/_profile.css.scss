@@ -18,6 +18,16 @@
   }
 }
 
+.entity-organ {
+  .breadcrumb {
+    li:first-child {
+      .divider {
+        display: none;
+      }
+    }
+  }
+}
+
 .data-download-cta {
   background-color: $green;
   color: white;
