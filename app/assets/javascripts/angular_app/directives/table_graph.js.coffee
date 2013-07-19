@@ -1,6 +1,6 @@
 angular.module('InescApp').directive 'tableGraph', ['$filter', ($filter) ->
   columns = [
-    { sTitle: 'Mês', bSortable: false }
+    { sTitle: 'Mês', bSortable: false, sClass: 'month' }
     { sTitle: 'Autorizado (em R$)', bSortable: false, sClass: 'currency' }
     { sTitle: 'Pago (em R$)', bSortable: false, sClass: 'currency' }
     { sTitle: 'RP Pago (em R$)', bSortable: false, sClass: 'currency' }

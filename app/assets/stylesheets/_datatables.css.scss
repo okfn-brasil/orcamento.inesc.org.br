@@ -1,39 +1,4 @@
 .dataTable {
-  th {
-    text-align: center;
-    border-left: 0 none !important;
-    background: $clouds;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding: 1em .5em;
-    white-space: nowrap;
-    &:focus {
-      outline: none;
-    }
-  }
-  .month-value {
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .currency {
-    @include currency;
-  }
-  .percentual {
-    @include percentual;
-  }
-  .entity-group td {
-    font-weight: 700;
-    text-transform: uppercase;
-    border-left: 0 none !important;
-    padding-left: .5em;
-  }
-  td:first-child {
-    border-left: 0 none !important;
-    padding-left: 2em;
-  }
-}
-
-.entity-table {
   border-radius: 0 !important;
   border-left: 0 none !important;
   border-right: 0 none;
@@ -46,6 +11,35 @@
   &.table-bordered tbody:first-child tr:first-child > th:first-child {
     border-radius: 0 !important;
   }
+  th {
+    text-align: center;
+    border-left: 0 none !important;
+    background: $clouds;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding: 1em .5em;
+    white-space: nowrap;
+    &:focus {
+      outline: none;
+    }
+  }
+  td {
+    border-left: 0 none !important;
+    &.month {
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    &.currency {
+      @include currency;
+      padding-right: 1em;
+      white-space: nowrap;
+    }
+    &.percentual {
+      @include percentual;
+      background: $clouds;
+    }
+  }
 }
 
 .dataTables_wrapper {
@@ -54,6 +48,46 @@
   overflow: hidden;
   border-radius: 2px;
 }
+
+.distribuicao-uo.graph {
+  .dataTables_filter {
+    float: none;
+    width: 100%;
+  }
+  .dataTables_wrapper {
+    border-bottom: 0 none;
+  }
+}
+
+.graph-numbers {
+  .dataTables_wrapper {
+    border-top: 0 none;
+    border-bottom: 0 none;
+  }
+  th {
+    text-align: center !important;
+  }
+  tr:last-child td {
+    background: $clouds;
+  }
+}
+
+.entity-list {
+  th {
+    text-align: left;
+  }
+  .entity-group {
+    td {
+      font-weight: 700;
+      text-transform: uppercase;
+      padding-left: .5em;
+    }
+  }
+  td {
+    padding-left: 2em;
+  }
+}
+
 .dataTables_filter,
 .dataTables_paginate,
 .dataTables_info {

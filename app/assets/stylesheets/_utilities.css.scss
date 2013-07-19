@@ -27,7 +27,6 @@ $clouds: #ECF0F1;
 }
 @mixin number {
   font-family: 'Menlo', 'Andale Mono', 'Consolas', monospace;
-  font-weight: bold;
 }
 @mixin currency {
   @include number;
