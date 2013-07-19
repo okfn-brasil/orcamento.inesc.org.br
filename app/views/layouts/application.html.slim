@@ -51,6 +51,7 @@ html[ng-app='InescApp']
     javascript:
       $(window).scroll(function () {
         var toTop = $('.back-to-top');
-        $(window).scrollTop() < 500 ? toTop.removeClass('show') : toTop.addClass('show');
+        var windowHeight = $(window).height();
+        $(window).scrollTop() < windowHeight ? toTop.removeClass('show') : toTop.addClass('show');
       });
     / #TODO ANALYTICS

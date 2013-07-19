@@ -72,16 +72,19 @@ footer {
   }
 }
 
-.back-to-top {
+a.back-to-top {
+  border-radius: 2px;
   position: fixed;
   padding: .25em .5em;
   bottom: 1em;
   right: 1em;
   display: none;
+  background: $blue;
+  color: white;
   &:hover {
     text-decoration: none;
-    background: $blue;
-    color: white !important;
+    background: white;
+    color: $blue;
   }
   &.show {
     display: inline;
