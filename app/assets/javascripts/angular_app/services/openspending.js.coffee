@@ -74,11 +74,15 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         orgaos[idOrgao] ||=
           id: element.orgao.name
           type: 'orgao'
+          type_label: 'Órgão'
           label: element.orgao.label
+          label_with_type: element.orgao.label + ' (Órgão)'
         unidadesOrcamentarias[idUO] =
           id: element.uo.name
           type: 'uo'
+          type_label: 'Unidade Orçamentária'
           label: element.uo.label
+          label_with_type: element.uo.label + ' (Unidade Orçamentária)'
           orgao: orgaos[idOrgao]
       result = orgaos.concat(unidadesOrcamentarias)
       deferred.resolve(result)

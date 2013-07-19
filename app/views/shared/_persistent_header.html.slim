@@ -12,4 +12,4 @@
         ng-class="{loading: entity && !entities}"
         placeholder="buscar por órgão ou unidade orçamentária do governo federal"
         ng-model="entity"
-        typeahead="entity as entity.label for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
+        typeahead="entity as entity.label_with_type for entity in entities | filter:{label: $viewValue} | limitTo: 10"]
