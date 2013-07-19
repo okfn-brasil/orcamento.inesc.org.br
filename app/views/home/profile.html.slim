@@ -2,9 +2,15 @@ div[ng-controller="ProfileController"]
   = render 'shared/persistent_header', year_navigation: true
   .profile-header
     .container
-      a[ng-href='{{entity.orgao | entityUrl:year}}']
-        h1[ng-bind='entity.orgao.label']
-      h1[ng-bind='entity.label']
+      ul.breadcrumb
+        li
+          a[ng-href='{{entity.orgao | entityUrl:year}}' ng-bind='entity.orgao.label']
+          span.divider
+            | ⟩
+        li
+          h1[ng-bind='entity.label']
+          span.divider
+            | ⟩
   .monitor
     .container
       monitor[entity='entity' year='year']

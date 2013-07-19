@@ -2,10 +2,18 @@
   padding: 2em 0 0;
   background: $clouds;
   h1 {
-    font-size: 1.5em;
     margin: 0;
-    font-weight: 700;
     color: $black;
+    display: inline-block;
+  }
+  .breadcrumb {
+    background: none; 
+    padding: 0 !important;
+    font-size: 1.25em;
     line-height: 1em;
+    h1 {
+      font-size: 1em;
+      line-height: 1em;
+    }
   }
 }
