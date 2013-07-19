@@ -3,7 +3,7 @@
     p.data-updated-at.pull-right
       | Dados atualizados em <b>#{'31/12/2013'}</b>.
 .row
-  .span4.value-box.positive-box
+  .span4.value-box.authorized-budget
     h4
       | Orçamento Autorizado
       br
@@ -11,7 +11,7 @@
         | (referente à {{year}})
     .large-number[title="{{entity.autorizado.total | currency:'R$ '}}"
       ng-bind="entity.autorizado.total | roundedCurrency"]
-  .span4.value-box.negative-box
+  .span4.value-box.payments
     h4
       | Pagamentos
       br
@@ -19,7 +19,7 @@
         | (Pago + RP Pago)
     .large-number[title="{{entity.pagamentos.total | currency:'R$ '}}"
       ng-bind="entity.pagamentos.total | roundedCurrency"]
-  .span4.value-box.attention-box
+  .span4.value-box.not-executed
     h4
       | Não Executado
       br

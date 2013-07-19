@@ -38,7 +38,7 @@
       margin-left: 10px;
     }
   }
-  .positive-box {
+  .authorized-budget {
     background: $blue;
     h4,
     .large-number {
@@ -48,7 +48,7 @@
       background: $deep-blue;
     }
   }
-  .negative-box {
+  .payments {
     background: $red;
     h4,
     .large-number {
@@ -58,11 +58,11 @@
       background: $red;
     }
   }
-  .attention-box {
-    background: $orange;
+  .not-executed {
+    background: $yellow;
     h4,
     .large-number {
-      text-shadow: darken($orange, 10%) 2px 2px 0;
+      text-shadow: darken($yellow, 10%) 2px 2px 0;
     }
   }
   .large-number {
