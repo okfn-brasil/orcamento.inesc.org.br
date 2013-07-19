@@ -3,7 +3,7 @@ angular.module('InescApp').directive 'myDataTable', ->
     default_options =
       aoColumns: columns
       bSort: true
-      sDom: 'fptip'
+      sDom: 'fpti'
       sPaginationType: 'full_numbers'
       oLanguage:
         sSearch: '<span class="icon-search icon-large"></span>'
