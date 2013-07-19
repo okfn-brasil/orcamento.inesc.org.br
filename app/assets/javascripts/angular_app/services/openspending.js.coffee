@@ -101,6 +101,24 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
   getBrasil: (year) ->
     get(brasil, year)
   get: get
+  getUnidadesOrcamentarias: (entity, year) ->
+    return if entity.type != 'orgao'
+
+    parameters =
+      dataset: dataset
+      drilldown: 'uo'
+      cut: "time.year:#{year}|#{entity.type}:#{entity.id}"
+
+    deferred = $q.defer()
+    $http.jsonp(aggregateUrl, params: parameters).success (data) ->
+      uos = data.drilldown.map (uo) ->
+        uo.uo.amount = uo.amount
+        uo.uo.orgao = entity
+        uo.uo.type = uo.uo.taxonomy
+        uo.uo
+      deferred.resolve $.extend(entity, unidades_orcamentarias: uos)
+    deferred.promise
+
   embedUrl: (widgetType, drilldowns, year) ->
     state = "{\"drilldowns\": [#{drilldowns}], \"year\": #{year}}"
     "#{url}/#{dataset}/embed?widget=#{widgetType}&state=#{state}"

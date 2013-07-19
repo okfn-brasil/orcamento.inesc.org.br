@@ -53,7 +53,7 @@ div[ng-controller="ProfileController"]
           .container
             h3
               | Distribuição por Unidade Orçamentária (UO)
-            = image_tag 'proto/distribuicao-uo.png'
+            uo-graph[class='table' entity='entity' year='year']
   .graph-help
     .container
       h3
