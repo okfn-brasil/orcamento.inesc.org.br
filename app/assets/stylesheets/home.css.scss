@@ -173,6 +173,7 @@ footer {
 .function {
   padding-top: 3em;
 }
+
 iframe.funcao-treemap {
   width: 100%;
   height: 500px;
@@ -320,15 +321,10 @@ iframe.funcao-treemap {
     border-radius: 0 !important;
   }
   .entity-group td {
-    background-color: darken($clouds,10%) !important;
     font-weight: 700;
     text-transform: uppercase;
     border-left: 0 none !important;
-    color: $blue;
-    a {
-      color: $blue;
-      display: block;
-    }
+    padding-left: .5em;
   }
   th {
     border-left: 0 none !important;
@@ -352,6 +348,7 @@ iframe.funcao-treemap {
   }
   td {
     border-left: 0 none !important;
+    padding-left: 2em;
   }
 }
 .dataTables_wrapper {
