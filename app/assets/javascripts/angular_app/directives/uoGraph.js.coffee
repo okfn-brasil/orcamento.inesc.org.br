@@ -9,6 +9,7 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
   options =
     bPaginate: false
     aaSorting: [[ 3, 'desc' ]]
+    sDom: 'ft'
 
   processData = (entity, year) ->
     entityUrl = $filter('entityUrl')
