@@ -25,8 +25,15 @@ $clouds: #ECF0F1;
   -moz-transition: $params;
   transition: $params;
 }
-@mixin currency {
+@mixin number {
   font-family: 'Menlo', 'Andale Mono', 'Consolas', monospace;
   font-weight: bold;
+}
+@mixin currency {
+  @include number;
   text-align: right;
+}
+@mixin percentual {
+  @include number;
+  text-align: center;
 }

@@ -2,7 +2,7 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
   columns = [
     { sTitle: 'Entidade Orçamentária', bSortable: false }
     { sTitle: 'Orçamento Autorizado', bSortable: false, sClass: 'currency' }
-    { sTitle: 'Percentual do total', bSortable: false }
+    { sTitle: 'Percentual do total', bSortable: false, sClass: 'percentual' }
     { sTitle: 'Orçamento Autorizado', bVisible: false } # Usado só para sorting
   ]
 
