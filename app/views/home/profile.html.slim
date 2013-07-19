@@ -3,14 +3,12 @@ div[ng-controller="ProfileController"]
   .profile-header
     .container
       ul.breadcrumb
-        li
+        li[ng-show='entity.orgao']
           a[ng-href='{{entity.orgao | entityUrl:year}}' ng-bind='entity.orgao.label']
           span.divider
             | ⟩
         li
           h1[ng-bind='entity.label']
-          span.divider
-            | ⟩
   .monitor
     .container
       monitor[entity='entity' year='year']
