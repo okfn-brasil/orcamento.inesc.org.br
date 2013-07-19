@@ -111,11 +111,12 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
 
     deferred = $q.defer()
     $http.jsonp(aggregateUrl, params: parameters).success (data) ->
-      uos = data.drilldown.map (uo) ->
-        uo.uo.amount = uo.amount
-        uo.uo.orgao = entity
-        uo.uo.type = uo.uo.taxonomy
-        uo.uo
+      uos = data.drilldown.map (element) ->
+        id: element.uo.name
+        label: element.uo.label
+        type: element.uo.taxonomy
+        amount: element.amount
+        orgao: entity
       deferred.resolve $.extend(entity, unidades_orcamentarias: uos)
     deferred.promise
 
