@@ -297,8 +297,17 @@ iframe.funcao-treemap {
     }
   }
 }
+
+.navigation {
+  padding: 3em 0;
+  background: $clouds;
+}
+
 .entity-table {
   border-radius: 0 !important;
+  border-left: 0 none !important;
+  border-right: 0 none;
+  margin-bottom: 0;
   &.table-bordered thead:first-child tr:first-child > th:last-child,
   &.table-bordered tbody:first-child tr:first-child > td:last-child,
   &.table-bordered tbody:first-child tr:first-child > th:last-child,
@@ -308,18 +317,25 @@ iframe.funcao-treemap {
     border-radius: 0 !important;
   }
   .entity-group td {
-    background-color: $blue !important;
-    border-color: $blue !important;
+    background-color: darken($clouds,10%) !important;
     font-weight: 700;
     text-transform: uppercase;
-    color: white;
+    border-left: 0 none !important;
+    color: $blue;
     a {
-      color: white;
+      color: $blue;
       display: block;
     }
   }
   th {
+    border-left: 0 none !important;
     cursor: pointer;
+    background: $clouds;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    &:hover {
+      background: lighten($clouds,5%);
+    }
   }
   .sorting_asc {
     span.icon-sort-by-alphabet-alt {
@@ -331,20 +347,32 @@ iframe.funcao-treemap {
       display: none;
     }
   }
+  td {
+    border-left: 0 none !important;
+  }
 }
-.dataTables_filter {
+.dataTables_wrapper {
   background: $clouds;
   border: 1px solid $silver;
-  border-bottom: 0;
-  padding: 1em .5em;
-  span.icon-filter {
+  overflow: hidden;
+  border-radius: 2px;
+}
+.dataTables_filter,
+.dataTables_paginate,
+.dataTables_info {
+  @include border-box;
+  padding: 1em;
+}
+
+.dataTables_filter {
+  float: left;
+  width: 50%;
+  position: relative;
+  span.icon-search {
     position: absolute;
-    left: 10.5em;
-    top: .5em;
+    right: 1.6em;
+    top: 1.3em;
     color: $silver;
-  }
-  label {
-    position: relative;
   }
   label,
   input {
@@ -365,6 +393,46 @@ iframe.funcao-treemap {
       border-color: $blue;
     }
   }
+}
+
+.dataTables_paginate {
+  width: 50%;
+  float: right;
+  text-align: right;
+  span {
+    a.paginate_button,
+    a.paginate_active {
+      width: 1.5em;
+      text-align: center;
+    }
+  }
+  a {
+    cursor: pointer;
+    display: inline-block;
+    padding: .25em .25em;
+    margin: 0 .25em;
+    border-radius: 2px;
+    &:hover {
+      text-decoration: none;
+      background: $blue;
+      color: white;
+    }
+    &.paginate_button_disabled {
+      opacity: .5;
+      cursor: default;
+      pointer-events: none;
+    }
+    &.paginate_active {
+      background: $blue;
+      color: white;
+    }
+  }
+}
+
+.dataTables_info {
+  float: left;
+  color: $black;
+  opacity: .75;
 }
 
 dl {
