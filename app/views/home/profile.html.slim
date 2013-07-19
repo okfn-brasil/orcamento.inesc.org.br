@@ -16,13 +16,13 @@ div[ng-controller="ProfileController"]
       .row
         percentual-graph[entity='entity' totals='totals' year='year']
   .graphs
-    .tabs-navigation-wrapper[ng-class='{visible: !entity.orgao}']
+    .tabs-navigation-wrapper
       .container
         ul#graphs-tab-navigation.nav.nav-tabs
-          li.active
+          li.active.visible
             a[href='#monthly-tab' data-toggle='tab']
               | Pagamentos por mês
-          li
+          li[ng-class='{visible: !entity.orgao}']
             a[href='#uo-tab' data-toggle='tab']
               | Distribuição por Unidade Orçamentária (UO)
     .tab-content

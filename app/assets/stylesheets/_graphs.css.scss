@@ -3,10 +3,6 @@
   padding-top: 1em;
   padding-left: 1em;
   border-bottom: 1px solid #DDD;
-  display: none;
-}
-.visible {
-  display: block;
 }
 #graphs-tab-navigation {
   margin-bottom: 0;
@@ -15,6 +11,10 @@
   li {
     float: none;
     display: inline-block;
+    display: none;
+    &.visible {
+      display: inline-block;
+    }
   }
   a {
     color: $black;
