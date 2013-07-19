@@ -7,7 +7,7 @@ html[ng-app='InescApp']
     link[href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"]
     link[href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css']
     = csrf_meta_tags
-  body[ng-controller='AppController']
+  body#top[ng-controller='AppController']
     header
       .container
         nav
@@ -43,7 +43,7 @@ html[ng-app='InescApp']
         .colophon
           p
             | #{Time.new.year} · #{link_to 'Licença', '#'} · #{link_to 'Código no github', 'https://github.com/okfn-brasil/orcamento-ao-seu-alcance', target: '_blank'}
-    a.back-to-top[href="#faq-list"]
+    a.back-to-top[href="#top"]
       span.icon-large.icon-chevron-sign-up>
       | Voltar ao topo
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
