@@ -1,4 +1,27 @@
 angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
+  columns = [
+    { sTitle: 'Órgão', bVisible: false },
+    { sTitle: '<span class="icon-sort-by-alphabet"></span><span class="icon-sort-by-alphabet-alt"></span> Unidades Orçamentárias (agrupadas por órgão)' }
+  ]
+
+  options =
+    fnDrawCallback: (oSettings) ->
+      return if oSettings.aiDisplay.length == 0
+      nTrs = $(oSettings.nTBody.children)
+      sLastGroup = ''
+
+      for tr, i in nTrs
+        iDisplayIndex = oSettings._iDisplayStart + i
+        sGroup = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[0]
+        if sGroup != sLastGroup
+          nGroup = document.createElement('tr')
+          nGroup.className = 'entity-group'
+          nCell = document.createElement('td')
+          nCell.innerHTML = sGroup
+          nGroup.appendChild(nCell)
+          tr.parentNode.insertBefore(nGroup, tr)
+          sLastGroup = sGroup
+
   processData = (entities, year) ->
     entities.filter((entity) -> entity.orgao?)
       .map (uo) ->
@@ -8,55 +31,17 @@ angular.module('InescApp').directive 'entityList', ['routing', (routing) ->
         ["<a href='#{orgaoUrl}'>#{orgao.label}</a>",
          "<a href='#{uoUrl}'>#{uo.label}</a>"]
 
-  buildList = (element, entities, year) ->
-    columns = [
-      { sTitle: 'Órgão', bVisible: false },
-      { sTitle: '<span class="icon-sort-by-alphabet"></span><span class="icon-sort-by-alphabet-alt"></span> Unidades Orçamentárias (agrupadas por órgão)' }
-    ]
-    data = processData(entities, year)
-
-    element.dataTable
-      aoColumns: columns
-      aaData: data
-      bSort: true
-      sDom: 'fptip'
-      sPaginationType: 'full_numbers'
-      oLanguage:
-        sSearch: '<span class="icon-search icon-large"></span>'
-        sZeroRecords: 'Nenhum resultado encontrado.'
-        sInfo: 'Mostrando de _START_ até _END_ de _TOTAL_ registros.'
-        sInfoFiltered: '(_MAX_ registros no total)'
-        oPaginate:
-          sFirst: 'Primeira'
-          sPrevious: 'Anterior'
-          sNext: 'Próxima'
-          sLast: 'Última'
-      fnDrawCallback: (oSettings) ->
-        return if oSettings.aiDisplay.length == 0
-        nTrs = element.children('tbody').children('tr')
-        sLastGroup = ''
-
-        for tr, i in nTrs
-          iDisplayIndex = oSettings._iDisplayStart + i
-          sGroup = oSettings.aoData[oSettings.aiDisplay[iDisplayIndex]]._aData[0]
-          if sGroup != sLastGroup
-            nGroup = document.createElement('tr')
-            nGroup.className = 'entity-group'
-            nCell = document.createElement('td')
-            nCell.innerHTML = sGroup
-            nGroup.appendChild(nCell)
-            tr.parentNode.insertBefore(nGroup, tr)
-            sLastGroup = sGroup
-
   restrict: 'E',
-  template: '<table class="entity-table table table-bordered table-condensed"></table>',
+  template: '<my-data-table columns="columns" options="options" data="data"></my-data-table>',
   scope:
     entities: '='
+    year: '='
   link: (scope, element, attributes) ->
-    currentYear = new Date().getFullYear().toString()
-    table = $(element).children('table')
-    scope.$watch 'entities', ->
-      entities = scope.entities
-      buildList(table, entities, currentYear) if entities?
+    scope.columns = columns
+    scope.options = options
+    scope.$watch 'entities + year', ->
+      [entities, year] = [scope.entities, scope.year]
+      if entities && year
+        scope.data = processData(entities, year)
 ]
 
