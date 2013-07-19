@@ -36,7 +36,7 @@ angular.module('InescApp').directive 'tableGraph', ['$filter', ($filter) ->
       pago: entity.pago.total
       rppago: entity.rppago.total
       pagamentos: entity.pagamentos.total
-    months.splice(1).map (month, i) ->
+    months.filter((month) -> month).map (month, i) ->
       [monthFilter(month.label)
         currencyFilter(month.autorizado, '')
         currencyFilter(month.pago, '')
