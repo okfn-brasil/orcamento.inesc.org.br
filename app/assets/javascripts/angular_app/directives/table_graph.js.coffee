@@ -63,7 +63,5 @@ angular.module('InescApp').directive 'tableGraph', ['$filter', ($filter) ->
       entity = scope.entity
       if entity? and entity.autorizado?
         scope.data = processData(entity)
-        window.d = scope.data
-        console.log(scope.data)
 ]
 

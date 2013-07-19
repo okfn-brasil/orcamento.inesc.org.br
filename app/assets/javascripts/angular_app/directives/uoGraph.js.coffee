@@ -14,7 +14,6 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
     entityUrl = $filter('entityUrl')
     currency = $filter('currency')
     percentual = $filter('percentual')
-    console.log(entity)
     entity.unidades_orcamentarias.map (uo) ->
       ["<a href='#{entityUrl(uo, year)}'>#{uo.label}</a>"
         currency(uo.amount, '')
