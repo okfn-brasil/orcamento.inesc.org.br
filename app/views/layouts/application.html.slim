@@ -1,11 +1,16 @@
 doctype html
 html[ng-app='InescApp']
   head
+    meta[charset='utf-8']
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
     title
       | Orçamento ao seu Alcance
+    meta[name="description" content="O portal Orçamento ao seu Alcance desenvolvido pelo INESC (Instituto de Estudos Socioeconômicos), em parceria com a Open Knowledge Foundation Brasil, tem como objetivo facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal."]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     link[href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"]
     link[href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css']
+    link[rel="icon" type="image/png" href="favicon.png"]
     = csrf_meta_tags
   body#top[ng-controller='AppController']
     header
