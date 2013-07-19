@@ -1,0 +1,40 @@
+body,
+select,
+input,
+textarea {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: $black;
+  color: $black;
+  margin: 0;
+}
+
+h1,
+h3 {
+  font-weight: 300;
+}
+
+h2,
+h4 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1em;
+  margin: 0 0 2em 0;
+  line-height: 1em;
+}
+
+a,
+a:visited {
+  color: $blue;
+  &:hover {
+    color: lighten($blue,5%);
+  }
+}

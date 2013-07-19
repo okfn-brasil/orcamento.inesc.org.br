@@ -1,0 +1,65 @@
+.content {
+  padding-bottom: 2em;
+  p {
+    font-size: 1.15em;
+    line-height: 1.45em;
+    margin-bottom: 1.5em;
+  }
+  .icon-huge {
+    color: $clouds;
+    font-size: 15em;
+  }
+  .illustration {
+    text-align: center;
+  }
+  table {
+    font-size: .875em;
+    &.table-small {
+      background: $deep-blue;
+      color: white;
+      th,
+      td {
+        padding: .25em;
+        text-align: center;
+      }
+      th {
+        font-weight: 600;
+        vertical-align: middle;
+      }
+      td {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+dl {
+  h3 {
+    padding-top: 56px;
+    font-weight: 700;
+    color: $black;
+    font-size: 1.25em;
+    line-height: 1em;
+  }
+  h4 {
+    font-weight: 700;
+    font-size: 1em;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+ul.faq-index {
+  text-align: left;
+  li {
+    margin: .5em 0;
+  }
+  .divider {
+    list-style: none;
+    display: block;
+    border-top: 1px solid $silver;
+    margin: 1em 0;
+  }
+}
+

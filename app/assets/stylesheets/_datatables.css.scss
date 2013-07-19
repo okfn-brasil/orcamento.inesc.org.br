@@ -1,0 +1,141 @@
+.graph-numbers {
+  thead {
+    th {
+      text-align: center;
+    }
+  }
+  .month-value {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .number-value {
+    @include currency;
+  }
+}
+
+.entity-table {
+  border-radius: 0 !important;
+  border-left: 0 none !important;
+  border-right: 0 none;
+  margin-bottom: 0;
+  &.table-bordered thead:first-child tr:first-child > th:last-child,
+  &.table-bordered tbody:first-child tr:first-child > td:last-child,
+  &.table-bordered tbody:first-child tr:first-child > th:last-child,
+  &.table-bordered thead:first-child tr:first-child > th:first-child,
+  &.table-bordered tbody:first-child tr:first-child > td:first-child,
+  &.table-bordered tbody:first-child tr:first-child > th:first-child {
+    border-radius: 0 !important;
+  }
+  .entity-group td {
+    font-weight: 700;
+    text-transform: uppercase;
+    border-left: 0 none !important;
+    padding-left: .5em;
+  }
+  th {
+    border-left: 0 none !important;
+    background: $clouds;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .sorting_asc {
+    span.icon-sort-by-alphabet-alt {
+      display: none;
+    }
+  }
+  .sorting_desc {
+    span.icon-sort-by-alphabet {
+      display: none;
+    }
+  }
+  td {
+    border-left: 0 none !important;
+    padding-left: 2em;
+  }
+}
+
+.dataTables_wrapper {
+  background: $clouds;
+  border: 1px solid $silver;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.dataTables_filter,
+.dataTables_paginate,
+.dataTables_info {
+  @include border-box;
+  padding: 1em;
+}
+
+.dataTables_filter {
+  float: left;
+  width: 50%;
+  position: relative;
+  span.icon-search {
+    position: absolute;
+    right: 1.6em;
+    top: 1.35em;
+    color: $silver;
+    cursor: default;
+  }
+  label,
+  input {
+    margin: 0;
+  }
+  input {
+    @include border-box;
+    padding-right: 1.75em;
+    padding-left: .75em;
+    box-shadow: none;
+    border-radius: 2em;
+    border: 2px solid $silver;
+    font-size: 1.15em;
+    height: 2em;
+    line-height: 2em;
+    width: 100%;
+    &:focus {
+      box-shadow: none;
+      border-color: $blue;
+    }
+  }
+}
+
+.dataTables_paginate {
+  width: 50%;
+  float: right;
+  text-align: right;
+  span {
+    a.paginate_button,
+    a.paginate_active {
+      width: 1.5em;
+      text-align: center;
+    }
+  }
+  a {
+    cursor: pointer;
+    display: inline-block;
+    padding: .25em .25em;
+    margin: 0 .25em;
+    border-radius: 2px;
+    &:hover {
+      text-decoration: none;
+      background: $blue;
+      color: white;
+    }
+    &.paginate_button_disabled {
+      opacity: .5;
+      cursor: default;
+      pointer-events: none;
+    }
+    &.paginate_active {
+      background: $blue;
+      color: white;
+    }
+  }
+}
+
+.dataTables_info {
+  float: left;
+  color: $black;
+  opacity: .75;
+}

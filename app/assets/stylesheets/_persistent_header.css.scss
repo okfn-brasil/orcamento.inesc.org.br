@@ -1,0 +1,85 @@
+.persistent-header {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: darken($clouds, 5%);
+  border-bottom: 1px solid $silver;
+  &:hover {
+    background: $clouds;
+  }
+  h1 {
+    font-size: 1.15em;
+    margin: 0;
+    font-weight: 400;
+    .logo {
+      color: $black;
+      text-shadow: lighten($clouds,3%) 0 1px 0;
+      img {
+        margin-right: .5em;
+        vertical-align: -.95em;
+      }
+      &:hover {
+        text-decoration: none;
+        color: $blue;
+      }
+    }
+  }
+  form,
+  select {
+    margin: 0;
+  }
+  select {
+    margin-top: .25em;
+    width: 6em;
+  }
+  .container {
+    padding: .5em 0;
+  }
+  .logo,
+  .search,
+  .year-navigation {
+    display: block;
+  }
+  .logo {
+    float: left;
+  }
+  .search,
+  .year-navigation {
+    float: right;
+  }
+  .search {
+    margin: .25em .5em 0;
+    position: relative;
+    width: 570px;
+    .dropdown-menu {
+      margin: 0 0 0 17px;
+    }
+    span.icon-search {
+      position: absolute;
+      color: $silver;
+      right: .6em;
+      top: .4em;
+    }
+    input {
+      @include border-box;
+      padding-right: 2em;
+      box-shadow: none;
+      border-radius: 2em;
+      border: 2px solid $silver;
+      font-size: 1.15em;
+      height: 2em;
+      line-height: 2em;
+      width: 100%;
+      &:focus {
+        box-shadow: none;
+        border-color: $blue;
+      }
+      &.loading {
+        background: url(/assets/spinner.gif) no-repeat scroll 99% center;
+        background-size: auto 80%;
+      }
+    }
+  }
+}

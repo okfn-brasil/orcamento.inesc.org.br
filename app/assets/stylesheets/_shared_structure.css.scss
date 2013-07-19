@@ -1,0 +1,89 @@
+header {
+  background: white;
+  padding: 56px 0 0;
+  nav {
+    padding: 1em 0;
+    line-height: 1;
+    a {
+      padding: .25em 0em;
+      margin: 0 2em 0 0;
+      display: inline-block;
+      font-size: 1em;
+      border-bottom: 2px solid white;
+      &:last-child {
+        margin-right: 0;
+      }
+      &,
+      &:visited {
+        color: $black;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      &.active,
+      &:hover,
+      &:hover.active {
+        color: $blue;
+        border-bottom-color: $blue;
+      }
+    }
+  }
+}
+
+#main {
+  background: white;
+}
+
+footer {
+  padding: 3em 0;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  .nav {
+    padding: 0 0 1em;
+    a {
+      display: inline-block;
+      padding: 0 1em;
+      color: white;
+    }
+  }
+  .share {
+    .btn,
+    .btn:visited {
+      display: inline-block;
+      text-decoration: none;
+      margin: 0 .5em;
+      padding: .5em 2em;
+      &:hover {
+        background: $blue;
+        color: white;
+      }
+    }
+  }
+  .authorship {
+    margin: 2em 0;
+    a {
+      display: inline-block;
+      padding: 0 1em;
+    }
+    img {
+      margin-right: 1em;
+    }
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  padding: .25em .5em;
+  bottom: 1em;
+  right: 1em;
+  display: none;
+  &:hover {
+    text-decoration: none;
+    background: $blue;
+    color: white !important;
+  }
+  &.show {
+    display: inline;
+  }
+}

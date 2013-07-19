@@ -17,3 +17,15 @@
     }
   }
 }
+
+.data-download-cta {
+  background-color: $green;
+  color: white;
+  small {
+    opacity: .75;
+  }
+  &:hover {
+    background-color: lighten($green,6%);
+    color: white;
+  }
+}

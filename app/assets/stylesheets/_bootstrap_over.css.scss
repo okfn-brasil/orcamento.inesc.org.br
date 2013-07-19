@@ -10,17 +10,6 @@
   }
 }
 
-.btn-group {
-  .btn {
-    box-shadow: none;
-      border-radius: 0 !important;
-    &.dropdown-toggle {
-      box-shadow: none;
-      border-radius: 0 !important;
-    }
-  }
-}
-
 .alert-info {
   background-color: $blue;
   text-shadow: none;
