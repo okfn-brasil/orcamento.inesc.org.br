@@ -1,6 +1,10 @@
 .monitor {
   padding: 0 0 3em 0;
   background: $clouds;
+  .data-updated-at {
+    padding: .5em;
+    color: darken($silver,15%);
+  }
   h4 {
     font-weight: 300;
     text-transform: uppercase;
