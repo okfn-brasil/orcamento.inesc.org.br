@@ -75,6 +75,7 @@ footer {
 a.back-to-top {
   border-radius: 2px;
   position: fixed;
+  z-index: 9;
   padding: .25em .5em;
   bottom: 1em;
   right: 1em;
