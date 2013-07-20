@@ -4,7 +4,7 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
   buildGraph = (element, drilldowns, year) ->
     state =
       drilldowns: drilldowns
-      year: year
+      cut: "time.year:#{year}"
     context =
       dataset: openspending.dataset
       siteUrl: openspending.url
