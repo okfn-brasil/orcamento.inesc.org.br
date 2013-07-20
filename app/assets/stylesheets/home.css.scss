@@ -60,6 +60,20 @@
     height: 500px;
     border: 0 none;
     display: block;
+    z-index: 1;
+  }
+  .treemap-widget .desc .lbl,
+  .treemap-widget .desc .amount {
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: $deep-blue 1px 1px 0;
+  }
+  .treemap-widget .desc .amount {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .treemap-widget .desc .lbl {
+    opacity: .75; 
+    font-weight: 700;
   }
 }
 

@@ -1,6 +1,6 @@
 angular.module('InescApp').directive 'treemap', ['openspending', (openspending) ->
   getColorPalette = (num) ->
-    ('#2ecc71' for i in [0...num])
+    ('#3498db' for i in [0...num])
   buildGraph = (element, drilldowns, year) ->
     state =
       drilldowns: drilldowns
