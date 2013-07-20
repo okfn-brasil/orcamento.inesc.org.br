@@ -1,5 +1,10 @@
 .content {
   padding-bottom: 2em;
+  &.who-we-are {
+    h3 {
+      padding-top: 60px;
+    }
+  }
   p {
     font-size: 1.15em;
     line-height: 1.45em;
@@ -51,7 +56,7 @@ dl {
   }
 }
 
-ul.faq-index {
+ul.index {
   text-align: left;
   li {
     margin: .5em 0;

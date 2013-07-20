@@ -5,7 +5,7 @@
       | Quem Somos
     .row
       .span7
-        h3
+        h3#inesc
           | INESC
         p
           | O Instituto de Estudos Socioeconômicos – Inesc, é uma organização não governamental, sem fins lucrativos, não partidária e com finalidade pública. Tem por missão: "Contribuir para o aprimoramento da democracia representativa e participativa visando à garantia dos direitos humanos, mediante a articulação e o fortalecimento da sociedade civil para influenciar os espaços de governança nacional e internacional".
@@ -46,7 +46,7 @@
           li
             p
               | O INESC faz parte do Transparency &amp; Accountability Initiative: #{link_to "transparency-initiative.org", "http://www.transparency-initiative.org/", target: '_blank'}.
-        h3
+        h3#okfn-brasil
           | Open Knowledge Foundation Brasil
         p
           | A Open Knowledge Foundation Brasil é formado por um grupo de ativistas e pesquisadores que compartilham a seguinte visão “Queremos um mundo onde o conhecimento livre esteja presente em todo nosso cotidiano, tanto online como offline. Promovemos o conhecimento livre por acreditar em sua capacidade de gerar grandes benefícios sociais.”
@@ -73,3 +73,10 @@
               | Aumentar a “liberdade do usuário” em relação ao conteúdo e dados.
       .span5.illustration
         span.icon-group.icon-huge
+        ul.index
+          li
+            = link_to 'Inesc', '#inesc'
+          li
+            = link_to 'Open Knowledge Brasil', '#okfn-brasil'
+          li
+            = link_to 'DataViz', '#dataviz'

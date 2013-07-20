@@ -402,7 +402,7 @@
 - content_for :page_scripts
   javascript:
     $(function() {
-      $('.illustration').append('<ul class="faq-index" />');
+      $('.illustration').append('<ul class="faq-index index" />');
       $.each($('#faq-list dt'), function(index, element) {
         var title = $(element).text();
         var anchor = slugify(title);
