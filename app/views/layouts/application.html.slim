@@ -11,6 +11,10 @@ html[ng-app='InescApp']
     link[href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"]
     link[href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css']
     link[rel="icon" type="image/png" href="/favicon.png"]
+    meta[property="og:image" content="http://orcamento.inesc.org.br/og-logo.png"]
+    meta[property="og:title" content="Orçamento ao seu Alcance"]
+    meta[property="og:url" content="http://orcamento.inesc.org.br/"]
+    meta[property="og:site_name" content="Orçamento ao seu Alcance"]
     = csrf_meta_tags
   body#top[ng-controller='AppController']
     header
@@ -20,24 +24,12 @@ html[ng-app='InescApp']
             = nav_link page[:label], page[:path]
     #main
       = yield
+    = render 'share'
     footer
       .container
         .nav
           - pages.each do |page|
             = nav_link page[:label], page[:path]
-        .share
-          = link_to '#', class: 'btn' do
-            span.icon-facebook.icon-large>
-            b
-              | facebook
-          = link_to '#', class: 'btn' do
-            span.icon-twitter.icon-large>
-            b
-              | twitter
-          = link_to '#', class: 'btn' do
-            span.icon-google-plus.icon-large>
-            b
-              | google+
         .authorship
           = link_to 'http://www.inesc.org.br/', target: '_blank' do
             = image_tag 'inesc-small.png'
