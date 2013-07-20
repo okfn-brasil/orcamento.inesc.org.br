@@ -61,6 +61,8 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
 
     deferred.promise
 
+  url: url
+  dataset: dataset
   query: ->
     deferred = $q.defer()
     $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=orgao|uo").success (data) ->
@@ -119,7 +121,6 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
         orgao: entity
       deferred.resolve $.extend(entity, unidades_orcamentarias: uos)
     deferred.promise
-
   embedUrl: (widgetType, drilldowns, year) ->
     state = "{\"drilldowns\": [#{drilldowns}], \"year\": #{year}}"
     "#{url}/#{dataset}/embed?widget=#{widgetType}&state=#{state}"
