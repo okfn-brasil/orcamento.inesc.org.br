@@ -1,4 +1,4 @@
-angular.module('InescApp').directive 'tableGraph', ['$filter', ($filter) ->
+angular.module('InescApp').directive 'summaryTable', ['$filter', ($filter) ->
   columns = [
     { sTitle: 'Mês', bSortable: false, sClass: 'month' }
     { sTitle: 'Autorizado (em R$)', bSortable: false, sClass: 'currency' }
