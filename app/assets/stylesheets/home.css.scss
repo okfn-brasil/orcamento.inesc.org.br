@@ -96,6 +96,11 @@
     opacity: .85;
   }
 }
+#_tooltip.tip {
+  background: $deep-blue;
+  border-radius: 2px;
+  padding: .25em .5em;
+}
 
 .navigation {
   padding: 3em 0;
