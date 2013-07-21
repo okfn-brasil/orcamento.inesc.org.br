@@ -28,7 +28,7 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
   restrict: 'E',
   scope:
     year: '='
-  template: '<button class="btn btn-small back-button" ng-click="reset()" ng-disabled="!drilledDown" ng-class="{visible: drilledDown}">Voltar</button>' +
+  template: '<button class="btn btn-small back-button" ng-click="reset()" ng-class="{visible: drilledDown}">Voltar</button>' +
             '<div id="treemap"></div>' # O OpenSpendingJS exige que o elemento tenha um id
   link: (scope, element, attributes) ->
     window.OpenSpending.Utils.getColorPalette = getColorPalette
@@ -41,7 +41,9 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
 
     scope.reset = ->
       year = scope.year
-      buildGraph(treemapElem, drilldowns, year, scope) if year
+      if year
+        treemapElem[0].innerHTML = ''
+        buildGraph(treemapElem, drilldowns, year, scope)
 
     scope.$watch 'year', -> scope.reset()
 ]
