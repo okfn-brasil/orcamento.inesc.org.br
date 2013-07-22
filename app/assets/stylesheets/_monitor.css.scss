@@ -41,7 +41,8 @@
   .authorized-budget {
     background: $blue;
     h4,
-    .large-number {
+    .large-number,
+    .percentual {
       text-shadow: $deep-blue 2px 2px 0;
     }
     .bar-graph {
@@ -51,7 +52,8 @@
   .payments {
     background: $red;
     h4,
-    .large-number {
+    .large-number,
+    .percentual {
       text-shadow: $deep-red 2px 2px 0;
     }
     .bar-graph {
@@ -61,21 +63,18 @@
   .not-executed {
     background: $yellow;
     h4,
-    .large-number {
+    .large-number,
+    .percentual {
       text-shadow: darken($yellow, 10%) 2px 2px 0;
     }
   }
-  .not-executed-percentual {
-    .bar {
-      display: inline-block;
-      overflow: hidden;
-      transition: width 1s;
-      -webkit-transition: width 1s;
-    }
+  .percentual {
+    font-size: 1.5em;
+    font-weight: 900;
   }
   .large-number {
     font-size: 3.5em;
-    font-weight: 800;
+    font-weight: 900;
     display: block;
     line-height: 1em;
     margin: .5em 0 .75em;
@@ -104,7 +103,7 @@
   input[type='radio'] {
     visibility: hidden;
   }
-  .meter {
+  .meter {  
     display: inline-block;
     font-size: 1em;
     margin-right: .5em;

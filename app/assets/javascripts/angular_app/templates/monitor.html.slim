@@ -8,28 +8,28 @@
       | Orçamento Autorizado
       br
       small[ng-cloak]
-        | (referente à {{year}})
+        | (referente à {{year}} · em R$)
     .large-number[title="{{autorizado | currency:'R$ '}}"
       ng-bind="autorizado | roundedCurrency"]
+    p.percentual
+      | 100%
   .span4.value-box.payments
     h4
       | Pagamentos
       br
       small
-        | (Pago + RP Pago)
+        | (Pago + RP Pago · em R$)
     .large-number[title="{{pagamentos | currency:'R$ '}}"
       ng-bind="pagamentos | roundedCurrency"]
+    p.percentual
+      | {{percentualExecutado | percentual}}
   .span4.value-box.not-executed
     h4
       | Não Executado
       br
       small
-        | (Autorizado - Pagamentos)
+        | (Autorizado &minus; Pagamentos · em R$)
     .large-number[title="{{naoExecutado | currency:'R$ '}}"
       ng-bind="naoExecutado | roundedCurrency"]
-.row
-  .span12.not-executed-percentual
-    .bar.authorized-budget[style="width: {{percentualExecutado || 0}}%"]
-      | {{percentualExecutado | percentual}}
-    .bar.not-executed[style="width: {{percentualNaoExecutado || 0}}%"]
+    p.percentual
       | {{percentualNaoExecutado | percentual}}
