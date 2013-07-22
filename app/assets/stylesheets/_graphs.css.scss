@@ -1,19 +1,17 @@
-.tabs-navigation-wrapper {
+.nav-tabs {
   background: $clouds;
   padding-top: 1em;
   padding-left: 1em;
   border-bottom: 1px solid #DDD;
-}
-#graphs-tab-navigation {
   margin-bottom: 0;
   border-bottom: 0 none;
   text-align: center;
   li {
     float: none;
     display: inline-block;
-    display: none;
-    &.visible {
-      display: inline-block;
+    cursor: pointer;
+    &.disabled {
+      display: none;
     }
   }
   a {

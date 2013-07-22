@@ -16,20 +16,9 @@ div[ng-controller="ProfileController"]
       .row
         percentual-graph[entity='entity' totals='totals' year='year']
   .graphs
-    .tabs-navigation-wrapper
-      .container
-        ul#graphs-tab-navigation.nav.nav-tabs
-          li.active.visible
-            a[href='#monthly-tab' data-toggle='tab']
-              | Pagamentos por mês
-          li.visible
-            a[href='#gnd-tab' data-toggle='tab']
-              | Gastos por Natureza de Despesa (GND)
-          li[ng-class='{visible: !entity.orgao}']
-            a[href='#uo-tab' data-toggle='tab']
-              | Distribuição por Unidade Orçamentária (UO)
-    .tab-content
-      #monthly-tab.tab-pane.active
+    tabset.tab-content
+      tab#monthly-tab.tab-pane[heading="Pagamentos por mês"
+      active="tabs.monthly.active"]
         .gasto-acumulado-por-mes.graph
           .container
             p.pull-right.muted
@@ -40,13 +29,16 @@ div[ng-controller="ProfileController"]
         .table-data
           .container
             summary-table[entity='entity']
-      #gnd-tab.tab-pane
+      tab#gnd-tab.tab-pane[heading="Gastos por Natureza de Despesa (GND)"
+      active="tabs.gnd.active"]
         .distribuicao-gnd.graph
           .container
             h3
               | Grupo da Natureza da Despesa (GND)
-            gnd-graph[entity='entity']
-      #uo-tab.tab-pane
+            gnd-graph[entity='entity' active='tabs.gnd.active']
+      tab#uo-tab.tab-pane[heading="Distribuição por Unidade Orçamentária (UO)"
+      active="tabs.uo.active"
+      disabled="!entity || entity.orgao"]
         .distribuicao-uo.graph
           .container
             h3

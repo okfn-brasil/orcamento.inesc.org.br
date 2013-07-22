@@ -1,4 +1,12 @@
 angular.module('InescApp').controller('ProfileController', ['$scope', 'openspending', 'routing', ($scope, openspending, routing) ->
+    $scope.tabs =
+      monthly:
+        active: true
+      gnd:
+        active: false
+      uo:
+        active: false
+
     openspending.getTotals().then (totals) -> $scope.totals = totals
     $scope.$watch 'entity + year', ->
       [entity, year] = [$scope.entity, $scope.year]
