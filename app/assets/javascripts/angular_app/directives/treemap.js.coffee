@@ -13,7 +13,7 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
   buildGraph = (element, drilldowns, year, scope) ->
     state =
       drilldowns: drilldowns
-      cut: "time.year:#{year}"
+      year: year
     context =
       dataset: openspending.dataset
       siteUrl: openspending.url
@@ -42,7 +42,6 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
     scope.reset = ->
       year = scope.year
       if year
-        treemapElem[0].innerHTML = ''
         buildGraph(treemapElem, drilldowns, year, scope)
 
     scope.$watch 'year', -> scope.reset()
