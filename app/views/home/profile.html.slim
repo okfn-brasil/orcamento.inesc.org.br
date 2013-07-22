@@ -22,6 +22,9 @@ div[ng-controller="ProfileController"]
           li.active.visible
             a[href='#monthly-tab' data-toggle='tab']
               | Pagamentos por mês
+          li.visible
+            a[href='#gnd-tab' data-toggle='tab']
+              | Gastos por Natureza de Despesa (GND)
           li[ng-class='{visible: !entity.orgao}']
             a[href='#uo-tab' data-toggle='tab']
               | Distribuição por Unidade Orçamentária (UO)
@@ -37,6 +40,12 @@ div[ng-controller="ProfileController"]
         .table-data
           .container
             summary-table[entity='entity']
+      #gnd-tab.tab-pane
+        .distribuicao-gnd.graph
+          .container
+            h3
+              | Grupo da Natureza da Despesa (GND)
+            gnd-graph[entity='entity']
       #uo-tab.tab-pane
         .distribuicao-uo.graph
           .container
@@ -56,6 +65,11 @@ div[ng-controller="ProfileController"]
           p
             mark
               | Interpretando o gráfico de pagamentos por mês
+          h3
+            | Distribuição por GND
+          p
+            mark
+              | Interpretando o gráfico de distribuição por GND
           h3
             | Distribuição por UO
           p

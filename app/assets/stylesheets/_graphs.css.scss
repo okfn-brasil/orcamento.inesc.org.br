@@ -61,10 +61,6 @@ svg#monthly-graph {
   width: 960px;
   height: 450px;
   .nvd3 {
-    text {
-      font-family: 'Open Sans', sans-serif !important;
-      fill: $black;
-    }
     .y1.axis,
     .x.axis {
       line {
@@ -124,5 +120,20 @@ svg#monthly-graph {
     background: none;
     box-shadow: none;
     border-bottom: 0 none;
+  }
+}
+
+.distribuicao-gnd.graph {
+  svg {
+    width: 960px;
+    height: 450px;
+  }
+  margin: auto;
+}
+
+.graph.nvd3 {
+  text {
+    font-family: 'Open Sans', sans-serif !important;
+    fill: $black;
   }
 }
