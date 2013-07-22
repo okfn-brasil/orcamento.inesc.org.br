@@ -15,7 +15,7 @@ angular.module('InescApp').filter 'roundedCurrency', ['$filter', ($filter) ->
     else if absValue > million
       round(value/million, ' Mi')
     else if absValue > thousand
-      round(value/thousand, ' Mil')
+      round(value/thousand, ' mil')
     else
       round(value)
 ]
