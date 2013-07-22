@@ -4,4 +4,17 @@ angular.module('InescApp').directive 'monitor', ->
     entity: '=',
     year: '='
   templateUrl: '<%= asset_path("angular_app/templates/monitor.html") %>'
+  link: (scope, element, attributes) ->
+    scope.$watch 'entity.autorizado', ->
+      entity = scope.entity
+      if entity? && entity.autorizado && entity.pagamentos && entity.naoExecutado
+        [autorizado, pagamentos, naoExecutado] = [entity.autorizado, entity.pagamentos, entity.naoExecutado]
+        scope.autorizado = autorizado.total
+        scope.pagamentos = pagamentos.total
+        scope.naoExecutado = naoExecutado.total
+        if autorizado.total
+          scope.percentualNaoExecutado = 100 * (naoExecutado.total / autorizado.total)
+          scope.percentualExecutado = 100 - scope.percentualNaoExecutado
+        else
+          scope.percentualNaoExecutado = scope.percentualExecutado = 0
 

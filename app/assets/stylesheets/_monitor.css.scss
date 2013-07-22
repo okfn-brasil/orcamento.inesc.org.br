@@ -65,6 +65,14 @@
       text-shadow: darken($yellow, 10%) 2px 2px 0;
     }
   }
+  .not-executed-percentual {
+    .bar {
+      display: inline-block;
+      overflow: hidden;
+      transition: width 1s;
+      -webkit-transition: width 1s;
+    }
+  }
   .large-number {
     font-size: 3.5em;
     font-weight: 800;
