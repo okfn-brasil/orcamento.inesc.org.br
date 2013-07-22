@@ -6,9 +6,6 @@
   width: 100%;
   background: darken($clouds, 5%);
   border-bottom: 1px solid $silver;
-  &:hover {
-    background: $clouds;
-  }
   h1 {
     font-size: 1.15em;
     margin: 0;
