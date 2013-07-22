@@ -8,5 +8,5 @@ angular.module('InescApp').filter 'round', ->
                    else
                      2
 
-    (value || 0).toFixed(decimalCases).replace('.', ',') + ' ' + sufix
+    (value || 0).toFixed(decimalCases).replace('.', ',') + sufix
 
