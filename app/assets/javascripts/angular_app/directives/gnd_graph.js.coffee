@@ -22,6 +22,7 @@ angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
                 .x((d) -> d.key)
                 .y((d) -> d.y)
                 .values((d) -> d)
+                .color(['#E67E22', '#1ABC9C', '#9B59B6', '#2980B9', '#7F8C8D', '#34495E', '#E74C3C', '#F1C40F'])
 
       chart.legend.align = false
       chart.tooltipContent((key, x, y, e, graph) ->
