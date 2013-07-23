@@ -43,7 +43,20 @@ div[ng-controller="ProfileController"]
           .container
             h3
               | Distribuição por Unidade Orçamentária (UO)
+            treemap[drilldowns='["uo"]'
+            year='year'
+            entity='entity'
+            active='tabs.uo.active'
+            class='treemap-container']
+        .table-data
+          .container
+            h3
+              | O gráfico em números
             uo-graph[class='table' entity='entity' year='year']
+            a[ng-href="{{entity.downloadUrl}}"
+            class="btn btn-large btn-block data-download-cta"]
+              span.icon-download.icon-large
+                | Baixar planilha com os dados <small>(em formato .CSV)</small>
   .graph-help
     .container
       h3

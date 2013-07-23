@@ -7,13 +7,17 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
     scope.drilledDown = false
     treemap.context.drilldown = (tile) ->
       scope.$apply ->
-        scope.drilledDown = true
+        if treemap.context.hasClick(tile)
+          scope.drilledDown = true
         drilldown(tile)
 
-  buildGraph = (element, drilldowns, year, scope) ->
+  buildGraph = (element, drilldowns, year, entity, scope) ->
     state =
       drilldowns: drilldowns
       year: year
+    if entity?
+      state.cuts = {}
+      state.cuts[entity.type] = entity.id
     context =
       dataset: openspending.dataset
       siteUrl: openspending.url
@@ -27,7 +31,9 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
 
   restrict: 'E',
   scope:
+    entity: '='
     year: '='
+    active: '='
   template: '<button class="btn btn-small back-button" ng-click="reset()" ng-class="{visible: drilledDown}">Voltar</button>' +
             '<div id="treemap"></div>' # O OpenSpendingJS exige que o elemento tenha um id
   link: (scope, element, attributes) ->
@@ -42,8 +48,8 @@ angular.module('InescApp').directive 'treemap', ['openspending', (openspending) 
     scope.reset = ->
       year = scope.year
       if year
-        buildGraph(treemapElem, drilldowns, year, scope)
+        buildGraph(treemapElem, drilldowns, year, scope.entity, scope)
 
-    scope.$watch 'year', -> scope.reset()
+    scope.$watch 'entity.id + year + active', -> scope.reset()
 ]
 
