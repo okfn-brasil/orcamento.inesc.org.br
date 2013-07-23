@@ -43,7 +43,7 @@ html[ng-app='InescApp']
     a.back-to-top[href="#top"]
       span.icon-large.icon-chevron-sign-up>
       | Voltar ao topo
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application'
     = yield :page_scripts
     javascript:
       $(window).scroll(function () {
