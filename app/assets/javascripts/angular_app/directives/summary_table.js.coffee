@@ -1,10 +1,10 @@
 angular.module('InescApp').directive 'summaryTable', ['$filter', ($filter) ->
   columns = [
     { sTitle: 'Mês', bSortable: false, sClass: 'month' }
-    { sTitle: 'Autorizado (em R$)', bSortable: false, sClass: 'currency' }
-    { sTitle: 'Pago (em R$)', bSortable: false, sClass: 'currency' }
-    { sTitle: 'RP Pago (em R$)', bSortable: false, sClass: 'currency' }
-    { sTitle: 'Pagamentos (Pago + RP Pago, em R$)', bSortable: false, sClass: 'currency' }
+    { sTitle: 'Autorizado', bSortable: false, sClass: 'currency' }
+    { sTitle: 'Pago', bSortable: false, sClass: 'currency' }
+    { sTitle: 'RP Pago', bSortable: false, sClass: 'currency' }
+    { sTitle: 'Pagamentos (Pago + RP Pago)', bSortable: false, sClass: 'currency' }
     { sTitle: 'Mês', bVisible: false } # Usado só para sorting
   ]
 
