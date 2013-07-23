@@ -118,6 +118,9 @@ svg#monthly-graph {
     width: 960px;
     height: 450px;
   }
+  .nvd3.nv-legend {
+    pointer-events: none;
+  }
 }
 
 .graph.nvd3 {
