@@ -44,6 +44,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       measure: "rppago"
 
     gndParameters =
+      dataset: dataset
       drilldown: "gnd"
       cut: "time.year:#{year}"
     gndParameters.cut += "|#{parameters.cut}" if parameters.cut
@@ -58,8 +59,8 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       $http.jsonp(aggregateUrl, { params: autorizadoParameters }),
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, pagoParameters) }),
       $http.jsonp(aggregateUrl, { params: $.extend(autorizadoParameters, rppagoParameters) }),
-      $http.jsonp(aggregateUrl, { params: $.extend(parameters, gndParameters) })
-      $http.jsonp(aggregateUrl, { params: $.extend(parameters, yearlyParameters) })
+      $http.jsonp(aggregateUrl, { params: gndParameters })
+      $http.jsonp(aggregateUrl, { params: $.extend(yearlyParameters, parameters) })
     ]).then (response) ->
       [autorizado, pago, rppago, gnd, yearly] = [response[0].data, response[1].data, response[2].data, response[3].data, response[4].data]
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
