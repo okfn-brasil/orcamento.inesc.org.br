@@ -28,7 +28,13 @@ div[ng-controller="ProfileController"]
             svg#monthly-graph[monthly-graph entity='entity' year='year']
         .table-data
           .container
+            h3
+              | O gráfico em números
             summary-table[entity='entity']
+            a[ng-href="{{entity.downloadUrl}}"
+            class="btn btn-large btn-block data-download-cta"]
+              span.icon-download.icon-large
+                | Baixar planilha com os dados <small>(em formato .CSV)</small>
       tab#gnd-tab.tab-pane[heading="Gastos por Natureza de Despesa (GND)"
       active="tabs.gnd.active"]
         .distribuicao-gnd.graph
