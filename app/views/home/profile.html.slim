@@ -11,6 +11,10 @@ div[ng-controller="ProfileController"]
           h1[ng-bind='entity.label']
   .monitor
     .container
+      .row
+        .span12
+          p.data-updated-at.pull-right
+            | Dados atualizados em <b>#{render 'shared/atualizacao'}</b>. Valores em Reais.
       monitor[entity='entity' year='year']
       br
       .row
