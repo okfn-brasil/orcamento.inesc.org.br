@@ -54,7 +54,7 @@ angular.module('InescApp').directive 'summaryTable', ['$filter', ($filter) ->
     year: '='
   template: '<h3>O gráfico em números</h3>' +
             '<my-data-table class="table graph-numbers" columns="columns" options="options" data="data"></my-data-table>' +
-            '<a class="btn btn-large btn-block data-download-cta ng-href="{{entity.downloadUrl}}">' +
+            '<a ng-href="{{entity.downloadUrl}}" class="btn btn-large btn-block data-download-cta>' +
               '<span class="icon-download icon-large">' +
                 ' Baixar planilha com os dados <small>(em formato .CSV)</small>' +
               '</span>' +

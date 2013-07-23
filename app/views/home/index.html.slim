@@ -6,7 +6,7 @@ div[ng-controller="IndexController"]
         .span7
           h2
             | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
-          a.btn-large.btn[href='http://openspending.org/unidade_orcamentaria.csv' target='_blank']
+          a.btn-large.btn[ng-href='{{brasil.downloadUrl}}' target='_blank']
             span.icon-download.icon-large>
             span.text
               | Baixar planilha com os dados
