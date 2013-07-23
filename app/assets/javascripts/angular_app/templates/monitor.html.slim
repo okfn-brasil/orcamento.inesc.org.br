@@ -1,14 +1,14 @@
 .row
   .span12
     p.data-updated-at.pull-right
-      | Dados atualizados em <b>#{'31/12/2013'}</b>.
+      | Dados atualizados em <b>#{'31/12/2013'}</b>. Valores em Reais.
 .row
   .span4.value-box.authorized-budget
     h4
       | Orçamento Autorizado
       br
       small[ng-cloak]
-        | (referente à {{year}} · em R$)
+        | (referente à {{year}})
     .large-number[title="{{autorizado | currency:'R$ '}}"
       ng-bind="autorizado | roundedCurrency"]
     p.percentual
@@ -18,7 +18,7 @@
       | Pagamentos
       br
       small
-        | (Pago + RP Pago · em R$)
+        | (Pago + RP Pago)
     .large-number[title="{{pagamentos | currency:'R$ '}}"
       ng-bind="pagamentos | roundedCurrency"]
     p.percentual
@@ -28,7 +28,7 @@
       | Não Executado
       br
       small
-        | (Autorizado &minus; Pagamentos · em R$)
+        | (Autorizado &minus; Pagamentos)
     .large-number[title="{{naoExecutado | currency:'R$ '}}"
       ng-bind="naoExecutado | roundedCurrency"]
     p.percentual
