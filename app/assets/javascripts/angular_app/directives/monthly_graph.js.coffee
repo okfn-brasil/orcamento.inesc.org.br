@@ -1,7 +1,14 @@
 angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
+  chart = undefined
+
+  buildOrUpdateGraph = (chart, svgElement, entity) ->
+    if chart
+      updateGraph(chart, svgElement, entity)
+    else
+      buildGraph(svgElement, entity)
+
   buildGraph = (svgElement, entity) ->
      nv.addGraph () ->
-         data = processData(entity)
          chart = nv.models.multiChart()
                .x((d,i) -> d.x)
                .color(['#E74C3C','#C0392b','#3498DB'])
@@ -18,13 +25,13 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
          chart.yAxis1.showMaxMin(true)
              .tickFormat($filter('roundedCurrency'))
 
-         d3.select(svgElement)
-             .datum(data)
-           .transition().duration(500).call(chart)
+         updateGraph(chart, svgElement, entity)
 
-         nv.utils.windowResize(chart.update)
-
-         chart
+  updateGraph = (chart, svgElement, entity) ->
+    data = processData(entity)
+    d3.select(svgElement)
+        .datum(data)
+      .transition().duration(500).call(chart)
 
   processData = (entity) ->
     autorizado = entity.autorizado
@@ -68,8 +75,8 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
     year: '='
   link: (scope, element, attributes) ->
     scope.$watch 'entity.autorizado', ->
-      [entity, year] = [scope.entity, scope.year]
-      if entity? and entity.autorizado? and year?
-        buildGraph(element[0], entity)
+      entity = scope.entity
+      if entity? and entity.autorizado?
+        buildOrUpdateGraph(chart, element[0], entity)
 ]
 
