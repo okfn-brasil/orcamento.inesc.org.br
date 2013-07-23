@@ -3,7 +3,7 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
      nv.addGraph () ->
          data = processData(entity)
          chart = nv.models.multiChart()
-               .x((d,i) -> parseInt(d.x))
+               .x((d,i) -> d.x)
                .color(['#E74C3C','#C0392b','#3498DB'])
 
          chart.tooltipContent((key, x, y, e, graph) ->
@@ -11,10 +11,8 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
            "<p>#{y} em #{x}</p>"
          )
 
-         chart.xAxis.showMaxMin(true).tickFormat((d) ->
-           index = d - 1
-           dx = data[0].values[index] && data[0].values[index].x
-           $filter('month')(dx)
+         chart.xAxis.showMaxMin(true).tickFormat((x) ->
+           $filter('month')(x)
          )
 
          chart.yAxis1.showMaxMin(true)
@@ -32,28 +30,23 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
     autorizado = entity.autorizado
     pago = entity.pago
     rppago = entity.rppago
+    pagamentos = entity.pagamentos.drilldown
 
     accumulateAmounts = (values, element) ->
       length = values.length
       amount = if length > 0 then values[length-1].y else 0
-      amount += element.amount || element.pago || 0
+      amount += element.amount || element.pago || element.pagamentos || 0
       values.push {
         x: element.time.month,
         y: amount
       }
       values
-
-    pagamentos = pago.drilldown.map (element, i) ->
-      rppago_amount = rppago.drilldown[i].rppago
-      element.amount = element.pago + rppago_amount
-      element
-
     [
       {
         key: "Pagamentos",
         yAxis: 1,
         type: "bar",
-        values: pagamentos.map (element) -> { x: element.time.month, y: element.amount }
+        values: pagamentos.map (element) -> { x: element.time.month, y: element.pagamentos }
       },
       {
         key: "Pagamentos Acumulados",

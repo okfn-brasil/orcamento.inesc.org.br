@@ -29,7 +29,10 @@ angular.module('InescApp').directive 'summaryTable', ['$filter', ($filter) ->
       month = parseInt(element.time.month)
       months[month] ||= {label: element.time.month}
       months[month].pago = element.pago
-      months[month].pagamentos = element.pago + months[month].rppago
+    $.each entity.pagamentos.drilldown, (i, element) ->
+      month = parseInt(element.time.month)
+      months[month] ||= {label: element.time.month}
+      months[month].pagamentos = element.pagamentos
     months.push
       label: 'Total'
       autorizado: entity.autorizado.total

@@ -13,6 +13,18 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
     else
       "#{url}/#{dataset}/#{entity.type}/#{entity.id}/entries.csv?pagesize=1000000"
 
+  fillEmptyMonths = (drilldown) ->
+    meses = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+    ultimoMes = drilldown[drilldown.length-1].time.month
+    i = meses.indexOf(ultimoMes) + 1
+    meses.slice(0, i).map (mes) ->
+      elem = drilldown.filter((e) -> e.time.month == mes)[0]
+      if elem
+        elem
+      else
+        time:
+          month: mes
+
   get = (entity, year) ->
     parameters =
       dataset: dataset
@@ -51,7 +63,13 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       autorizado = $.extend(autorizado, total: autorizado.summary.amount)
       pago = $.extend(pago, total: pago.summary.pago)
       rppago = $.extend(rppago, total: rppago.summary.rppago)
-      pagamentos = total: pago.total + rppago.total
+      pagamentos =
+        total: pago.total + rppago.total
+        drilldown: pago.drilldown.map (element, i) ->
+          rppago_amount = rppago.drilldown[i].rppago
+          time: element.time
+          pagamentos: element.pago + rppago_amount
+      pagamentos.drilldown = fillEmptyMonths(pagamentos.drilldown)
       naoExecutado = total: autorizado.total - pagamentos.total
       amounts =
         autorizado: autorizado
