@@ -64,9 +64,6 @@ svg#monthly-graph {
       line {
         stroke: white;
       }
-      text {
-        font-weight: 700;
-      }
     }
     .y1.axis {
       g.tick.major:nth-child(2n+2) {
@@ -75,28 +72,22 @@ svg#monthly-graph {
     }
     .nv-series-0 {
       rect.nv-bar.positive {
-        fill-opacity: .5 !important;
+        fill-opacity: .75 !important;
         &:hover {
-          fill-opacity: .75 !important;
+          fill-opacity: 1 !important;
         }
       }
     }
-    .nv-series-1 {
-      rect.nv-bar.positive {
-        fill: $green !important;
-        stroke: $green !important;
-      }
-    }
     circle.nv-point {
+      stroke-width: 6px !important;
       stroke-opacity: 1 !important;
       fill-opacity: 1 !important;
       &:hover {
         stroke-width: 16px !important;
-        stroke-opacity: .5 !important;
       }
     }
     .nv-area.nv-area-0 {
-      fill-opacity: .2 !important;
+      fill-opacity: .5 !important;
     }
     .nv-wrap.nv-stackedarea {
       circle {
@@ -122,16 +113,17 @@ svg#monthly-graph {
 }
 
 .distribuicao-gnd.graph {
+  margin: auto;
   svg {
     width: 960px;
     height: 450px;
   }
-  margin: auto;
 }
 
 .graph.nvd3 {
   text {
     font-family: 'Open Sans', sans-serif !important;
     fill: $black;
+    font-weight: 700;
   }
 }
