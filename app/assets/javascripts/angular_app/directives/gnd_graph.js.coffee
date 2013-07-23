@@ -1,9 +1,22 @@
 angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
+  columns = [
+    { sTitle: 'Grupo da Natureza da Despesa', bSortable: false }
+    { sTitle: 'Orçamento Autorizado', bSortable: false, sClass: 'currency' }
+    { sTitle: 'Percentual do Total', bSortable: false, sClass: 'percentual' }
+    { sTitle: 'Orçamento Autorizado', bVisible: false } # Usado só pra sorting
+  ]
+  options =
+    bPaginate: false
+    aaSorting: [[ 3, 'desc' ]]
+    sDom: 't'
+
   roundedCurrency = $filter('roundedCurrency')
+  currency = $filter('currency')
+  percentual = $filter('percentual')
 
   buildGraph = (svgElement, data, scope) ->
     nv.addGraph ->
-      data = processData(data)
+      data = [processData(data)]
       chart = nv.models.pieChart()
                 .showLabels(false)
                 .x((d) -> d.key)
@@ -26,19 +39,32 @@ angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
       chart
 
   processData = (data) ->
-    values = data.map (d) ->
+    data.map (d) ->
       key: d.gnd.label
       y: d.amount
-    [values]
+
+  processDataForTable = (entity) ->
+    gnd = entity.gnd
+    console.log(entity)
+    processData(gnd).map (d) ->
+      [d.key
+       currency(d.y, '')
+       percentual((d.y*100)/entity.autorizado.total)
+       d.y]
 
   restrict: 'E'
-  template: '<svg></svg>'
+  template: '<svg></svg>' +
+            '<my-data-table columns="columns" options="options" data="data"></my-data-table>'
   scope:
     entity: '='
     active: '='
   link: (scope, element, attributes) ->
+    scope.columns = columns
+    scope.options = options
     svg = $(element).children('svg')[0]
     scope.$watch 'entity.gnd', ->
       entity = scope.entity
-      buildGraph(svg, entity.gnd, scope) if entity? and entity.gnd?
+      if entity? and entity.gnd?
+        buildGraph(svg, entity.gnd, scope)
+        scope.data = processDataForTable(entity)
 ]

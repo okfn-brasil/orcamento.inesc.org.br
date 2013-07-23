@@ -45,6 +45,8 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
 
     gndParameters =
       drilldown: "gnd"
+      cut: "time.year:#{year}"
+    gndParameters.cut += "|#{parameters.cut}" if parameters.cut
 
     yearlyParameters =
       drilldown: "time.year"
