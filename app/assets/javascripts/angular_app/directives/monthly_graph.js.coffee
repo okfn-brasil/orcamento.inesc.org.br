@@ -37,7 +37,7 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
       amount = if length > 0 then values[length-1].y else 0
       amount += element.amount || element.pago || element.pagamentos || 0
       values.push {
-        x: element.time.month,
+        x: parseInt(element.time.month)
         y: amount
       }
       values
@@ -46,7 +46,7 @@ angular.module('InescApp').directive 'monthlyGraph', ['$filter', ($filter) ->
         key: "Pagamentos",
         yAxis: 1,
         type: "bar",
-        values: pagamentos.map (element) -> { x: element.time.month, y: element.pagamentos }
+        values: pagamentos.map (element) -> { x: parseInt(element.time.month), y: element.pagamentos }
       },
       {
         key: "Pagamentos Acumulados",
