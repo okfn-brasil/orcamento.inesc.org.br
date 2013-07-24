@@ -18,7 +18,8 @@ div[ng-controller="IndexController"]
   .home-header
     .container
       h3
-        | O Orçamento Federal
+        | O Orçamento Federal para
+        .year-navigation<[entity="brasil" year='year']
   .monitor
     .container
       .row
@@ -29,7 +30,8 @@ div[ng-controller="IndexController"]
   .function
     .container
       h3
-        | Distribuição do Orçamento Autorizado por Função e Subfunção
+        | Distribuição do Orçamento Autorizado por Função e Subfunção para
+        .year-navigation<[entity="brasil" year='year']
       treemap[drilldowns='["funcao", "subfuncao"]'
         year='year' class='treemap-container']
   .navigation

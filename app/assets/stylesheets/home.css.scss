@@ -52,6 +52,13 @@
   background: $clouds;
   padding-top: 2em;
 }
+.year-navigation {
+  display: inline;
+  select {
+    width: 5em;
+    margin: 0;
+  }
+}
 
 .function {
   padding: 3em 0;

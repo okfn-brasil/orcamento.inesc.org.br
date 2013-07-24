@@ -12,7 +12,10 @@ div[ng-controller="ProfileController"]
   .monitor
     .container
       .row
-        .span12
+        .span6
+          | Valores para
+          = render 'shared/year_navigation'
+        .span6
           p.data-updated-at.pull-right
             | Dados atualizados em <b>#{render 'shared/atualizacao'}</b>. Valores em Reais.
       monitor[entity='entity' year='year']
@@ -28,12 +31,14 @@ div[ng-controller="ProfileController"]
             p.pull-right.muted
               | Posicione o cursor sobre as áreas para visualizar detalhes.
             h3
-              | Pagamentos por mês
+              | Pagamentos por mês para
+              = render 'shared/year_navigation'
             svg#monthly-graph[monthly-graph entity='entity' year='year']
         .table-data
           .container
             h3
-              | O gráfico em números
+              | O gráfico em números para
+              = render 'shared/year_navigation'
             summary-table[entity='entity']
             a[ng-href="{{entity.downloadUrl}}"
               target="_blank"
@@ -45,7 +50,8 @@ div[ng-controller="ProfileController"]
         .distribuicao-gnd.graph
           .container
             h3
-              | Grupo da Natureza da Despesa (GND)
+              | Orçamento Autorizado por Grupo da Natureza da Despesa para
+              = render 'shared/year_navigation'
             gnd-graph[class='table' entity='entity' active='tabs.gnd.active']
       tab#uo-tab.tab-pane[heading="Distribuição por Unidade Orçamentária (UO)"
       active="tabs.uo.active"
@@ -53,16 +59,18 @@ div[ng-controller="ProfileController"]
         .distribuicao-uo.graph
           .container
             h3
-              | Distribuição por Unidade Orçamentária (UO)
+              | Orçamento Autorizado por Unidade Orçamentária para
+              = render 'shared/year_navigation'
             treemap[drilldowns='["uo"]'
-            year='year'
-            entity='entity'
-            active='tabs.uo.active'
-            class='treemap-container']
+              year='year'
+              entity='entity'
+              active='tabs.uo.active'
+              class='treemap-container']
         .table-data
           .container
             h3
-              | O gráfico em números
+              | O gráfico em números para
+              = render 'shared/year_navigation'
             uo-graph[class='table' entity='entity' year='year']
             a[ng-href="{{entity.downloadUrl}}"
               target="_blank"

@@ -4,8 +4,6 @@
       = link_to root_path, class: 'logo' do
         = image_tag 'logo.png', size: '42x42'
         | Orçamento ao seu Alcance
-    - if local_assigns[:year_navigation]
-      .year-navigation[entity="#{local_assigns[:entity] || 'entity'}" year='year']
     form.search
       span.icon-search.icon-large
       input.search-query[type="text"
