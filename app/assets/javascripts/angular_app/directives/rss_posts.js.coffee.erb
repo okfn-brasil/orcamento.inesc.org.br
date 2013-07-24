@@ -1,0 +1,7 @@
+angular.module('InescApp').directive 'rssPosts', ['rss', (rss) ->
+  restrict: 'E'
+  templateUrl: '<%= asset_path("angular_app/templates/rss_posts.html") %>'
+  link: (scope, element, attributes) ->
+    rss.get(attributes.url, attributes.limit).then (feed) ->
+      scope.posts = feed.entries
+]

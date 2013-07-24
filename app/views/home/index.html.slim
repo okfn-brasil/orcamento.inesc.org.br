@@ -37,3 +37,5 @@ div[ng-controller="IndexController"]
       h3
         | Lista de Órgãos e Unidades Orçamentárias
       entity-list[class='table' entities='entities' year='year']
+- content_for :page_scripts
+  = javascript_include_tag '//www.google.com/jsapi'
