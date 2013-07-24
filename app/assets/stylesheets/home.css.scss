@@ -12,39 +12,25 @@
 
 .showcase {
   background: $black;
-  padding: 4em 0;
+  padding: 4em 0 1em 0;
   color: white;
-  h2 {
-    padding-top: 1.5em;
-    font-size: 2.5em;
-    font-weight: 300;
-    line-height: 1.2;
-    margin: 0;
+  .tab-pane {
+    height: 350px;
+    text-align: center;
+    p {
+      text-align: left;
+      font-size: 1.25em;
+      font-weight: 300;
+      line-height: 1.4;
+      margin: 0;
+    }
   }
-  .btn {
-    padding: 1em;
-    margin-top: 1em;
-    border-radius: 3px;
-    background: $green;
-    color: white;
-    text-align: left;
-    border-bottom: 2px solid darken($black, 10%);
-    span.icon-large {
-      font-size: 2.5em; 
-    }
-    .text {
-      display: inline-block;
-      margin-left: .5em;
-    }
-    small {
-      opacity: .75;
-    }
-    &:hover {
-      background: lighten($green, 5%);
-    }
-    &:active {
-      border-bottom-color: $black;
-    }
+  .icon-huge {
+    color: lighten($black,5%);
+    font-size: 10em;
+  }
+  .project-logo {
+    width: 60%;
   }
 }
 

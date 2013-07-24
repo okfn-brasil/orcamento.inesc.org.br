@@ -2,19 +2,60 @@ div[ng-controller="IndexController"]
   = render 'shared/persistent_header', entity: 'brasil', year_navigation: true
   .showcase
     .container
+      .tab-content
+        .tab-pane.active#slide1
+          .row
+            .span6
+              p
+                | O orçamento público é formado pelos tributos pagos por milhões de brasileiros/as. Esses recursos são públicos e pertencem à coletividade. Os governos têm a obrigação de alocar o máximo de recursos disponíveis para políticas públicas que promovam os direitos humanos, reduzam as desigualdades sociais e garantam a sustentabilidade ambiental, assim como prevê a Constituição Federal, os tratados internacionais e a legislação brasileira.
+            .span6
+              = image_tag 'showcase-payments.png'
+        .tab-pane#slide2
+          .row
+            .span6
+              = image_tag 'showcase-distribuicao-uo.png'
+            .span6
+              p
+                | Grande parte das receitas governamentais, ou seja, do dinheiro que o governo arrecada, sai do nosso bolso, direta ou indiretamente. Devido ao sistema tributário brasileiro ser regressivo e injusto, os pobres pagam, proporcionalmente, mais impostos do que os ricos.
+        .tab-pane#slide3
+          .row
+            .span6
+              p
+                | O portal Orçamento ao seu Alcance desenvolvido pelo INESC (Instituto de Estudos Socioeconômicos), em parceria com a Open Knowledge Foundation Brasil, tem como objetivo visualizar o orçamento federal de forma mais simples. Ele sintetiza informações atualizadas e mensais sobre o desembolso financeiro dos ministérios e demais órgãos federais, que permitirá um acompanhamento do desempenho desses órgãos ao longo do ano, assim como comparações entre o volume de recursos disponíveis para cada área do governo federal.
+            .span6
+              = image_tag 'logo.png', class: 'project-logo'
+        .tab-pane#slide4
+          .row
+            .span6
+              p
+                | Os dados utilizados pelo Portal são extraídos do Siga Brasil, que é um sistema de informações orçamentárias que reúne diversas bases de dados (SIAFI, SIOP, SELOR etc.) e as coloca à disposição da sociedade para acesso direto e facilitado.
+            .span6
+              = image_tag 'siga-brasil.jpg'
+        .tab-pane#slide5
+          .row
+            .span6
+              p
+                | Parte significativa do orçamento público é destinada para o sistema financeiro (por meio de juros e amortizações da dívida pública), para atender interesses de grupos econômicos e políticos ou se perdem na corrupção. O orçamento público pertence ao povo. Temos que ficar de olho e verificar quais são esses recursos, de onde vem e para onde vai. Somente com pressão e participação popular poderemos garantir que os recursos públicos sejam destinados para a construção de uma sociedade livre, justa e sustentável.
+            .span6
+              = image_tag 'showcase-monitor.png'
       .row
-        .span7
-          h2
-            | O portal que visa facilitar o acesso dos cidadãos/ãs e organizações da sociedade civil aos dados do orçamento federal.
-          a.btn-large.btn[ng-href='{{brasil.downloadUrl}}' target='_blank']
-            span.icon-download.icon-large>
-            span.text
-              | Baixar planilha com os dados
-              br
-              small
-                | (em formato .CSV)
-        .span5
-          = image_tag 'logo.png'
+        .span12
+          ul.nav.nav-pills#slideshow
+            li.active
+              a[href="#slide1" data-toggle="tab"]
+                | Formação do Orçamento
+            li
+              a[href="#slide2" data-toggle="tab"]
+                | De onde vêm o dinheiro
+            li
+              a[href="#slide3" data-toggle="tab"]
+                | Orçamento ao seu Alcance
+            li
+              a[href="#slide4" data-toggle="tab"]
+                | Origem dos Dados
+            li
+              a[href="#slide5" data-toggle="tab"]
+                | Acompanhamento popular
   .news
     .container
       rss-posts[url='http://blog.inesc.org.br/feed/' limit=3]
@@ -44,3 +85,8 @@ div[ng-controller="IndexController"]
       entity-list[class='table' entities='entities' year='year']
 - content_for :page_scripts
   = javascript_include_tag '//www.google.com/jsapi'
+  javascript:
+    $('#slideshow a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    }) 
