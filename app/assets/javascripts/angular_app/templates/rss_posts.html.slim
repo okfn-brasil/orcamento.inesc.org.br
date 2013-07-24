@@ -1,7 +1,12 @@
-.posts[ng-repeat='post in posts']
-  .post
-    a.title[ng-href='{{post.link}}' target='_blank']
-      span
-        | {{post.title}}
-    .snippet
+h3
+  | Notícias sobre o Orçamento Federal
+.posts.row
+  .post.span4[ng-repeat='post in posts']
+    h4
+      a.title[ng-href='{{post.link}}' target='_blank']
+        span
+          | {{post.title}}
+    p.snippet
       | {{post.contentSnippet}}
+      a.read-all<[ng-href='{{post.link}}' target='_blank']
+        | Leia na íntegra

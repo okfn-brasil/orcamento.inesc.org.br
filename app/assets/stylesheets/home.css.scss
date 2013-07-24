@@ -48,10 +48,15 @@
   }
 }
 
+.news {
+  padding: 2em 0;
+}
+
 .home-header {
   background: $clouds;
   padding-top: 2em;
 }
+
 .year-navigation {
   display: inline;
   select {
@@ -110,6 +115,7 @@
     box-shadow: none;
   }
 }
+
 #_tooltip.tip {
   background: $deep-blue;
   border-radius: 2px;

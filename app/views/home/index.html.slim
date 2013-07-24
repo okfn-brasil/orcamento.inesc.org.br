@@ -15,6 +15,9 @@ div[ng-controller="IndexController"]
                 | (em formato .CSV)
         .span5
           = image_tag 'logo.png'
+  .news
+    .container
+      rss-posts[url='http://blog.inesc.org.br/feed/' limit=3]
   .home-header
     .container
       h3
