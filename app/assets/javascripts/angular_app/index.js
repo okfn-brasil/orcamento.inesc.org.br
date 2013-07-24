@@ -2,6 +2,7 @@
 //= require ./vendor/jquery.dataTables
 //= require ./vendor/ui-bootstrap-tpls-0.4.0
 //= require ./vendor/openspending
+//= require ./vendor/spin
 //= require ./app
 //= require_tree ./directives
 //= require_tree ./services
