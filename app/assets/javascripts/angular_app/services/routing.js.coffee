@@ -32,7 +32,7 @@ angular.module('InescApp').factory('routing', ['openspending', (openspending) ->
     updateRoute: (entity, year) ->
       newUrl = generateUrl(entity, year)
       if window.location.pathname != newUrl
-        if window.history && (!entity || !inRootPage())
+        if window.history && window.history.pushState && (!entity || !inRootPage())
           window.history.pushState({}, '', newUrl)
         else
           window.location.pathname = newUrl
