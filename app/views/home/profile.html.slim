@@ -38,9 +38,9 @@ div[ng-controller="ProfileController"]
             a[ng-href="{{entity.downloadUrl}}"
               target="_blank"
               class="btn btn-large btn-block data-download-cta"]
-              span.icon-download.icon-large
-                | Baixar planilha com os dados <small>(em formato .CSV)</small>
-      tab#gnd-tab.tab-pane[heading="Gastos por Natureza de Despesa (GND)"
+              span.icon-download.icon-large>
+              | Baixar planilha com os dados <small>(em formato .CSV)</small>
+      tab#gnd-tab.tab-pane[heading="Distribuição por Grupo da Natureza de Despesa (GND)"
       active="tabs.gnd.active"]
         .distribuicao-gnd.graph
           .container
@@ -67,8 +67,8 @@ div[ng-controller="ProfileController"]
             a[ng-href="{{entity.downloadUrl}}"
               target="_blank"
               class="btn btn-large btn-block data-download-cta"]
-              span.icon-download.icon-large
-                | Baixar planilha com os dados <small>(em formato .CSV)</small>
+              span.icon-download.icon-large>
+              | Baixar planilha com os dados <small>(em formato .CSV)</small>
   .graph-help
     .container
       h3
