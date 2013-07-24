@@ -34,6 +34,7 @@ angular.module('InescApp').factory('routing', ['openspending', (openspending) ->
       if window.location.pathname != newUrl
         if window.history && window.history.pushState && (!entity || !inRootPage())
           window.history.pushState({}, '', newUrl)
+          ga('send', 'pageview')
         else
           window.location.pathname = newUrl
     parseUrl: (entities) ->
