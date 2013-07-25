@@ -52,7 +52,8 @@
 }
 
 .function {
-  padding: 3em 0;
+  padding: 0 0 3em 0;
+  background: $clouds;
 }
 
 .treemap-container {
@@ -110,7 +111,6 @@
 
 .navigation {
   padding: 3em 0;
-  background: $clouds;
 }
 
 .loading {
