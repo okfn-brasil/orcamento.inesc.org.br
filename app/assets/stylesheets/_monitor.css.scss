@@ -43,7 +43,7 @@
     h4,
     .large-number,
     .percentual {
-      text-shadow: $deep-blue 2px 2px 0;
+      @include long-text-shadow($deep-blue);
     }
     .bar-graph {
       background: $deep-blue;
@@ -54,7 +54,7 @@
     h4,
     .large-number,
     .percentual {
-      text-shadow: $deep-red 2px 2px 0;
+      @include long-text-shadow($deep-red);
     }
     .bar-graph {
       background: $red;
@@ -65,7 +65,14 @@
     h4,
     .large-number,
     .percentual {
-      text-shadow: darken($yellow, 10%) 2px 2px 0;
+      @include long-text-shadow($deep-yellow);
+    }
+  }
+  .bar-graph-box {
+    h4,
+    .large-number,
+    .percentual {
+      @include long-text-shadow($deep-green);
     }
   }
   .percentual {

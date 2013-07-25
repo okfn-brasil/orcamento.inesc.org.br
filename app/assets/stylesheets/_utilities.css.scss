@@ -3,10 +3,10 @@ $green: #2ECC71;
 $blue: #3498DB;
 $deep-blue: #2980B9;
 $yellow: #F1C40F;
+$deep-yellow: #F39C12;
 $red: #E74C3C;
 $deep-red: #C0392B;
 $purple: #9B59B6;
-$orange: #F39C12;
 $deep-green: #27AE60;
 $other-green: #1ABC9C;
 $silver: #BDC3C7;
@@ -35,4 +35,7 @@ $clouds: #ECF0F1;
 @mixin percentual {
   @include number;
   text-align: center;
+}
+@mixin long-text-shadow($color) {
+  text-shadow: $color 2px 2px 0, $color 1px 1px 0;
 }
