@@ -63,7 +63,7 @@ html[ng-app='InescApp']
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-873671-12');ga('send','pageview');
 
-    #open-spending-error.modal.hide
+    async-error-message.modal.hide
       .modal-body
         button[type="button" class="close" data-dismiss="modal" aria-hidden="true"] &times;
         h3
@@ -75,5 +75,3 @@ html[ng-app='InescApp']
           | Tente <a href="#" onClick="document.location.reload(true)">recarregar a página</a>. Se o erro persistir, #{link_to 'entre em contato', contact_path}.
         a.pull-right[href="#" class="btn" data-dismiss='modal']
           | Fechar
-    javascript:
-      //$('#open-spending-error').modal('toggle')
