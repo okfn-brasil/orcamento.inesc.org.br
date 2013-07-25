@@ -9,7 +9,7 @@ angular.module('InescApp').directive 'uoGraph', ['$filter', ($filter) ->
 
   options =
     bPaginate: false
-    aaSorting: [[ 3, 'desc' ]]
+    aaSorting: [[ 4, 'desc' ]]
     sDom: 'ft'
     fnRowCallback: (nRow, aData, iDisplayIndex) ->
       $('td:eq(0)', nRow).html(iDisplayIndex + 1)
