@@ -1,1 +1,1 @@
-.year-navigation<[entity="entity" year='$parent.year']
+.year-navigation<[entity="#{local_assigns[:entity] || 'entity'}" year="#{local_assigns[:year] || '$parent.year'}"]

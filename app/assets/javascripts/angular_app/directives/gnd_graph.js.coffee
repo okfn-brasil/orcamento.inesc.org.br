@@ -54,7 +54,9 @@ angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
 
   restrict: 'E'
   template: '<svg></svg>' +
-            '<h3>O gráfico em números</h3>' +
+            '<h3>O gráfico em números para ' +
+              '<div class="year-navigation" entity="entity" year="year"></div>' +
+            '</h3>' +
             '<my-data-table columns="columns" options="options" data="data"></my-data-table>' +
             '<a ng-href="{{entity.downloadUrl}}" class="btn btn-large btn-block data-download-cta" target="_blank">' +
               '<span class="icon-download icon-large"></span>' +
@@ -62,6 +64,7 @@ angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
             '</a>'
   scope:
     entity: '='
+    year: '='
     active: '='
   link: (scope, element, attributes) ->
     scope.columns = columns

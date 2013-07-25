@@ -1,5 +1,5 @@
 div[ng-controller="ProfileController"]
-  = render 'shared/persistent_header', year_navigation: true
+  = render 'shared/persistent_header'
   .profile-header
     .container
       ul.breadcrumb
@@ -14,7 +14,7 @@ div[ng-controller="ProfileController"]
       .row
         .span6
           | Valores para
-          = render 'shared/year_navigation'
+          = render 'shared/year_navigation', year: 'year'
         .span6
           p.data-updated-at.pull-right
             | Dados atualizados em <b>#{render 'shared/atualizacao'}</b>. Valores em Reais.
@@ -52,7 +52,10 @@ div[ng-controller="ProfileController"]
             h3
               | Orçamento Autorizado por Grupo da Natureza da Despesa para
               = render 'shared/year_navigation'
-            gnd-graph[class='table' entity='entity' active='tabs.gnd.active']
+            gnd-graph[class='table'
+                      entity='entity'
+                      year='$parent.year'
+                      active='tabs.gnd.active']
       tab#uo-tab.tab-pane[heading="Distribuição por Unidade Orçamentária (UO)"
       active="tabs.uo.active"
       disabled="!entity || entity.orgao"]
