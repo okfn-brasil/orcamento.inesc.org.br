@@ -55,9 +55,12 @@ html[ng-app='InescApp']
             h4
               | Parceiros
             p
-              | #{link_to 'OpenSpending', 'http://openspending.org/', target: '_blank'}
+              = link_to 'http://openspending.org/', target: '_blank' do
+                span.openspending-logo
+                  | OpenSpending
             p
-              | #{link_to 'Siga Brasil', 'http://www12.senado.gov.br/orcamento/sigabrasil', target: '_blank'}
+              = link_to 'http://www12.senado.gov.br/orcamento/sigabrasil', target: '_blank'  do
+                = image_tag 'siga-brasil-small.png', alt: 'Siga Brasil', class: 'siga-brasil-logo'
         .colophon
           p
             | Aplicativo publicado com #{link_to 'licença MIT', 'https://github.com/okfn-brasil/orcamento.inesc.org.br/blob/master/LICENSE.txt', target: '_blank'} e #{link_to 'código aberto no GitHub', 'https://github.com/okfn-brasil/orcamento.inesc.org.br', target: '_blank'}.
