@@ -40,3 +40,6 @@ Inesc - Instituto de Estudos Socioeconômicos
 
 ### Licença
 
+The MIT License (MIT). Copyright (c) 2013 Open Knowledge Foundation Brasil.
+
+Para mais informações, confira o arquivo ``LICENSE.txt``.
