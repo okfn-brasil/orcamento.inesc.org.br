@@ -46,7 +46,6 @@ angular.module('InescApp').directive 'gndGraph', ['$filter', ($filter) ->
 
   processDataForTable = (entity) ->
     gnd = entity.gnd
-    console.log(entity)
     processData(gnd).map (d) ->
       [d.key
        currency(d.y, '')
