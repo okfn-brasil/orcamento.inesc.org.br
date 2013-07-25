@@ -26,15 +26,16 @@ Acesse em seu computador pelo endereço:
 [localhost:3000](http://localhost:3000/)
 
 
-### Mantenedores
+### Criação
 
-Inesc - Instituto de Estudos Socioeconômicos
+Inesc - Instituto de Estudos Socioeconômicos - [inesc.org.br](http://inesc.org.br)
 
 
 ### Agradecimentos
 
 * OFKN Brasil - [br.ofkn.org](http://br.okfn.org/)
 * Grupo DataViz - [dataviz.com.br](http://dataviz.com.br)
+* OpenSpending - [openspending.org](http://openspending.org/)
 * Portal Siga Brasil - [www12.senado.gov.br/orcamento/sigabrasil](http://www12.senado.gov.br/orcamento/sigabrasil)
 
 
