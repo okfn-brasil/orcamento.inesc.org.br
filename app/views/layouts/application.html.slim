@@ -43,6 +43,7 @@ html[ng-app='InescApp']
     a.back-to-top[href="#top"]
       span.icon-large.icon-chevron-sign-up>
       | Voltar ao topo
+
     = javascript_include_tag 'application'
     = yield :page_scripts
     javascript:
@@ -61,3 +62,18 @@ html[ng-app='InescApp']
         e.src='//www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-873671-12');ga('send','pageview');
+
+    #open-spending-error.modal.hide
+      .modal-body
+        button[type="button" class="close" data-dismiss="modal" aria-hidden="true"] &times;
+        h3
+          | Ooops : (
+        p.alert.alert-error
+          strong
+            | Um erro impediu o carregamento dos dados.
+        p
+          | Tente <a href="#" onClick="document.location.reload(true)">recarregar a página</a>. Se o erro persistir, <a href='mailto:'>entre em contato</a>.
+        a.pull-right[href="#" class="btn" data-dismiss='modal']
+          | Fechar
+    javascript:
+      //$('#open-spending-error').modal('toggle')
