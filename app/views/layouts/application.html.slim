@@ -28,18 +28,39 @@ html[ng-app='InescApp']
     footer
       .container
         .nav
+          h4
+            | Links
           - pages.each do |page|
             = nav_link page[:label], page[:path]
-        .authorship
-          = link_to 'http://www.inesc.org.br/', target: '_blank' do
-            = image_tag 'inesc-small.png'
-            | Inesc · Instituto de Estudos Socioeconômicos
-          = link_to 'http://br.okfn.org/', target: '_blank' do
-            = image_tag 'okfn-small.png'
-            | Open Knowledge Foundation Brasil
+        .row.authorship
+          .span3
+            h4
+              | Criação
+            p
+              = link_to 'http://www.inesc.org.br/', target: '_blank', title: 'Instituto de Estudos Socioeconômicos' do
+                = image_tag 'inesc-small.png', alt: 'Inesc', class: 'inesc-logo'
+          .span3
+            h4
+              | Desenvolvimento
+            p
+              = link_to 'http://br.okfn.org/', target: '_blank', title: 'Open Knowledge Foundation Brasil' do
+                = image_tag 'okfn-small.png', alt: 'OFKN Brasil', class: 'okfn-logo'
+          .span3
+            h4
+              | Design
+            p
+              = link_to 'http://dataviz.com.br/', target: '_blank', title: 'DataViz' do
+                = image_tag 'dataviz-small.png', alt: 'DataViz', class: 'dataviz-logo'
+          .span3
+            h4
+              | Parceiros
+            p
+              | #{link_to 'OpenSpending', 'http://openspending.org/', target: '_blank'}
+            p
+              | #{link_to 'Siga Brasil', 'http://www12.senado.gov.br/orcamento/sigabrasil', target: '_blank'}
         .colophon
           p
-            | #{Time.new.year} · #{link_to 'licença', '#'} · #{link_to 'código no github', 'https://github.com/okfn-brasil/orcamento.inesc.org.br', target: '_blank'}
+            | Aplicativo publicado com #{link_to 'licença MIT', 'https://github.com/okfn-brasil/orcamento.inesc.org.br/blob/master/LICENSE.txt', target: '_blank'} e #{link_to 'código aberto no GitHub', 'https://github.com/okfn-brasil/orcamento.inesc.org.br', target: '_blank'}.
     a.back-to-top[href="#top"]
       span.icon-large.icon-chevron-sign-up>
       | Voltar ao topo

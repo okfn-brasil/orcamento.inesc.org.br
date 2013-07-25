@@ -38,37 +38,55 @@ footer {
   padding: 3em 0;
   font-weight: 300;
   color: white;
-  text-align: center;
-  .nav {
-    padding: 0 0 1em;
-    a {
-      display: inline-block;
-      padding: 0 1em;
+  a,
+  a:link,
+  a:visited {
+    color: white;
+    &:hover {
       color: white;
+      opacity: .75;
+      text-decoration: none;
     }
   }
-  .share {
-    .btn,
-    .btn:visited {
+  h4 {
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0;
+    margin: 0 0 .5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $gray;
+    text-shadow: darken($black,10%) 1px 1px 0;
+  }
+  .nav {
+    padding: 0 0 1em;
+    line-height: 1.5;
+    h4 {
       display: inline-block;
-      text-decoration: none;
-      margin: 0 .5em;
-      padding: .5em 2em;
-      &:hover {
-        background: $blue;
-        color: white;
+      margin-right: 3em;
+    }
+    a {
+      margin-right: 1em;
+      &.active {
+        text-decoration: underline;
       }
     }
   }
   .authorship {
-    margin: 2em 0;
-    a {
-      display: inline-block;
-      padding: 0 1em;
+    .inesc-logo {
+      width: 4.2em;
     }
-    img {
-      margin-right: 1em;
+    .okfn-logo {
+      width: 3em;
     }
+    .dataviz-logo {
+      width: 5.5em;
+    }
+  }
+  .colophon {
+    padding: 2em 0;
+    color: $gray;
+    text-align: center;
   }
 }
 
