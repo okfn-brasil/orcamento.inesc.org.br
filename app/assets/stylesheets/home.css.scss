@@ -112,3 +112,12 @@
   padding: 3em 0;
   background: $clouds;
 }
+
+.loading {
+  * {
+    opacity: .75;
+  }
+  .spinner {
+    opacity: 1 !important;
+  }
+}

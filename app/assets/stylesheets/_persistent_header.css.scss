@@ -1,6 +1,6 @@
 .persistent-header {
   position: fixed;
-  z-index: 9;
+  z-index: 20000000009; // PRECISA SER MAIOR QUE O DEFAULT DO SPIN JS (2000000000)
   top: 0;
   left: 0;
   width: 100%;

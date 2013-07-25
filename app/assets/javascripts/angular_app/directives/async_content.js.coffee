@@ -1,7 +1,7 @@
 angular.module('InescApp').directive 'asyncContent', ['_START_REQUEST_', '_END_REQUEST_', (_START_REQUEST_, _END_REQUEST_) ->
   restrict: 'A',
   link: (scope, element, attributes) ->
-    spinner = new Spinner()
+    spinner = new Spinner( color: '#2C3E50' )
     elem = $(element)
     cssClass = 'loading'
 
