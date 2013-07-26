@@ -10,7 +10,7 @@ div[ng-controller="ProfileController"]
         li
           h1.page-title[ng-bind='entity.label']
   .monitor
-    .container[async-content]
+    .container.loading[async-content]
       .row
         .span6
           | Valores para
@@ -27,7 +27,7 @@ div[ng-controller="ProfileController"]
       tab#monthly-tab.tab-pane[heading="Pagamentos por mês"
       active="tabs.monthly.active"]
         .gasto-acumulado-por-mes.graph
-          .container[async-content]
+          .container.loading[async-content]
             p.pull-right.muted
               | Posicione o cursor sobre as áreas para visualizar detalhes.
             h3
@@ -35,7 +35,7 @@ div[ng-controller="ProfileController"]
               = render 'shared/year_navigation'
             svg#monthly-graph[monthly-graph entity='entity' year='year']
         .table-data
-          .container[async-content]
+          .container.loading[async-content]
             h3
               | O gráfico em números para
               = render 'shared/year_navigation'
@@ -48,7 +48,7 @@ div[ng-controller="ProfileController"]
       tab#gnd-tab.tab-pane[heading="Distribuição por Grupo da Natureza de Despesa (GND)"
       active="tabs.gnd.active"]
         .distribuicao-gnd.graph
-          .container[async-content]
+          .container.loading[async-content]
             h3
               | Orçamento Autorizado por Grupo da Natureza da Despesa para
               = render 'shared/year_navigation'
@@ -60,7 +60,7 @@ div[ng-controller="ProfileController"]
       active="tabs.uo.active"
       disabled="!entity || entity.orgao"]
         .distribuicao-uo.graph
-          .container[async-content]
+          .container.loading[async-content]
             h3
               | Orçamento Autorizado por Unidade Orçamentária para
               = render 'shared/year_navigation'
@@ -70,7 +70,7 @@ div[ng-controller="ProfileController"]
               active='tabs.uo.active'
               class='treemap-container']
         .table-data
-          .container[async-content]
+          .container.loading[async-content]
             h3
               | O gráfico em números para
               = render 'shared/year_navigation'

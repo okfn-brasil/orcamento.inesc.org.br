@@ -65,20 +65,20 @@ div[ng-controller="IndexController"]
         | O Orçamento Federal para
         = render 'shared/year_navigation', entity: 'brasil'
   .monitor
-    .container[async-content]
+    .container.loading[async-content]
       .row
         .span12
           p.data-updated-at.pull-right
             | Dados atualizados em <b>#{render 'shared/atualizacao'}</b>. Valores em Reais.
       monitor[entity='brasil' year='year']
   .function
-    .container[async-content]
+    .container.loading[async-content]
       h3
         | Distribuição do Orçamento Autorizado por Função e Subfunção para
         = render 'shared/year_navigation', entity: 'brasil'
       treemap[drilldowns='["funcao", "subfuncao"]'
         year='year' class='treemap-container']
-  .navigation[async-content]
+  .navigation.loading[async-content]
     .container
       h3
         | Lista de Órgãos e Unidades Orçamentárias

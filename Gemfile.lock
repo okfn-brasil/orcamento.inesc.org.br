@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/vitorbaptista/google-ajax-crawler.git
+  revision: d353992711441db11cd4ecac87cbe90593eaca31
+  specs:
+    google_ajax_crawler (0.2.0)
+      rack
+
+GIT
+  remote: git://github.com/vitorbaptista/google_ajax_crawler_phantomjs.git
+  revision: 13a988892cdea34df746b3ba87482c5f3a498a8f
+  specs:
+    google_ajax_crawler_phantomjs (0.0.1.alpha)
+      google_ajax_crawler
+      poltergeist (>= 1.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -32,6 +47,12 @@ GEM
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
     builder (3.1.4)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -40,9 +61,13 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faye-websocket (0.4.7)
+      eventmachine (>= 0.12.0)
     hike (1.2.3)
+    http_parser.rb (0.5.3)
     i18n (0.6.4)
     jbuilder (1.4.2)
       activesupport (>= 3.0.0)
@@ -56,9 +81,16 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.7.7)
     newrelic_rpm (3.6.1.88)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    poltergeist (1.3.0)
+      capybara (~> 2.1.0)
+      faye-websocket (>= 0.4.4, < 0.5.0)
+      http_parser.rb (~> 0.5.3)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -126,6 +158,8 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -134,6 +168,8 @@ DEPENDENCIES
   angularjs-rails
   bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
+  google_ajax_crawler!
+  google_ajax_crawler_phantomjs!
   jbuilder (~> 1.2)
   jquery-rails
   newrelic_rpm
