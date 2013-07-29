@@ -6,6 +6,8 @@ Inesc::Application.routes.draw do
   get  'analises-do-orcamento-federal' => 'home#budget_analysis', as: :budget_analysis
   get  'contato' => 'home#contact', as: :contact
 
+  get 'sitemap.txt' => 'home#sitemap', as: :sitemap
+
   get  '/:orgao/:ano' => 'home#profile'
   get  '/:orgao/:unidade_orcamentaria/:ano' => 'home#profile'
   get  '/:ano' => 'home#index'
