@@ -11,7 +11,7 @@
 
 Faça um clone do repositório em seu computador:
 
-``git clone git@github.com:vitorbaptista/inesc.git``
+``git clone https://github.com/okfn-brasil/orcamento.inesc.org.br.git``
 
 Após, instale as dependências do projeto:
 
@@ -19,7 +19,7 @@ Após, instale as dependências do projeto:
 
 Para abrir o projeto, digite:
 
-``rails s``
+``bundle exec rails server``
 
 Acesse em seu computador pelo endereço:
 
@@ -33,7 +33,7 @@ Inesc - Instituto de Estudos Socioeconômicos - [inesc.org.br](http://inesc.org.
 
 ### Agradecimentos
 
-* OFKN Brasil - [br.ofkn.org](http://br.okfn.org/)
+* OFKN Brasil - [br.okfn.org](http://br.okfn.org/)
 * Grupo DataViz - [dataviz.com.br](http://dataviz.com.br)
 * OpenSpending - [openspending.org](http://openspending.org/)
 * Portal Siga Brasil - [www12.senado.gov.br/orcamento/sigabrasil](http://www12.senado.gov.br/orcamento/sigabrasil)
