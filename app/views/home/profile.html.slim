@@ -82,24 +82,4 @@ div[ng-controller="ProfileController"]
               | Baixar planilha com os dados <small>(em formato .CSV)</small>
   .graph-help
     .container
-      h3
-        | Interpretando os gráficos
-      .row
-        .span4
-          span.icon-bar-chart
-        .span8
-          h3
-            | Pagamentos por mês
-          p
-            mark
-              | Interpretando o gráfico de pagamentos por mês
-          h3
-            | Distribuição por GND
-          p
-            mark
-              | Interpretando o gráfico de distribuição por GND
-          h3
-            | Distribuição por UO
-          p
-            mark
-              | Interpretando o gráfico de distribuição por UO
+      = render 'graph_help'
