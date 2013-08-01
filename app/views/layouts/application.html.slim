@@ -34,25 +34,31 @@ html[ng-app='InescApp']
           - pages.each do |page|
             = nav_link page[:label], page[:path]
         .row.authorship
-          .span3
+          .authorship-box
             h4
               | Criação
             p
               = link_to 'http://www.inesc.org.br/', target: '_blank', title: 'Instituto de Estudos Socioeconômicos' do
                 = image_tag 'inesc-small.png', alt: 'Inesc', class: 'inesc-logo'
-          .span3
+          .authorship-box
+            h4
+              | Apoio
+            p
+              = link_to 'http://www.kirkensnodhjelp.no/en/', target: '_blank', title: 'Ajuda da Igreja Norueguesa' do
+                = image_tag 'nca-small.png', alt: 'Ajuda da Igreja Norueguesa', class: 'nca-logo'
+          .authorship-box
             h4
               | Desenvolvimento
             p
               = link_to 'http://br.okfn.org/', target: '_blank', title: 'Open Knowledge Foundation Brasil' do
                 = image_tag 'okfn-small.png', alt: 'OFKN Brasil', class: 'okfn-logo'
-          .span3
+          .authorship-box
             h4
               | Design
             p
               = link_to 'http://dataviz.com.br/', target: '_blank', title: 'DataViz' do
                 = image_tag 'dataviz-small.png', alt: 'DataViz', class: 'dataviz-logo'
-          .span3
+          .authorship-box
             h4
               | Parceiros
             p

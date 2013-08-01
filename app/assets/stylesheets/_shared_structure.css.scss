@@ -74,13 +74,23 @@ footer {
     }
   }
   .authorship {
+    .authorship-box {
+      width: 20%;
+      float: left;
+    }
     .inesc-logo {
+      margin-top: .5em;
       width: 4.2em;
     }
+    .nca-logo {
+      width: 11em;
+    }
     .okfn-logo {
+      margin-top: .75em;
       width: 3em;
     }
     .dataviz-logo {
+      margin-top: 1.25em;
       width: 5.5em;
     }
     .openspending-logo {
