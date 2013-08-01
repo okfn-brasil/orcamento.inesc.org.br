@@ -67,7 +67,12 @@
 }
 
 .news {
-  padding: 2em 0;
+  padding: 1em 0 2em 0;
+  h4 {
+    font-size: 1em;
+    min-height: 2.5em;
+    line-height: 1.25em;
+  }
 }
 
 .home-header {
