@@ -393,10 +393,6 @@
           dd
             p
               | Este mecanismo consiste na reserva de uma verba na Lei Orçamentária Anual sem destinação específica. É uma “poupança” obrigatória cujos recursos podem ser utilizados para a cobertura de despesas não previstas – via abertura de créditos adicionais –, especialmente em caso de calamidade pública. Na prática, porém, os recursos da reserva de contingência têm servido para cumprir as metas de superávit primário – a economia que o governo faz todos os anos para pagar juros e amortizações da dívida pública.
-        hr
-        h3#glossary
-          | Glossário
-        = render 'shared/glossary'
       .span4.illustration
         span.icon-question-sign.icon-huge
 - content_for :page_scripts
@@ -411,7 +407,6 @@
         var listItem = '<li><a href="#'+anchor+'">' + title + '</a></li>';
         $('ul.faq-index').append(listItem);
       })
-      $('ul.faq-index').append('<li class="divider"></li><li><a href="#glossary"><b>Glossário</b></a></li>');
     })
     function slugify(string) {
       var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
