@@ -15,13 +15,11 @@ div[ng-controller="IndexController"]
                     = image_tag slide[:image]
                 - else
                   = image_tag slide[:image]
-      .row
-        .span12
-          ul#slideshow
-            - @slideshow_content.each_with_index do |slide, i|
-              li[class="#{i == 0 ? 'active' : ''}"]
-                a[href="#slide-#{i}" data-toggle="tab"]
-                  | #{slide[:title]}
+    ul.slideshow-controller
+      - @slideshow_content.each_with_index do |slide, i|
+        li[class="#{i == 0 ? 'active' : ''}"]
+          a[href="#slide-#{i}" data-toggle="tab"]
+            | #{slide[:title]}
   .news
     .container
       rss-posts[url='http://blog.inesc.org.br/feed/' limit=3]

@@ -7,12 +7,12 @@ class HomeController < ApplicationController
       {
         title: 'Orçamento ao Seu Alcance',
         content: 'O portal Orçamento ao seu Alcance desenvolvido pelo INESC (Instituto de Estudos Socioeconômicos), em parceria com a Open Knowledge Foundation Brasil, tem como objetivo visualizar o orçamento federal de forma mais simples. Ele sintetiza informações atualizadas e mensais sobre o desembolso financeiro dos ministérios e demais órgãos federais, que permitirá um acompanhamento do desempenho desses órgãos ao longo do ano, assim como comparações entre o volume de recursos disponíveis para cada área do governo federal.',
-        image: 'logo.png',
+        image: 'showcase-project.png',
         url: nil
       },{
         title: 'Origem dos Dados',
         content: 'Os dados utilizados pelo portal são extraídos do Siga Brasil, que é um sistema de informações orçamentárias que reúne diversas bases de dados (SIAFI, SIOP, SELOR etc.) e as coloca à disposição da sociedade para acesso direto e facilitado.',
-        image: 'siga-brasil.jpg',
+        image: 'showcase-siga-brasil.png',
         url: 'http://www12.senado.gov.br/orcamento/sigabrasil'
       },{
         title: 'De onde vem o Dinheiro',
