@@ -56,3 +56,6 @@ gem 'newrelic_rpm'
 # JavaScript Crawler for Search Bots
 gem 'google_ajax_crawler', git: 'git://github.com/vitorbaptista/google-ajax-crawler.git'
 gem 'google_ajax_crawler_phantomjs', git: 'git://github.com/vitorbaptista/google_ajax_crawler_phantomjs.git'
+
+# Enable gzipping assets
+gem 'heroku-deflater', :group => :production

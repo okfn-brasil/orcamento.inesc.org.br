@@ -66,6 +66,8 @@ GEM
       multi_json (~> 1.0)
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
+    heroku-deflater (0.5.3)
+      rack (>= 1.4.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
@@ -170,6 +172,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   google_ajax_crawler!
   google_ajax_crawler_phantomjs!
+  heroku-deflater
   jbuilder (~> 1.2)
   jquery-rails
   newrelic_rpm
