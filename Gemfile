@@ -63,6 +63,7 @@ gem 'heroku-deflater', :group => :production
 # Asset caching
 group :production do
   gem 'rack-cache'
+  gem 'memcachier'
   gem 'dalli'
   gem 'kgio'
 end
