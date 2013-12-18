@@ -60,6 +60,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    dalli (2.6.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -95,6 +96,8 @@ GEM
       http_parser.rb (~> 0.5.3)
     polyglot (0.3.3)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0)
@@ -170,12 +173,15 @@ DEPENDENCIES
   angularjs-rails
   bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
+  dalli
   google_ajax_crawler!
   google_ajax_crawler_phantomjs!
   heroku-deflater
   jbuilder (~> 1.2)
   jquery-rails
+  kgio
   newrelic_rpm
+  rack-cache
   rails (= 4.0.0)
   rails_12factor
   sass-rails (~> 4.0.0.rc2)

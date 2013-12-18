@@ -59,3 +59,10 @@ gem 'google_ajax_crawler_phantomjs', git: 'git://github.com/vitorbaptista/google
 
 # Enable gzipping assets
 gem 'heroku-deflater', :group => :production
+
+# Asset caching
+group :production do
+  gem 'rack-cache'
+  gem 'dalli'
+  gem 'kgio'
+end
