@@ -14,6 +14,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
       "#{url}/#{dataset}/#{entity.type}/#{entity.id}/entries.csv?pagesize=1000000"
 
   fillEmptyMonths = (drilldown) ->
+    return [] if drilldown.length == 0
     meses = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     ultimoMes = drilldown[drilldown.length-1].time.month
     i = meses.indexOf(ultimoMes) + 1
