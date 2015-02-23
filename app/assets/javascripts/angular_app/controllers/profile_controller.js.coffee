@@ -7,7 +7,6 @@ angular.module('InescApp').controller('ProfileController', ['$scope', 'openspend
       uo:
         active: false
 
-    openspending.getTotals().then (totals) -> $scope.totals = totals
     $scope.$watch 'entity + year', ->
       [entity, year] = [$scope.entity, $scope.year]
       if entity? and entity.id? and year?

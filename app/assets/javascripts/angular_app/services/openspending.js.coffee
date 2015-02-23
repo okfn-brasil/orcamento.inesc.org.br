@@ -118,7 +118,7 @@ angular.module('InescApp').factory('openspending', ['$http', '$q', ($http, $q) -
     deferred.promise
   getTotals: ->
     deferred = $q.defer()
-    $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=time.year").success (data) ->
+    $http.jsonp("#{aggregateUrl}&dataset=#{dataset}&drilldown=time.year&order=time.year:desc").success (data) ->
       years = data.drilldown.map (element) ->
         year: element.time.year
         autorizado: element.amount
